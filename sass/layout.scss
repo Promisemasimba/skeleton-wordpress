@@ -1,0 +1,136 @@
+/**
+ * SASS/SCSS/Compass Transcription of Skeleton Responsive Grid 
+ * originally authored by Dave Gamache. This translation offers
+ * mixins that support fluid and as well as fixed grids to supplement
+ * the work that Dave Gamache has done.
+ * @author Dennis Thompson <http://www.atomicpages.net>
+ * @copyright Copyright (c) 2013 AtomicPages LLC
+ * @license MIT
+ * @version 1.2.2
+ */
+
+// IMPORTS
+@import "vars"; // import _global_variables.scss
+@import "mixins"; // import _mixins.scss
+@import "compass/css3";
+
+// VAR OVERRIDES
+$fontFamily: Helvetica, Arial, sans-serif;
+$headingFamily: $fontFamily;
+$base: darken(#fff, 3%);
+
+/* SITE STYLES
+ * ------------------------------------------------ */
+/* General Styles */
+body { font-family: $fontFamily; }
+h1, h2, h3, h4, h5, h6 { font-family: $headingFamily; }
+
+/* Header */
+.wrapper {
+	width: 100%;
+	height: 100%;
+	display: block;
+	@include clear("this");
+	&.header {
+		/* still at 100% of viewport */
+		background: $base;
+		header {
+			/* at a fixed viewport ~ default of 960px */
+			background: darken($base, 3%);
+		}
+	}
+	&.main-nav {
+		background: darken($base, 6%);
+		nav {
+			background: darken($base, 9%);
+			// background-color: #eee;
+			// @include filter-gradient(#f0f0f0, #bfbfbf, vertical);
+			// $experimental-support-for-svg: true;
+			// @include background-image(linear-gradient(top, rgba(255,255,255,0.2) 0%, rgba(0,0,0,0.2) 100%));
+			// @include border-radius(5px);
+			// @include box-shadow(2px 2px 10px rgba(0, 0, 0, 0.4));
+			ul {
+				list-style: none;
+				margin-bottom: 0;
+				@include clear("this");
+				li {
+					float: left;
+					display: inline;
+					line-height: normal;
+					margin-bottom: 0;
+					padding: 15px 0;
+					a {
+						font-weight: bold;
+						color: #444;
+						text-decoration: none;
+						padding: 15px;
+						&:hover { color: #222; }
+					}
+				}
+			}
+		}
+	}
+	&.main-content {
+		background: darken($base, 12%);
+		main {
+			background: darken($base, 15%);
+			article { padding: 10px; }
+		}
+		aside {
+			background: darken($base, 18%);
+			section { padding: 10px; }
+		}
+	}
+	&.main-footer {
+		background: darken($base, 21%);
+		footer {
+			background: darken($base, 24%);
+			padding-bottom: 5px;
+			section.footer-widgets {
+				padding: 9px 0;
+				@include clear("this");
+				div { 
+					background: darken($base, 27%);
+					p { padding: 5px; }					
+				}
+			}
+			.copyright { text-align: center; }
+		}
+	}
+}
+
+/* PAGE STYLES
+ * ------------------------------------------------ */
+/* Add page styles here such as .home { background: rgba(0, 0, 0, 0.4); } */
+
+/* MEDIA QUERIES
+ * ------------------------------------------------ */
+/* Otherwise known as custom responsive code! Write it here! */
+@media only screen and (min-width: $baseWidthMQ) and (max-width: 1280px) {
+	/* add code here */
+}
+
+/* Smaller than standard #{strip-units($baseWidthMQ)} (devices and browsers) */
+@media only screen and (max-width: $baseWidthMQ - 1) {
+	/* add code here */
+}
+
+/* Tablet Portrait size to standard #{strip-units($baseWidthMQ)} (devices and browsers) */
+@media only screen and (min-width: $tabletWidth) and (max-width: $baseWidthMQ - 1) {
+	/* add code here */
+}
+
+/* All Mobile Sizes (devices and browser) */
+@media only screen and (max-width: $tabletWidth - 1) {
+/* add code here */
+}
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: 480px) and (max-width: $tabletWidth - 1) {
+	/* add code here */
+}
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px) {
+	/* add code here */
+}
