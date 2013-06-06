@@ -14,6 +14,14 @@
 	<div class="wrapper header">
 	<header class="container">
 		<div class="sixteen columns">
+			<nav class="top-nav">
+				<ul>
+					<li><a href="#">Login</a></li>
+					<li><a href="#">Register</a></li>
+				</ul>
+			</nav>
+		</div>
+		<div class="sixteen columns">
 			<img src="https://client.atomicpages.net/templates/default/img/ap/logo.png" alt="">
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum id eros quis sem lacinia facilisis. Morbi nibh lacus, sollicitudin et adipiscing hendrerit, porta non dui. Ut eget interdum velit. Nam erat velit, euismod vel porta eu, bibendum non nisl. Nulla molestie dui nisl. Nullam semper auctor mi, at elementum diam accumsan eu. Pellentesque commodo, dui ac suscipit suscipit, est purus tempor diam, non pretium mauris sem quis magna. Maecenas semper dui vel orci eleifend mattis. Phasellus tristique tortor sit amet ante sollicitudin suscipit. Integer vitae risus est. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam id aliquet nisi. Quisque lacinia pellentesque tortor, vel bibendum erat porttitor non. Curabitur vestibulum nulla eget sapien pharetra non imperdiet risus aliquet.</p>
 		</div>

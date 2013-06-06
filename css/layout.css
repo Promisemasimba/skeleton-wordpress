@@ -34,6 +34,26 @@ h1, h2, h3, h4, h5, h6 {
     .wrapper.header header {
       /* at a fixed viewport ~ default of 960px */
       background: #f0f0f0; }
+      .wrapper.header header .top-nav {
+        float: right; }
+        .wrapper.header header .top-nav:after {
+          content: "\0020";
+          display: block;
+          height: 0;
+          clear: both;
+          visibility: hidden; }
+        .wrapper.header header .top-nav ul {
+          list-style: none;
+          margin-bottom: 0; }
+          .wrapper.header header .top-nav ul li {
+            float: left;
+            display: inline;
+            margin-right: 8px; }
+            .wrapper.header header .top-nav ul li a {
+              font-size: 80%;
+              text-decoration: none; }
+              .wrapper.header header .top-nav ul li a:hover {
+                text-decoration: underline; }
   .wrapper.main-nav {
     background: #e8e8e8; }
     .wrapper.main-nav nav {
@@ -92,7 +112,35 @@ h1, h2, h3, h4, h5, h6 {
 
 /* PAGE STYLES
  * ------------------------------------------------ */
-/* Add page styles here such as .home { background: rgba(0, 0, 0, 0.4); } */
+img.centered,
+.aligncenter,
+div.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+
+.alignright {
+  float: right; }
+
+.alignleft {
+  float: left; }
+
+.wp-caption {
+  border: 1px solid #ddd;
+  text-align: center;
+  background-color: #d4d4d4;
+  padding-top: 4px;
+  margin-bottom: 10px; }
+  .wp-caption img {
+    margin: 0;
+    padding: 0;
+    border: 0; }
+  .wp-caption p.wp-caption-text {
+    font-size: 80%;
+    line-height: default;
+    padding: 0 4px 5px;
+    margin: 0; }
+
 /* MEDIA QUERIES
  * ------------------------------------------------ */
 /* Otherwise known as custom responsive code! Write it here! */
