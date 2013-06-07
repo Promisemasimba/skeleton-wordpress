@@ -107,10 +107,10 @@ add_filter( 'wp_title', 'skeleton_wp_title', 10, 2 );
 
 if(!function_exists("skeleton_sidebar_init")) {
 	function skeleton_sidebar_init()  {
-		$one = array(
+		$sidebar_one = array(
 			"id"			=> "sidebar-1",
 			"name"			=> __("Left Sidebar", "text_domain"),
-			"description"	=> __("Sidebar appears on the left side of the page on all pages unless the <code>full-width</code> template is selected", "text_domain"),
+			"description"	=> __("Sidebar appears on the left side of the page on all pages unless the full-width template is selected", "text_domain"),
 			"class"			=> "sidebar left",
 			"before_title"	=> "<h2 class=\"widgettitle\">",
 			"after_title"	=> "</h2>",
@@ -118,10 +118,10 @@ if(!function_exists("skeleton_sidebar_init")) {
 			"after_widget"	=> "</div>",
 		);
 
-		$two = array(
+		$sidebar_two = array(
 			"id"			=> "sidebar-2",
 			"name"			=> __("Right Sidebar", "text_domain"),
-			"description"	=> __("Sidebar appears on the right side of the page on all pages unless the <code>full-width</code> template is selected", "text_domain"),
+			"description"	=> __("Sidebar appears on the right side of the page on all pages unless the full-width template is selected", "text_domain"),
 			"class"			=> "sidebar right",
 			"before_title"	=> "<h2 class=\"widgettitle\">",
 			"after_title"	=> "</h2>",
@@ -129,10 +129,27 @@ if(!function_exists("skeleton_sidebar_init")) {
 			"after_widget"	=> "</div>",
 		);
 
-		register_sidebar($one);
-		register_sidebar($two);
+		$footer_widgets = array(
+			'name'			=> __('Footer %d', 'txt_domain'),
+			'id'			=> "footer-$i",
+			'description'	=> '',
+			'class'			=> '',
+			'before_widget'	=> '<div id="%1$s" class="widget %2$s">',
+			'after_widget'	=> '</div>',
+			'before_title'	=> '<h2 class="widgettitle">',
+			'after_title'	=> '</h2>'
+		);
+
+		register_sidebar($sidebar_one);
+		register_sidebar($sidebar_two);
+		register_sidebars(4, $footer_widgets);
 	}
 }
-
-// Hook into the 'widgets_init' action
 add_action("widgets_init", "skeleton_sidebar_init");
+
+function skeleton_add_first_last($items) {
+	$items[1]->classes[] = 'first';
+	$items[count($items)]->classes[] = 'last';
+	return $items;
+}
+add_filter('wp_nav_menu_objects', 'skeleton_add_first_last');
