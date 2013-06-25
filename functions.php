@@ -9,6 +9,12 @@ define("SCRIPTS", TEMPPATH . "/js");
 define("FONTS", TEMPPATH . "/fonts");
 define("CORE_STYLES", TEMPPATH . "/css");
 
+// include browser detection script for body classes
+include("inc/browser_detection.php");
+
+/**
+ * General theme support and other initialization tasks for Skeleton
+ */
 if(!function_exists("skeleton_init")) {
 	function skeleton_init()  {
 		global $wp_version;
@@ -64,6 +70,9 @@ if(!function_exists("skeleton_init")) {
 }
 add_action("after_setup_theme", "skeleton_init");
 
+/**
+ * Initialize menus for Skeleton
+ */
 if(!function_exists("skeleton_nav_init")) {
 	function skeleton_nav_init() {
 		$locations = array(
@@ -77,6 +86,12 @@ if(!function_exists("skeleton_nav_init")) {
 }
 add_action("init", "skeleton_nav_init");
 
+/**
+ * Generates a custom and clean title tag
+ * @param string $title title to display
+ * @param string $sep separator to display
+ * @return string
+ */
 if(!function_exists("skeleton_wp_title")) {
 	function skeleton_wp_title($title, $sep) {
 		global $paged, $page;
@@ -105,6 +120,9 @@ if(!function_exists("skeleton_wp_title")) {
 }
 add_filter( 'wp_title', 'skeleton_wp_title', 10, 2 );
 
+/**
+ * Skeleton sidebar initialization information and configuration
+ */
 if(!function_exists("skeleton_sidebar_init")) {
 	function skeleton_sidebar_init()  {
 		$sidebar_one = array(
@@ -147,9 +165,89 @@ if(!function_exists("skeleton_sidebar_init")) {
 }
 add_action("widgets_init", "skeleton_sidebar_init");
 
-function skeleton_add_first_last($items) {
-	$items[1]->classes[] = 'first';
-	$items[count($items)]->classes[] = 'last';
-	return $items;
+/**
+ * Adds first and last classes to navigation list items
+ * @return string
+ */
+if(!function_exists("skeleton_add_first_last")) {
+	function skeleton_add_first_last_classes_to_menu($items) {
+		$items[1]->classes[] = "first";
+		$items[count($items)]->classes[] = "last";
+		return $items;
+	}
 }
-add_filter('wp_nav_menu_objects', 'skeleton_add_first_last');
+add_filter("wp_nav_menu_objects", "skeleton_add_first_last_classes_to_menu");
+
+/**
+ * Returns an array of in-depth browser and os information for your use.
+ * @return array
+ */
+if(!function_exists("get_browser_info")) {
+	function get_browser_info() {
+		$browser = browser_detection("full_assoc");
+		return $browser;
+	}
+}
+
+/**
+ * Function to add OS to body class. Mobile support included.
+ * @param void
+ * @return string
+ */
+if(!function_exists("skeleton_add_os_to_body")) {
+	function skeleton_add_os_to_body($classes = "") {
+		global $tmp;
+		$tmp = get_browser_info();
+		$classes[] = $tmp["os"];
+		return $classes;
+	}
+}
+add_filter('body_class', 'skeleton_add_os_to_body');
+
+/**
+ * Function to add current browser to body class
+ * @param void
+ * @return string
+ */
+if(!function_exists("skeleton_add_browser_to_body")) {
+	function skeleton_add_browser_to_body($classes = "") {
+		global $tmp;
+		$tmp = get_browser_info();
+		$classes[] = $tmp["browser_name"];
+		return $classes;
+	}
+}
+add_filter('body_class', 'skeleton_add_browser_to_body');
+
+if(!function_exists("skeleton_add_styles")) {
+	function skeleton_add_styles() {
+		wp_register_style('skeleton-base', get_template_directory_uri() . '/css/base.css', array(), '1.2.2', 'screen');
+		wp_register_style('skeleton-core', get_template_directory_uri() . '/css/skeleton.css', array(), '1.2.2', 'all');
+		wp_register_style('skeleton-layout', get_template_directory_uri() . '/css/layout.css', array(), '1.2.2', 'screen');
+		wp_register_style('skeleton-style', get_template_directory_uri() . '/style.css', array(), '1.0', 'all');
+		wp_enqueue_style('skeleton-base');
+		wp_enqueue_style('skeleton-core');
+		wp_enqueue_style('skeleton-layout');
+		wp_enqueue_style('skeleton-style');
+	}
+}
+add_action('wp_enqueue_scripts', 'skeleton_add_styles');
+
+if(!function_exists("skeleton_add_scripts")) {
+	function skeleton_add_scripts() {
+		// remove default jQuery
+		wp_deregister_script('jquery');
+
+		wp_register_script('jquery', get_template_directory_uri() . '/js/jquery.min.js', false, '1.10.1', true);
+		wp_register_script('skeleton-respond', get_template_directory_uri() . '/js/respond.min.js', false, '1.1.0', true);
+		wp_register_script('skeleton-modernizr', get_template_directory_uri() . '/js/modernizr.min.js', false, '2.6.2', true);
+		wp_register_script('skeleton-script', get_template_directory_uri() . '/js/dev/skeleton.js', false, '0.11.0', true);
+
+		// register the scripts
+		wp_enqueue_script('jquery');
+		wp_enqueue_script('skeleton-respond');
+		wp_enqueue_script('skeleton-modernizr');
+		wp_enqueue_script('skeleton-script');
+	}
+}
+add_action('wp_enqueue_scripts', 'skeleton_add_scripts');

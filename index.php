@@ -14,12 +14,16 @@
  *
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * @package WordPress
- * @subpackage Twenty_Twelve
- * @since Twenty Twelve 1.0
+ * @package Skeleton
+ * @author Dennis Thompson
+ * @copyright 2009-2013 AtomicPages LLC
+ * @license license.txt
+ * 
+ * @since Skeleton 1.0
  */
+?>
 
-get_header(); ?>
+<?php get_header(); ?>
 
 	<div id="primary" class="site-content">
 		<div id="content" role="main">
@@ -57,15 +61,15 @@ get_header(); ?>
 				<div class="entry-content">
 					<p><?php _e( 'Apologies, but no results were found. Perhaps searching will help find a related post.', 'twentytwelve' ); ?></p>
 					<?php get_search_form(); ?>
-				</div><!-- .entry-content -->
-			<?php endif; // end current_user_can() check ?>
+				</div>
+			<?php endif;?>
 
-			</article><!-- #post-0 -->
+			</article>
 
-		<?php endif; // end have_posts() check ?>
+		<?php endif; ?>
 
-		</div><!-- #content -->
-	</div><!-- #primary -->
+		</div>
+	</div>
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

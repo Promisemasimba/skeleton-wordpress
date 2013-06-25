@@ -1,14 +1,10 @@
-<?php 
-	// Exit if access directly
-	if (!defined('ABSPATH')) exit; 
-?>
+<?php if (!defined('ABSPATH')) exit;  ?>
 <!DOCTYPE html>
-<!--[if !IE]>      <html class="no-js non-ie" <?php language_attributes(); ?>> <![endif]-->
-<!--[if IE 7 ]>    <html class="no-js ie7" <?php language_attributes(); ?>> <![endif]-->
-<!--[if IE 8 ]>    <html class="no-js ie8" <?php language_attributes(); ?>> <![endif]-->
-<!--[if IE 9 ]>    <html class="no-js ie9" <?php language_attributes(); ?>> <![endif]-->
-<!--[if IE 10]><!--> <html class="no-js ie10" <?php language_attributes(); ?>> <!--<![endif]-->
-<!--[if gt IE 10]><!--> <html class="no-js" <?php language_attributes(); ?>> <!--<![endif]-->
+<!--[if !IE]>      <html class="non-ie" <?php language_attributes(); ?>> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie ie7" <?php language_attributes(); ?>> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie ie8" <?php language_attributes(); ?>> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie ie9" <?php language_attributes(); ?>> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="ie" <?php language_attributes(); ?>> <!--<![endif]-->
 <head>
 <meta charset="<?php bloginfo('charset'); ?>">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -17,8 +13,6 @@
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<?php wp_enqueue_style('skeleton-style', get_stylesheet_uri(), false, '1.0');?>
-<?php wp_enqueue_style('skeleton-style', get_stylesheet_uri(), false, '1.0');?>
 <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
