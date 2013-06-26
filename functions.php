@@ -8,7 +8,7 @@ define("IMAGES", TEMPPATH . "/images");
 define("SCRIPTS", TEMPPATH . "/js");
 define("FONTS", TEMPPATH . "/fonts");
 define("CORE_STYLES", TEMPPATH . "/css");
-define("SKELETON_VERSION", "0.12.0");
+define("SKELETON_VERSION", "0.13.0");
 
 // include browser detection script for body classes
 include("inc/browser_detection.php");
@@ -66,6 +66,11 @@ if(!function_exists("skeleton_init")) {
 			add_theme_support("custom-header", $header_args);
 		} else {
 			add_custom_image_header();
+		}
+
+		if(!function_exists('optionsframework_init')) {
+			define('OPTIONS_FRAMEWORK_DIRECTORY', get_template_directory_uri() . '/inc/');
+			require_once dirname(__FILE__) . '/inc/options-framework.php';
 		}
 	}
 }

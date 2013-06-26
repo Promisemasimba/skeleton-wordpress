@@ -1,0 +1,84 @@
+@import "compass/css3";
+
+@mixin user-select($param) {
+	user-select: $param;
+	-moz-user-select: $param;
+	-ms-user-select: $param;
+	-webkit-user-select: $param;
+}
+
+.wp-color-picker { width: 80px; }
+.wp-picker-container .hidden { display: none; }
+.wp-color-result {
+	background-color: #f9f9f9;
+	border: 1px solid #bbb;
+	@include border-radius(2px);
+	cursor: pointer;
+	display: inline-block;
+	height: 22px;
+	margin: 0 6px 6px 0;
+	position: relative;
+	top: 1px;
+	@include user-select(none);
+	vertical-align: bottom;
+	display: inline-block;
+	padding-left: 30px;
+	&:after {
+		background-color: #fefefe;
+		@include filter-gradient(#fefefe, #f4f4f4, vertical);
+		$experimental-support-for-svg: true;
+		@include background-image(linear-gradient(top,  #fefefe 0%,#f4f4f4 100%));
+		@include text-shadow(0 1px 0 #fff);
+		@include border-radius(0 1px 1px 0);
+		color: #333;
+		border-left: 1px solid #bbb;
+		content: attr(title);
+		display: block;
+		font-size: 11px;
+		line-height: 22px;
+		padding: 0 6px;
+		position: relative;
+		right: 0;
+		text-align: center;
+		top: 0;
+	}
+	&:hover {
+		border-color: #aaa;
+		@include box-shadow(0 1px 1px rgba(0, 0, 0, 0.1));
+		&:after {
+			color: #222;
+			border-color: #aaa;
+			border-left: 1px solid #999;
+		}
+	}
+	&.wp-picker-open { 
+		top: 0;
+		&:after { content: attr(data-current); }
+		.iris-picker {
+			border-color: #dfdfdf;
+			margin-top: 6px;
+		}
+		.iris-square-slider .ui-slider-handle:focus { background-color: #555; }
+	}
+}
+.wp-picker-container {
+	.button { margin-left: 6px; }
+}
+.wp-picker-container, .wp-picker-container:active {
+	display: inline-block;
+	outline: 0;
+}
+.wp-color-result:focus {
+	border-color: #888;
+	@include box-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+	&:focus:after { border-color: #888 }
+}
+.wp-picker-open + .wp-picker-input-wrap {
+	display: inline-block;
+	vertical-align: top;
+}
+input[type="text"].iris-error {
+	background-color: #ffebe8;
+	border-color: #c00;
+	color: #000;
+}
