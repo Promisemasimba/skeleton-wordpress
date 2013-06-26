@@ -91,11 +91,13 @@
 			display: none;
 			cursor: pointer;
 			float: left;
+			@include transition(all 0.35s);
+			&:hover { @include opacity(0.8); }
 		}
 		.of-radio-img-selected { 
 			border: 3px solid darken(#ccc, 35%);
 			@include transition(all 0.35s);
-			&:hover { opacity: 0.8; }
+			&:hover { @include opacity(0.8); }
 		}
 		.of-border-width {
 			width: 80px;

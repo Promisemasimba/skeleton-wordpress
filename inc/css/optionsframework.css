@@ -76,7 +76,14 @@
     margin: 0 10px 10px 0;
     display: none;
     cursor: pointer;
-    float: left; }
+    float: left;
+    -webkit-transition: all 0.35s;
+    -moz-transition: all 0.35s;
+    -o-transition: all 0.35s;
+    transition: all 0.35s; }
+    #optionsframework .controls .of-radio-img-img:hover {
+      filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+      opacity: 0.8; }
   #optionsframework .controls .of-radio-img-selected {
     border: 3px solid #737373;
     -webkit-transition: all 0.35s;
@@ -84,6 +91,7 @@
     -o-transition: all 0.35s;
     transition: all 0.35s; }
     #optionsframework .controls .of-radio-img-selected:hover {
+      filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
       opacity: 0.8; }
   #optionsframework .controls .of-border-width {
     width: 80px;
