@@ -28,31 +28,31 @@ h1, h2, h3, h4, h5, h6 {
     height: 0;
     clear: both;
     visibility: hidden; }
-  .wrapper.header {
+  .wrapper.main-header {
     /* still at 100% of viewport */
     background: #f7f7f7; }
-    .wrapper.header header {
+    .wrapper.main-header header {
       /* at a fixed viewport ~ default of 960px */
       background: #f0f0f0; }
-      .wrapper.header header .top-nav {
+      .wrapper.main-header header .top-nav {
         float: right; }
-        .wrapper.header header .top-nav:after {
+        .wrapper.main-header header .top-nav:after {
           content: "\0020";
           display: block;
           height: 0;
           clear: both;
           visibility: hidden; }
-        .wrapper.header header .top-nav ul {
+        .wrapper.main-header header .top-nav ul {
           list-style: none;
           margin-bottom: 0; }
-          .wrapper.header header .top-nav ul li {
+          .wrapper.main-header header .top-nav ul li {
             float: left;
             display: inline;
             margin-right: 8px; }
-            .wrapper.header header .top-nav ul li a {
+            .wrapper.main-header header .top-nav ul li a {
               font-size: 80%;
               text-decoration: none; }
-              .wrapper.header header .top-nav ul li a:hover {
+              .wrapper.main-header header .top-nav ul li a:hover {
                 text-decoration: underline; }
   .wrapper.main-nav {
     background: #e8e8e8; }

@@ -1,3 +1,19 @@
+<?php
+/**
+ * Header file! This file houses basic:
+ *   * DOCTYPE info
+ *   * Header information
+ *   * Main navigation
+ *
+ * @package			skeleton_wordpress
+ * @author 			Dennis Thompson <http://atomicpages.net/>
+ * @copyright		2009 - 2013 AtomicPages LLC
+ * @license			license.txt MIT
+ * @version			1.0
+ * @since 			1.0
+ */
+?>
+
 <?php if (!defined('ABSPATH')) exit;  ?>
 <!DOCTYPE html>
 <!--[if !IE]>      <html class="non-ie" <?php language_attributes(); ?>> <![endif]-->
@@ -16,7 +32,7 @@
 <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-	<div class="wrapper header">
+	<div class="wrapper main-header">
 	<header class="container">
 		<div class="sixteen columns">
 			<?php if (get_header_image() != '') : ?>
@@ -34,18 +50,4 @@
 		</div>
 	</header>
 	</div>
-	<div class="wrapper nav">
-		<?php if(has_nav_menu("main-nav")) : ?>
-			<?php
-				wp_nav_menu(
-					array(
-						'container'			=> 'nav',
-						'container_class'	=> 'container',
-						'fallback_cb'		=> false,
-						'menu_class'		=> 'sixteen columns main-nav',
-						'theme_location'	=> 'main-nav'
-					)
-				);
-			?>
-		<?php endif; ?>
-	</div>
+	<?php get_template_part('nav/nav', 'main'); ?>

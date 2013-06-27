@@ -8,7 +8,7 @@ define("IMAGES", TEMPPATH . "/images");
 define("SCRIPTS", TEMPPATH . "/js");
 define("FONTS", TEMPPATH . "/fonts");
 define("CORE_STYLES", TEMPPATH . "/css");
-define("SKELETON_VERSION", "0.14.0");
+define("SKELETON_VERSION", "0.15.0");
 
 // include browser detection script for body classes
 include("inc/browser_detection.php");
