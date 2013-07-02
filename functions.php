@@ -1,14 +1,14 @@
 <?php
 
 // Exit if access directly
-if (!defined("ABSPATH")) exit; 
+if(!defined("ABSPATH")) exit;
 
 define("TEMPPATH", get_template_directory_uri());
-define("IMAGES", TEMPPATH . "/images");
-define("SCRIPTS", TEMPPATH . "/js");
-define("FONTS", TEMPPATH . "/fonts");
-define("CORE_STYLES", TEMPPATH . "/css");
-define("SKELETON_VERSION", "0.15.0");
+define("IMAGES", TEMPPATH . "/images/");
+define("SCRIPTS", TEMPPATH . "/js/");
+define("FONTS", TEMPPATH . "/fonts/");
+define("STYLES", TEMPPATH . "/css/");
+define("SKELETON_VERSION", "0.16.0");
 
 // include browser detection script for body classes
 include("inc/browser_detection.php");
@@ -43,7 +43,7 @@ if(!function_exists("skeleton_init")) {
 			"admin-head-callback"		=> "",
 			"admin-preview-callback"	=> "",
 		);
-		if (version_compare($wp_version, "3.4", ">=")) {
+		if(version_compare($wp_version, "3.4", ">=")) {
 			add_theme_support("custom-background", $background_args);
 		} else {
 			add_custom_background();
@@ -62,7 +62,7 @@ if(!function_exists("skeleton_init")) {
 			"uploads"				=> true,
 
 		);
-		if (version_compare($wp_version, "3.4", ">=")) {
+		if(version_compare($wp_version, "3.4", ">=")) {
 			add_theme_support("custom-header", $header_args);
 		} else {
 			add_custom_image_header();
@@ -102,7 +102,7 @@ if(!function_exists("skeleton_wp_title")) {
 	function skeleton_wp_title($title, $sep) {
 		global $paged, $page;
 
-		if (is_feed()) {
+		if(is_feed()) {
 			return $title;
 		}
 
@@ -112,19 +112,19 @@ if(!function_exists("skeleton_wp_title")) {
 		// Add the site description for the home/front page.
 		$site_description = get_bloginfo('description', 'display');
 
-		if ($site_description && (is_home() || is_front_page())) {
+		if($site_description && (is_home() || is_front_page())) {
 			$title = "$title $sep $site_description";
 		}
 
 		// Add a page number if necessary.
-		if ($paged >= 2 || $page >= 2) {
-			$title = "$title $sep " . sprintf( __( 'Page %s', 'twentytwelve' ), max( $paged, $page ) );
+		if($paged >= 2 || $page >= 2) {
+			$title = "$title $sep " . sprintf(__('Page %s', 'twentytwelve'), max($paged, $page));
 		}
 
 		return $title;
 	}
 }
-add_filter( 'wp_title', 'skeleton_wp_title', 10, 2 );
+add_filter('wp_title', 'skeleton_wp_title', 10, 2);
 
 /**
  * Skeleton sidebar initialization information and configuration
@@ -136,9 +136,9 @@ if(!function_exists("skeleton_sidebar_init")) {
 			"name"			=> __("Left Sidebar", "text_domain"),
 			"description"	=> __("Sidebar appears on the left side of the page on all pages unless the full-width template is selected", "text_domain"),
 			"class"			=> "sidebar left",
-			"before_title"	=> "<h2 class=\"widgettitle\">",
+			"before_title"	=> '<h2 class="widgettitle">',
 			"after_title"	=> "</h2>",
-			"before_widget"	=> "<div id=\"%1$s\" class=\"widget %2$s\">",
+			"before_widget"	=> '<div id="%1$s" class="widget %2$s">',
 			"after_widget"	=> "</div>",
 		);
 
@@ -147,9 +147,9 @@ if(!function_exists("skeleton_sidebar_init")) {
 			"name"			=> __("Right Sidebar", "text_domain"),
 			"description"	=> __("Sidebar appears on the right side of the page on all pages unless the full-width template is selected", "text_domain"),
 			"class"			=> "sidebar right",
-			"before_title"	=> "<h2 class=\"widgettitle\">",
+			"before_title"	=> '<h2 class="widgettitle">',
 			"after_title"	=> "</h2>",
-			"before_widget"	=> "<div id=\"%1$s\" class=\"widget %2$s\">",
+			"before_widget"	=> '<div id="%1$s" class="widget %2$s">',
 			"after_widget"	=> "</div>",
 		);
 
@@ -216,9 +216,10 @@ if (!function_exists('skeleton_entry_meta')) {
 
 /**
  * Adds first and last classes to navigation list items
+ * @param array $items
  * @return string
  */
-if(!function_exists("skeleton_add_first_last")) {
+if(!function_exists("skeleton_add_first_last_classes_to_menu")) {
 	function skeleton_add_first_last_classes_to_menu($items) {
 		$items[1]->classes[] = "first";
 		$items[count($items)]->classes[] = "last";
@@ -240,7 +241,7 @@ if(!function_exists("get_browser_info")) {
 
 /**
  * Function to add OS to body class. Mobile support included.
- * @param void
+ * @param string [ $classes = "" ]
  * @return string
  */
 if(!function_exists("skeleton_add_os_to_body")) {
@@ -255,7 +256,7 @@ add_filter('body_class', 'skeleton_add_os_to_body');
 
 /**
  * Function to add current browser to body class
- * @param void
+ * @param string [ $classes = "" ]
  * @return string
  */
 if(!function_exists("skeleton_add_browser_to_body")) {
@@ -270,10 +271,10 @@ add_filter('body_class', 'skeleton_add_browser_to_body');
 
 if(!function_exists("skeleton_add_styles")) {
 	function skeleton_add_styles() {
-		wp_register_style('skeleton-base', get_template_directory_uri() . '/css/base.css', array(), '1.2.2', 'screen');
-		wp_register_style('skeleton-core', get_template_directory_uri() . '/css/skeleton.css', array(), '1.2.2', 'all');
-		wp_register_style('skeleton-layout', get_template_directory_uri() . '/css/layout.css', array(), '1.2.2', 'screen');
-		wp_register_style('skeleton-style', get_template_directory_uri() . '/style.css', array(), '1.0', 'all');
+		wp_register_style('skeleton-base', STYLES . 'base.css', array(), '1.2.2', 'screen'); // optional
+		wp_register_style('skeleton-core', STYLES . 'skeleton.css', array(), '1.2.2', 'all'); // required
+		wp_register_style('skeleton-layout', STYLES . 'layout.css', array(), '1.2.2', 'screen'); // optional
+		wp_register_style('skeleton-style', STYLES . 'style.css', array(), '1.0', 'all'); // required
 		wp_enqueue_style('skeleton-base');
 		wp_enqueue_style('skeleton-core');
 		wp_enqueue_style('skeleton-layout');
@@ -284,13 +285,12 @@ add_action('wp_enqueue_scripts', 'skeleton_add_styles');
 
 if(!function_exists("skeleton_add_scripts")) {
 	function skeleton_add_scripts() {
-		// remove default jQuery
-		wp_deregister_script('jquery');
+		wp_deregister_script('jquery'); // remove that default jQuery!
 
-		wp_register_script('jquery', get_template_directory_uri() . '/js/jquery.min.js', false, '1.10.1', true);
-		wp_register_script('skeleton-respond', get_template_directory_uri() . '/js/respond.min.js', false, '1.1.0', true);
-		wp_register_script('skeleton-modernizr', get_template_directory_uri() . '/js/modernizr.min.js', false, '2.6.2', true);
-		wp_register_script('skeleton-script', get_template_directory_uri() . '/js/dev/skeleton.js', false, '0.11.0', true);
+		wp_register_script('jquery', SCRIPTS . 'jquery.min.js', false, '1.10.1', true); // ahh, up to date!
+		wp_register_script('skeleton-respond', SCRIPTS . 'respond.min.js', false, '1.1.0', true); // allow IE to cooperate for media queries
+		wp_register_script('skeleton-modernizr', SCRIPTS . 'modernizr.min.js', false, '2.6.2', true); // make older browser behave
+		wp_register_script('skeleton-script', SCRIPTS . 'dev/skeleton.js', false, '0.11.0', true); // your custom scripts
 
 		// register the scripts
 		wp_enqueue_script('jquery');
@@ -300,3 +300,60 @@ if(!function_exists("skeleton_add_scripts")) {
 	}
 }
 add_action('wp_enqueue_scripts', 'skeleton_add_scripts');
+
+if (!function_exists('skeleton_comment')) {
+
+	/**
+	 *
+	 * @param object [ $comment = $GLOBALS['comment'] ]
+	 * @param array $args
+	 * @param int $depth
+	 * @see for $args http://codex.wordpress.org/Function_Reference/comment_reply_link
+	 */
+	function skeleton_comment($comment, $args, $depth) {
+		$GLOBALS['comment'] = $comment;
+		switch ($comment->comment_type) :
+			case 'pingback' :
+			case 'trackback' :
+		?>
+		<li class="post pingback">
+			<p><?php _e('Pingback:', 'skeleton_wordpress'); ?> <?php comment_author_link(); ?><?php edit_comment_link(__('Edit', 'skeleton_wordpress'), ''); ?></p>
+		<?php
+				break;
+			default :
+		?>
+		<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
+			<article id="comment-<?php comment_ID(); ?>" class="comment">
+				<footer>
+					<div class="comment-author vcard">
+						<?php echo get_avatar($comment, 60); ?>
+						<?php printf(__('%s <span class="says">says:</span>', 'skeleton_wordpress'), sprintf('<cite class="fn">%s</cite>', get_comment_author_link())); ?>
+					</div><!-- .comment-author .vcard -->
+					<?php if ($comment->comment_approved == '0') : ?>
+						<em><?php _e('Your comment is awaiting moderation.', 'skeleton_wordpress'); ?></em>
+						<br>
+					<?php endif; ?>
+
+					<div class="comment-meta commentmetadata">
+						<a href="<?php echo esc_url(get_comment_link($comment->comment_ID)); ?>"><time datetime="<?php comment_time('c'); ?>">
+						<?php
+							/* translators: 1: date, 2: time */
+							printf(__('%1$s at %2$s', 'skeleton_wordpress'), get_comment_date(), get_comment_time()); ?>
+						</time></a>
+						<?php edit_comment_link(__('Edit', 'skeleton_wordpress'), '');
+						?>
+					</div><!-- /.comment-meta .commentmetadata -->					
+				</footer>
+
+				<div class="comment-content"><?php comment_text(); ?></div>
+
+				<div class="reply">
+					<?php comment_reply_link(array_merge($args, array('depth' => $depth, 'max_depth' => $args['max_depth']))); ?>
+				</div><!-- /.reply -->
+			</article><!-- /#comment-## -->
+
+		<?php
+				break;
+			endswitch;
+	}
+}

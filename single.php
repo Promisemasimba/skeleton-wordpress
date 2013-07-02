@@ -25,7 +25,7 @@
 					<?php the_post(); ?>
 					<?php get_template_part('posts/post', get_post_format()); ?>
 				<?php endwhile; ?>
-				<?php comments_template( '', true ); ?>
+				<?php comments_template('', true); ?>
 			</main><!-- /main -->
 		</div><!-- .content -->
 	</div><!-- /.main-content -->
