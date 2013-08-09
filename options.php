@@ -61,26 +61,28 @@ function optionsframework_options() {
 	);
 
 	// Typography Defaults
-	$typography_defaults = array(
+	$heading_typography_defaults = array(
 		'face' 	=> 'georgia',
-		'size'	=> '54px',
+		'size'	=> '48px',
 		'style' => 'bold',
-		'color' => '#181818'
+		'color' => '#444444'
 	);
 		
 	// Typography Options
 	$typography_options = array(
 		'sizes' => array('6', '12', '14', '16', '20'),
 		'faces' => array(
-			'Helvetica Neue' => 'Helvetica Neue',
-			'Arial' 		 => 'Arial'
+			'Open Sans'			=> 'Open Sans',
+			'Helvetica Neue' 	=> 'Helvetica Neue',
+			'Helvetica'			=> 'Helvetica',
+			'Arial' 		 	=> 'Arial'
 		),
 		'styles' => array(
 			'normal'	=> 		'Normal',
 			'bold' 		=>		'Bold',
 			'italic'	=>		'Italic'
 		),
-		'color'	=> false
+		'color'	=> "#181818"
 	);
 
 	// Pull all the categories into an array
@@ -276,7 +278,7 @@ function optionsframework_options() {
 	$options[] = array('name' => __('Heading Typography', 'options_framework_theme'),
 		'desc' => __('Change the appearance of headings.', 'options_framework_theme'),
 		'id' => "skeleton_heading_typography",
-		'std' => $typography_defaults,
+		'std' => $heading_typography_defaults,
 		'type' => 'typography'
 	);
 

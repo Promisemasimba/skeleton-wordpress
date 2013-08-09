@@ -8,16 +8,17 @@ define("IMAGES", TEMPPATH . "/images/");
 define("SCRIPTS", TEMPPATH . "/js/");
 define("FONTS", TEMPPATH . "/fonts/");
 define("STYLES", TEMPPATH . "/css/");
-define("SKELETON_VERSION", "0.16.0");
+define("SKELETON_VERSION", "0.17.0");
 
 // include browser detection script for body classes
+require("admin/index.php");
 include("inc/browser_detection.php");
 
 /**
  * General theme support and other initialization tasks for Skeleton
  */
 if(!function_exists("skeleton_init")) {
-	function skeleton_init()  {
+	function skeleton_init() {
 		global $wp_version;
 
 		// Add theme support for Automatic Feed Links
@@ -67,11 +68,6 @@ if(!function_exists("skeleton_init")) {
 		} else {
 			add_custom_image_header();
 		}
-
-		if(!function_exists('optionsframework_init')) {
-			define('OPTIONS_FRAMEWORK_DIRECTORY', get_template_directory_uri() . '/inc/');
-			require_once dirname(__FILE__) . '/inc/options-framework.php';
-		}
 	}
 }
 add_action("after_setup_theme", "skeleton_init");
@@ -82,9 +78,9 @@ add_action("after_setup_theme", "skeleton_init");
 if(!function_exists("skeleton_nav_init")) {
 	function skeleton_nav_init() {
 		$locations = array(
-			"main-nav"		=> __("Main Menu", "text_domain"),
-			"top-nav"		=> __("Top Menu", "text_domain"),
-			"footer-nav"	=> __("Footer Menu", "text_domain"),
+			"main-nav"		=> __("Main Menu", "skeleton_wordpress"),
+			"top-nav"		=> __("Top Menu", "skeleton_wordpress"),
+			"footer-nav"	=> __("Footer Menu", "skeleton_wordpress"),
 		);
 
 		register_nav_menus($locations);
@@ -118,7 +114,7 @@ if(!function_exists("skeleton_wp_title")) {
 
 		// Add a page number if necessary.
 		if($paged >= 2 || $page >= 2) {
-			$title = "$title $sep " . sprintf(__('Page %s', 'twentytwelve'), max($paged, $page));
+			$title = "$title $sep " . sprintf(__('Page %s', 'skeleton_wordpress'), max($paged, $page));
 		}
 
 		return $title;
@@ -133,8 +129,8 @@ if(!function_exists("skeleton_sidebar_init")) {
 	function skeleton_sidebar_init()  {
 		$sidebar_one = array(
 			"id"			=> "sidebar-1",
-			"name"			=> __("Left Sidebar", "text_domain"),
-			"description"	=> __("Sidebar appears on the left side of the page on all pages unless the full-width template is selected", "text_domain"),
+			"name"			=> __("Left Sidebar", "skeleton_wordpress"),
+			"description"	=> __("Sidebar appears on the left side of the page on all pages unless the full-width template is selected", "skeleton_wordpress"),
 			"class"			=> "sidebar left",
 			"before_title"	=> '<h2 class="widgettitle">',
 			"after_title"	=> "</h2>",
@@ -144,8 +140,8 @@ if(!function_exists("skeleton_sidebar_init")) {
 
 		$sidebar_two = array(
 			"id"			=> "sidebar-2",
-			"name"			=> __("Right Sidebar", "text_domain"),
-			"description"	=> __("Sidebar appears on the right side of the page on all pages unless the full-width template is selected", "text_domain"),
+			"name"			=> __("Right Sidebar", "skeleton_wordpress"),
+			"description"	=> __("Sidebar appears on the right side of the page on all pages unless the full-width template is selected", "skeleton_wordpress"),
 			"class"			=> "sidebar right",
 			"before_title"	=> '<h2 class="widgettitle">',
 			"after_title"	=> "</h2>",
@@ -174,7 +170,7 @@ add_action("widgets_init", "skeleton_sidebar_init");
 if (!function_exists('skeleton_entry_meta')) {
 	/**
 	 * Prints HTML with meta information for current post: categories, tags, permalink, author, and date.
-	 * @since Skeleton WP 1.0
+	 * @since 1.0
 	 */
 	function skeleton_entry_meta() {
 		// Translators: used between list items, there is a space after the comma.

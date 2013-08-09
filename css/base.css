@@ -6,57 +6,66 @@
  * @author Dennis Thompson <http://www.atomicpages.net>
  * @copyright Copyright (c) 2013 AtomicPages LLC
  * @license MIT
- * @version 1.2.2
+ * @version 1.4.2
  */
 /* RESET & BASICS (Inspired by E. Meyers)
  * ------------------------------------------------ */
-html, body, div, span, applet, object, iframe, h1, h2,
-h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym,
-address, big, cite, code, del, dfn, em, img, ins, kbd,
-q, s, samp, small, strike, strong, sub, sup, tt, var,
-b, u, i, center, dl, dt, dd, ol, ul, li, fieldset,
-form, label, legend, table, caption, tbody, tfoot,
-thead, tr, th, td, article, aside, canvas, details,
-embed, figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary, time,
-mark, audio, video {
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
   font: inherit;
+  font-size: 100%;
   vertical-align: baseline; }
 
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu,
-nav, section {
-  display: block; }
-
-body {
+html {
   line-height: 1; }
 
 ol, ul {
   list-style: none; }
 
-blockquote, q {
-  quotes: none; }
-  blockquote:before, blockquote:after, q:before, q:after {
-    content: '';
-    content: none; }
-
 table {
   border-collapse: collapse;
   border-spacing: 0; }
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle; }
+
+q, blockquote {
+  quotes: none; }
+  q:before, q:after, blockquote:before, blockquote:after {
+    content: "";
+    content: none; }
+
+a img {
+  border: none; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block; }
 
 /* BASIC STYLES
  * ------------------------------------------------ */
 body {
   background: white;
-  font-size: 12px;
-  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: normal;
   font-style: normal;
-  line-height: 18px;
+  line-height: 21px;
   color: #444444;
   -webkit-font-smoothing: antialiased;
   /* Fix for webkit rendering */
@@ -67,39 +76,41 @@ body {
 h1, h2, h3, h4, h5, h6 {
   color: #181818;
   font-family: "Georgia", "Times New Roman", serif;
-  font-weight: normal; }
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+  /* https://developer.mozilla.org/en-US/docs/CSS/text-rendering */ }
 
 h1 a, h2 a, h3 a,
 h4 a, h5 a, h6 a {
   font-weight: inherit; }
 
 h1 {
-  font-size: 46px;
-  line-height: 50px;
-  margin-bottom: 14px; }
+  font-size: 54px;
+  line-height: 58px;
+  margin-bottom: 16px; }
 
 h2 {
-  font-size: 35px;
-  line-height: 40px;
-  margin-bottom: 10px; }
+  font-size: 41px;
+  line-height: 47px;
+  margin-bottom: 12px; }
 
 h3 {
-  font-size: 28px;
-  line-height: 34px;
-  margin-bottom: 8px; }
+  font-size: 33px;
+  line-height: 40px;
+  margin-bottom: 9px; }
 
 h4 {
-  font-size: 21px;
-  line-height: 30px;
-  margin-bottom: 4px; }
+  font-size: 25px;
+  line-height: 35px;
+  margin-bottom: 5px; }
 
 h5 {
-  font-size: 17px;
-  line-height: 24px; }
+  font-size: 20px;
+  line-height: 28px; }
 
 h6 {
-  font-size: 14px;
-  line-height: 21px; }
+  font-size: 16px;
+  line-height: 25px; }
 
 .subheader {
   color: #777; }
@@ -109,8 +120,8 @@ p {
   p img {
     margin: 0; }
   p.lead {
-    font-size: 21px;
-    line-height: 27px;
+    font-size: 25px;
+    line-height: 32px;
     color: #777; }
 
 em, i {
@@ -128,8 +139,8 @@ small {
 
 /*	Blockquotes  */
 blockquote, blockquote p {
-  font-size: 17px;
-  line-height: 24px;
+  font-size: 20px;
+  line-height: 28px;
   color: #777;
   font-style: italic; }
 
@@ -140,7 +151,7 @@ blockquote {
 
 blockquote cite {
   display: block;
-  font-size: 12px;
+  font-size: 14px;
   color: #555; }
   blockquote cite:before {
     content: "\2014 \0020"; }
@@ -243,9 +254,9 @@ input[type="button"] {
   border-radius: 3px;
   color: #444;
   display: inline-block;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: bold;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-decoration: none;
   text-shadow: 0 1px rgba(255, 255, 255, 0.75);
   cursor: pointer;
@@ -290,14 +301,14 @@ input[type="button"] {
   input[type="submit"].smaller,
   input[type="reset"].smaller,
   input[type="button"].smaller {
-    font-size: 10px;
+    font-size: 12px;
     padding: 4px 5px; }
   .button.larger,
   button.larger,
   input[type="submit"].larger,
   input[type="reset"].larger,
   input[type="button"].larger {
-    font-size: 14px;
+    font-size: 16px;
     padding: 10px 18px; }
 
 /* Fix for odd Mozilla border & padding issues */
@@ -331,8 +342,8 @@ select {
   -ms-border-radius: 2px;
   -o-border-radius: 2px;
   border-radius: 2px;
-  font-size: 13px;
-  font-family: Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #777;
   margin: 0 0 20px;
   width: 210px;
@@ -380,7 +391,7 @@ textarea {
 label,
 legend {
   display: block;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: bold; }
 
 select {
@@ -391,7 +402,7 @@ input[type="checkbox"] {
 
 label span,
 legend span {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: normal;
   color: #444; }
 

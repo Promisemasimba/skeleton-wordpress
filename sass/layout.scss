@@ -6,13 +6,13 @@
  * @author Dennis Thompson <http://www.atomicpages.net>
  * @copyright Copyright (c) 2013 AtomicPages LLC
  * @license MIT
- * @version 1.2.2
+ * @version 1.4.2
  */
 
 // IMPORTS
+@import "compass/css3";
 @import "vars"; // import _global_variables.scss
 @import "mixins"; // import _mixins.scss
-@import "compass/css3";
 
 // VAR OVERRIDES
 $fontFamily: Helvetica, Arial, sans-serif;
@@ -31,12 +31,10 @@ h1, h2, h3, h4, h5, h6 { font-family: $headingFamily; }
 	height: 100%;
 	display: block;
 	@include clear("this");
-	&.main-header {
-		/* still at 100% of viewport */
-		background: $base;
-		header {
-			/* at a fixed viewport ~ default of 960px */
-			background: darken($base, 3%);
+	&.main-header { /* still at 100% of viewport */
+		@if($seeFields) { background: $base; }
+		header { /* at a fixed viewport ~ default of 960px */
+			@if($seeFields) { background: darken($base, 3%); }
 			.top-nav {
 				float: right;
 				@include clear("this");
@@ -58,9 +56,9 @@ h1, h2, h3, h4, h5, h6 { font-family: $headingFamily; }
 		}
 	}
 	&.main-nav {
-		background: darken($base, 6%);
+		@if($seeFields) { background: darken($base, 6%); }
 		nav {
-			background: darken($base, 9%);
+			@if($seeFields) { background: darken($base, 9%); }
 			ul {
 				list-style: none;
 				margin-bottom: 0;
@@ -83,26 +81,26 @@ h1, h2, h3, h4, h5, h6 { font-family: $headingFamily; }
 		}
 	}
 	&.main-content {
-		background: darken($base, 12%);
+		@if($seeFields) { background: darken($base, 12%); }
 		main {
-			background: darken($base, 15%);
+			@if($seeFields) { background: darken($base, 15%); }
 			article { padding: 10px; }
 		}
 		aside {
-			background: darken($base, 18%);
+			@if($seeFields) { background: darken($base, 18%); }
 			section { padding: 10px; }
 		}
 	}
 	&.main-footer {
-		background: darken($base, 21%);
+		@if($seeFields) { background: darken($base, 21%); }
 		footer {
-			background: darken($base, 24%);
+			@if($seeFields) { background: darken($base, 24%); }
 			padding-bottom: 5px;
 			section.footer-widgets {
 				padding: 9px 0;
 				@include clear("this");
 				div { 
-					background: darken($base, 27%);
+					@if($seeFields) { background: darken($base, 27%); }
 					p { padding: 5px; }					
 				}
 			}
