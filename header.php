@@ -13,8 +13,7 @@
  * @since 			1.0
  */
 ?>
-
-<?php if (!defined('ABSPATH')) exit;  ?>
+<?php if (!defined('ABSPATH')) exit; ?>
 <!DOCTYPE html>
 <!--[if !IE]>      <html class="non-ie" <?php language_attributes(); ?>> <![endif]-->
 <!--[if IE 7 ]>    <html class="ie ie7" <?php language_attributes(); ?>> <![endif]-->
@@ -30,6 +29,8 @@
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <?php wp_head(); ?>
+<?php global $data; ?>
+<pre><?php var_dump($data) ?></pre>
 </head>
 <body <?php body_class(); ?>>
 	<div class="wrapper main-header">

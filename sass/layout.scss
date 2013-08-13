@@ -24,6 +24,15 @@ $base: darken(#fff, 3%);
 /* General Styles */
 body { font-family: $fontFamily; }
 h1, h2, h3, h4, h5, h6 { font-family: $headingFamily; }
+abbr {
+	border-bottom: 1px dotted #222;
+	cursor: help;
+}
+code, pre {
+	font-family: "Lucida Console", "Courier New", Courier, monospace;
+	background: #efefef;
+	border: 1px solid darken(#efefef, 20%);
+}
 
 /* Header */
 .wrapper {

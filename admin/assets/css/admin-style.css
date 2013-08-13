@@ -914,3 +914,15 @@ width: 225px;
 	height: auto;
 }
 #of_container .controls .wp-picker-container .wp-color-result { outline: 0; }
+
+/*-------------------------------------------------------------------------------------------*/
+/* CodeMirror Styles
+/*-------------------------------------------------------------------------------------------*/
+#of_container #content .section .explain { display: none; }
+#of_container #content .section .controls { width: 100%; }
+.CodeMirror {
+	border: 1px solid #ccc;
+	height: 415px;
+}
+.CodeMirror-activeline-background { background: #e8f2ff !important; }
+.CodeMirror-matchingbracket { border-bottom: 1px solid #666; }

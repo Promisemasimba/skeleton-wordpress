@@ -72,15 +72,15 @@ if(!function_exists('of_options')) {
 		$uploads_arr 		= wp_upload_dir();
 		$all_uploads_path 	= $uploads_arr['path'];
 		$all_uploads 		= get_option('of_uploads');
-		$other_entries 		= array("Select a number:","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19");
-		$body_repeat 		= array("no-repeat","repeat-x","repeat-y","repeat");
-		$body_pos 			= array("top left","top center","top right","center left","center center","center right","bottom left","bottom center","bottom right");
+		$other_entries 		= array("Select a number:", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19");
+		$body_repeat 		= array("no-repeat", "repeat-x", "repeat-y", "repeat");
+		$body_pos 			= array("top left", "top center", "top right", "center left", "center center", "center right", "bottom left", "bottom center", "bottom right");
 
 		// Image Alignment radio box
-		$of_options_thumb_align = array("alignleft" => "Left","alignright" => "Right","aligncenter" => "Center"); 
+		$of_options_thumb_align = array("alignleft" => "Left", "alignright" => "Right", "aligncenter" => "Center"); 
 
 		// Image Links to Options
-		$of_options_image_link_to = array("image" => "The Image","post" => "The Post"); 
+		$of_options_image_link_to = array("image" => "The Image", "post" => "The Post"); 
 
 
 /*-----------------------------------------------------------------------------------*/
@@ -98,112 +98,18 @@ $of_options[] = array( 	"name" 		=> "Home Settings",
 $of_options[] = array( 	"name" 		=> "Hello there!",
 						"desc" 		=> "",
 						"id" 		=> "introduction",
-						"std" 		=> "<h3 style=\"margin: 0 0 10px;\">Welcome to the Options Framework demo.</h3>
-						This is a slightly modified version of the original options framework by Devin Price with a couple of aesthetical improvements on the interface and some cool additional features. If you want to learn how to setup these options or just need general help on using it feel free to visit my blog at <a href=\"http://aquagraphite.com/2011/09/29/slightly-modded-options-framework/\">AquaGraphite.com</a>",
+						"std" 		=> '<h3 style="margin: 0 0 10px;">Welcome to the Skeleton Wordpress!</h3>
+						This is the main hub where you can configure and customize your theme easily. This options panel is build on the lovely <abbr title="Slightly Modded Options Framework"><a href="https://github.com/syamilmj/Options-Framework" target="_blank">SMOF</a> so feel free to give them some love too!</abbr>',
 						"icon" 		=> true,
 						"type" 		=> "info"
 				);
 
-$of_options[] = array( 	"name" 		=> "Media Uploader 3.5",
-						"desc" 		=> "Upload images using native media uploader from Wordpress 3.5+.",
+$of_options[] = array( 	"name" 		=> "Logo Upload",
+						"desc" 		=> "Upload your logo or type in the path to the logo here.",
 						"id" 		=> "media_upload_35",
 						// Use the shortcodes [site_url] or [site_url_secure] for setting default URLs
 						"std" 		=> "",
 						"type" 		=> "upload"
-				);
-
-$of_options[] = array( 	"name" 		=> "Media Uploader 3.5 min",
-						"desc" 		=> "Upload images using native media uploader from Wordpress 3.5+. Min mod",
-						"id" 		=> "media_upload_356",
-						// Use the shortcodes [site_url] or [site_url_secure] for setting default URLs
-						"std" 		=> "",
-						"mod"		=> "min",
-						"type" 		=> "media"
-				);
-
-$of_options[] = array( 	"name" 		=> "JQuery UI Slider example 1",
-						"desc" 		=> "JQuery UI slider description.<br /> Min: 1, max: 500, step: 3, default value: 45",
-						"id" 		=> "slider_example_1",
-						"std" 		=> "45",
-						"min" 		=> "1",
-						"step"		=> "3",
-						"max" 		=> "500",
-						"type" 		=> "sliderui" 
-				);
-
-$of_options[] = array( 	"name" 		=> "JQuery UI Slider example 1 with steps(5)",
-						"desc" 		=> "JQuery UI slider description.<br /> Min: 0, max: 300, step: 5, default value: 75",
-						"id" 		=> "slider_example_2",
-						"std" 		=> "75",
-						"min" 		=> "0",
-						"step"		=> "5",
-						"max" 		=> "300",
-						"type" 		=> "sliderui" 
-				);
-
-$of_options[] = array( 	"name" 		=> "JQuery UI Spinner",
-						"desc" 		=> "JQuery UI spinner description.<br /> Min: 0, max: 300, step: 5, default value: 75",
-						"id" 		=> "spinner_example_2",
-						"std" 		=> "75",
-						"min" 		=> "0",
-						"step"		=> "5",
-						"max" 		=> "300",
-						"type" 		=> "spinner" 
-				);
-
-$of_options[] = array( 	"name" 		=> "Switch 1",
-						"desc" 		=> "Switch OFF",
-						"id" 		=> "switch_ex1",
-						"std" 		=> 0,
-						"type" 		=> "switch"
-				);   
-
-$of_options[] = array( 	"name" 		=> "Switch 2",
-						"desc" 		=> "Switch ON",
-						"id" 		=> "switch_ex2",
-						"std" 		=> 1,
-						"type" 		=> "switch"
-				);
-
-$of_options[] = array( 	"name" 		=> "Switch 3",
-						"desc" 		=> "Switch with custom labels",
-						"id" 		=> "switch_ex3",
-						"std" 		=> 0,
-						"on" 		=> "Enable",
-						"off" 		=> "Disable",
-						"type" 		=> "switch"
-				);
-				
-$of_options[] = array( 	"name" 		=> "Switch 4",
-						"desc" 		=> "Switch OFF with hidden options. ;)",
-						"id" 		=> "switch_ex4",
-						"std" 		=> 0,
-						"folds"		=> 1,
-						"type" 		=> "switch"
-				);
-
-$of_options[] = array( 	"name" 		=> "Hidden option 1",
-						"desc" 		=> "This is a sample hidden option controlled by a <strong>switch</strong> button",
-						"id" 		=> "hidden_switch_ex1",
-						"std" 		=> "Hi, I\'m just a text input - nr 1",
-						"fold" 		=> "switch_ex4", /* the switch hook */
-						"type" 		=> "text"
-				);
-
-$of_options[] = array( 	"name" 		=> "Hidden option 2",
-						"desc" 		=> "This is a sample hidden option controlled by a <strong>switch</strong> button",
-						"id" 		=> "hidden_switch_ex2",
-						"std" 		=> "Hi, I\'m just a text input - nr 2",
-						"fold" 		=> "switch_ex4", /* the switch hook */
-						"type" 		=> "text"
-				);
-				
-				
-$of_options[] = array( 	"name" 		=> "Homepage Layout Manager",
-						"desc" 		=> "Organize how you want the layout to appear on the homepage",
-						"id" 		=> "homepage_blocks",
-						"std" 		=> $of_options_homepage_blocks,
-						"type" 		=> "sorter"
 				);
 
 $of_options[] = array( 	"name" 		=> "Slider Options",
@@ -239,11 +145,11 @@ $of_options[] = array( 	"name" 		=> "Main Layout",
 						"std" 		=> "2c-l-fixed.css",
 						"type" 		=> "images",
 						"options" 	=> array(
-							'1col-fixed.css' 	=> $url . '1col.png',
-							'2c-r-fixed.css' 	=> $url . '2cr.png',
-							'2c-l-fixed.css' 	=> $url . '2cl.png',
-							'3c-fixed.css' 		=> $url . '3cm.png',
-							'3c-r-fixed.css' 	=> $url . '3cr.png'
+							"1col-fixed.css" 	=> $url . "1col.png",
+							"2c-r-fixed.css" 	=> $url . "2cr.png",
+							"2c-l-fixed.css" 	=> $url . "2cl.png",
+							"3c-fixed.css" 		=> $url . "3cm.png",
+							"3c-r-fixed.css" 	=> $url . "3cr.png"
 						)
 				);
 
@@ -255,7 +161,7 @@ $of_options[] = array( 	"name" 		=> "Tracking Code",
 				);
 
 $of_options[] = array( 	"name" 		=> "Footer Text",
-						"desc" 		=> "You can use the following shortcodes in your footer text: [wp-link] [theme-link] [loginout-link] [blog-title] [blog-link] [the-year]",
+						"desc" 		=> "You can use the following shortcodes in your footer text: [wp-link] [theme-link] [blog-title] [blog-link] [year]",
 						"id" 		=> "footer_text",
 						"std" 		=> "Powered by [wp-link]. Built on the [theme-link].",
 						"type" 		=> "textarea"
@@ -297,14 +203,25 @@ $of_options[] = array( 	"name" 		=> "Footer Background Color",
 $of_options[] = array( 	"name" 		=> "Body Font",
 						"desc" 		=> "Specify the body font properties",
 						"id" 		=> "body_font",
-						"std" 		=> array('size' => '12px','face' => 'arial','style' => 'normal','color' => '#000000'),
+						"std" 		=> array(
+										"size" => "12px",
+										"face" => "Arial",
+										"style" => "normal",
+										"color" => "#000000"
+									),
 						"type" 		=> "typography"
-				);  
-				
+				);
+
+$of_options[] = array(
+						"name"		=> "Custom CSS",
+						"type"		=> "heading"
+				);
+
 $of_options[] = array( 	"name" 		=> "Custom CSS",
-						"desc" 		=> "Quickly add some CSS to your theme by adding it to this block.",
+						// "desc" 		=> "Quickly add some CSS to your theme by adding it to this block.",
+						"desc" 		=> "",
 						"id" 		=> "custom_css",
-						"std" 		=> "",
+						"std" 		=> "/* Write code here... */",
 						"type" 		=> "textarea"
 				);
 
@@ -316,10 +233,10 @@ $of_options[] = array( 	"name" 		=> "Typography",
 						"desc" 		=> "This is a typographic specific option.",
 						"id" 		=> "typography",
 						"std" 		=> array(
-											'size'  => '12px',
-											'face'  => 'verdana',
-											'style' => 'bold italic',
-											'color' => '#123456'
+											"size"  => "12px",
+											"face"  => "verdana",
+											"style" => "bold italic",
+											"color" => "#123456"
 										),
 						"type" 		=> "typography"
 				);  
@@ -328,9 +245,9 @@ $of_options[] = array( 	"name" 		=> "Border",
 						"desc" 		=> "This is a border specific option.",
 						"id" 		=> "border",
 						"std" 		=> array(
-											'width' => '2',
-											'style' => 'dotted',
-											'color' => '#444444'
+											"width" => "2",
+											"style" => "dotted",
+											"color" => "#444444"
 										),
 						"type" 		=> "border"
 				);

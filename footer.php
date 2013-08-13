@@ -12,7 +12,7 @@
 		</section>
 	</footer>
 	<div class="sixteen columns copyright">
-		<p>&copy; <?php bloginfo('name'); ?> <?php echo date('Y'); ?>. All Rights Reserved.</p>
+		<p><?php echo do_shortcode(skeleton_footer()) ?></p>
 	</div>
 </div>
 <?php wp_footer(); ?>
