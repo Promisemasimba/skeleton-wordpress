@@ -16,7 +16,9 @@
  * 		4. skeleton_add_browser_to_body 			(adds working browser to body element class attribute)
  * 5. Style and Scripts
  * 6. Shortcodes
- */ 
+ * 7. Internal styles
+ * 		* Styles are those
+ */
 
 // Exit if access directly
 if(!defined("ABSPATH")) exit;
@@ -54,7 +56,7 @@ if(!function_exists("skeleton_init")) {
 		add_theme_support("post-formats", $formats);
 
 		// Add theme support for Featured Images
-		add_theme_support("post-thumbnails");	
+		add_theme_support("post-thumbnails");
 
 		// Add theme support for Custom Background
 		$background_args = array(
@@ -300,28 +302,38 @@ if(!function_exists("skeleton_add_analytics")) {
 	function skeleton_add_analytics() {
 		global $data;
 
-		return $data["google_analytics"];
+		echo $data["google_analytics"];
 	}
 }
-add_action("wp_footer", "skeleton_add_analytics");
+add_action("wp_footer", "skeleton_add_analytics", 30); // put after enqueued scripts
 
-# Begin shortcodes
-
+/**
+ * BEGIN SHORTCODES
+ * ------------------------------------------------------------------------- */
+/**
+ * Creates a link to wordpress.org
+ * @return string
+ */
 if(!function_exists("skeleton_shortcode_wp_link")) {
-	function skeleton_shortcode_wp_link($atts) {
+	function skeleton_shortcode_wp_link() {
 		return '<a href="http://wordpress.org/">WordPress</a>';
 	}
 }
-add_shortcode("wp-link", "skeleton_shortcode_wp_link");
-
+/**
+ * Creates a link to the skeleton wordpress github repo
+ * @return string
+ */
 if(!function_exists("skeleton_shortcode_theme_link")) {
-	function skeleton_shortcode_theme_link($atts) {
+	function skeleton_shortcode_theme_link() {
 		return '<a href="https://github.com/atomicpages/skeleton-wordpress">Skeleton WordPress</a>';
 	}
 }
-add_shortcode("theme-link", "skeleton_shortcode_theme_link");
-
-// same as http://codex.wordpress.org/Formatting_Date_and_Time
+/**
+ * 
+ * @param string $atts
+ * @return string
+ * @see http://codex.wordpress.org/Formatting_Date_and_Time
+ */
 if(!function_exists("skeleton_shortcode_year")) {
 	function skeleton_shortcode_year($atts) {
 		extract(shortcode_atts(array('format' => 'Y'), $atts));
@@ -329,20 +341,20 @@ if(!function_exists("skeleton_shortcode_year")) {
 		return date($format);
 	}
 }
-add_shortcode("year", "skeleton_shortcode_year");
-
 if(!function_exists("skeleton_shortcode_blog_title")) {
-	function skeleton_shortcode_blog_title($atts) {
+	function skeleton_shortcode_blog_title() {
 		return get_bloginfo("name");
 	}
 }
-add_shortcode("blog-title", "skeleton_shortcode_blog_title");
-
 if(!function_exists("skeleton_shortcode_blog_link")) {
-	function skeleton_shortcode_blog_link($atts) {
+	function skeleton_shortcode_blog_link() {
 		return home_url();
 	}
 }
+add_shortcode("wp-link", "skeleton_shortcode_wp_link");
+add_shortcode("theme-link", "skeleton_shortcode_theme_link");
+add_shortcode("year", "skeleton_shortcode_year");
+add_shortcode("blog-title", "skeleton_shortcode_blog_title");
 add_shortcode("blog-link", "skeleton_shortcode_blog_link");
 
 # end shortcodes
@@ -358,7 +370,7 @@ background: <?php echo check_return_style("body_background", "transparent") ?> u
 		font: <?php echo $body_font["style"] ?> <?php echo $body_font["size"] ?> <?php echo $body_font["face"] ?>, sans-serf;
 		color: <?php echo $body_font["color"]; ?>;
 	}
-	<?php echo check_return_style("custom_css") . "\n"; // custom styles ?>
+	<?php echo $data["custom_css"] . "\n"; // custom styles ?>
 </style>
 		<?php // ... and we're back
 	}
@@ -369,7 +381,7 @@ add_action("wp_head", "skeleton_internal_styles");
  * Tests to see if the index passed exists in the global $data array
  * @param string $index index of the $data array to test
  * @return boolean
- */ 
+ */
 function check_style($index) {
 	global $data;
 	if(in_array($index, $data) && $data[$index]) {
@@ -380,12 +392,12 @@ function check_style($index) {
 }
 
 /**
- * Checks to see if index exists in the $data array. If it does then whatever is on that index is returned. 
+ * Checks to see if index exists in the $data array. If it does then whatever is on that index is returned.
  * If it does not, then whatever is supplied for the second parameter is returned instead.
  * @param string $index index of the $data array to test
  * @param string [ $if_false = "" ] what to output if check_style returns false
  * @return string
- */ 
+ */
 function check_return_style($index, $if_false = "") {
 	global $data;
 	if( check_style($index) ) {

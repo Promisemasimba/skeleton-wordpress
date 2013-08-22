@@ -17,7 +17,7 @@
 				<h2><?php echo THEMENAME; ?></h2>
 				<span><?php echo ( 'v'. THEMEVERSION ); ?></span>
 			</div>
-			<div id="js-warning">Warning- This options panel will not work properly without javascript!</div>
+			<div id="js-warning">Warning &ndash; This options panel will not work properly without JavaScript enabled!</div>
 			<div class="icon-option"></div>
 			<div class="clear"></div>
     	</div>
@@ -26,7 +26,7 @@
 			<a><div id="expand_options" class="expand">Expand</div></a>
 			<img style="display: none" src="<?php echo ADMIN_DIR; ?>assets/images/loading-bottom.gif" class="ajax-loading-img ajax-loading-img-bottom" alt="Working...">
 			<button id="of_save" type="button" class="button-primary"><?php _e( 'Save All Changes' );?></button>
-		</div><!--.info_bar--> 	
+		</div><!--.info_bar-->
 		<div id="main">
 			<div id="of-nav">
 				<ul>
@@ -43,8 +43,8 @@
 			<button id ="of_save" type="button" class="button-primary"><?php _e( 'Save All Changes' );?></button>
 			<button id ="of_reset" type="button" class="button submit-button reset-button" ><?php _e( 'Options Reset' );?></button>
 			<img style="display: none" src="<?php echo ADMIN_DIR; ?>assets/images/loading-bottom.gif" class="ajax-reset-loading-img ajax-loading-img-bottom" alt="Working...">
-		</div><!--.save_bar--> 
+		</div><!--.save_bar-->
 	</form>
 	<div style="clear:both;"></div>
 </div><!--wrap-->
-<div class="smof_footer_info">Slightly Modified Options Framework <strong><?php echo SMOF_VERSION; ?></strong></div>
+<div class="smof_footer_info">Skeleton WordPress Admin Panel <strong><?php echo SMOF_VERSION; ?></strong></div>

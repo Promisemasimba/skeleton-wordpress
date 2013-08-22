@@ -5,7 +5,7 @@ add_action('init','of_options');
 if(!function_exists('of_options')) {
 	function of_options() {
 		// Access the WordPress Categories via an Array
-		$of_categories 		= array();  
+		$of_categories 		= array();
 		$of_categories_obj 	= get_categories('hide_empty=0');
 		foreach($of_categories_obj as $of_cat) {
 			$of_categories[$of_cat->cat_ID] = $of_cat->cat_name;}
@@ -17,8 +17,8 @@ if(!function_exists('of_options')) {
 			$of_pages[$of_page->ID] = $of_page->post_name;
 		}
 		$of_pages_tmp 		= array_unshift($of_pages, "Select a page:");
-	
-		// Testing 
+
+		// Testing
 		$of_options_select 	= array("one","two","three","four","five");
 		$of_options_radio 	= array("one" => "One","two" => "Two","three" => "Three","four" => "Four","five" => "Five");
 		// Sample Homepage blocks for the layout manager (sorter)
@@ -28,7 +28,7 @@ if(!function_exists('of_options')) {
 				"block_one"		=> "Block One",
 				"block_two"		=> "Block Two",
 				"block_three"	=> "Block Three",
-			), 
+			),
 			"enabled" => array(
 				"placebo" 		=> "placebo", // REQUIRED!
 				"block_four"	=> "Block Four",
@@ -53,7 +53,7 @@ if(!function_exists('of_options')) {
 		$bg_images_path = get_stylesheet_directory(). '/images/bg/'; // change this to where you store your bg images
 		$bg_images_url = get_template_directory_uri().'/images/bg/'; // change this to where you store your bg images
 		$bg_images = array();
-		
+
 		if(is_dir($bg_images_path) ) {
 			if($bg_images_dir = opendir($bg_images_path)) {
 				while( ($bg_images_file = readdir($bg_images_dir)) !== false) {
@@ -77,10 +77,10 @@ if(!function_exists('of_options')) {
 		$body_pos 			= array("top left", "top center", "top right", "center left", "center center", "center right", "bottom left", "bottom center", "bottom right");
 
 		// Image Alignment radio box
-		$of_options_thumb_align = array("alignleft" => "Left", "alignright" => "Right", "aligncenter" => "Center"); 
+		$of_options_thumb_align = array("alignleft" => "Left", "alignright" => "Right", "aligncenter" => "Center");
 
 		// Image Links to Options
-		$of_options_image_link_to = array("image" => "The Image", "post" => "The Post"); 
+		$of_options_image_link_to = array("image" => "The Image", "post" => "The Post");
 
 
 /*-----------------------------------------------------------------------------------*/
@@ -99,7 +99,7 @@ $of_options[] = array( 	"name" 		=> "Hello there!",
 						"desc" 		=> "",
 						"id" 		=> "introduction",
 						"std" 		=> '<h3 style="margin: 0 0 10px;">Welcome to the Skeleton Wordpress!</h3>
-						This is the main hub where you can configure and customize your theme easily. This options panel is build on the lovely <abbr title="Slightly Modded Options Framework"><a href="https://github.com/syamilmj/Options-Framework" target="_blank">SMOF</a> so feel free to give them some love too!</abbr>',
+						This is the main hub where you can configure and customize your theme easily.',
 						"icon" 		=> true,
 						"type" 		=> "info"
 				);
@@ -221,7 +221,7 @@ $of_options[] = array( 	"name" 		=> "Custom CSS",
 						// "desc" 		=> "Quickly add some CSS to your theme by adding it to this block.",
 						"desc" 		=> "",
 						"id" 		=> "custom_css",
-						"std" 		=> "/* Write code here... */",
+						"std" 		=> "",
 						"type" 		=> "textarea"
 				);
 
@@ -239,7 +239,7 @@ $of_options[] = array( 	"name" 		=> "Typography",
 											"color" => "#123456"
 										),
 						"type" 		=> "typography"
-				);  
+				);
 
 $of_options[] = array( 	"name" 		=> "Border",
 						"desc" 		=> "This is a border specific option.",
@@ -257,7 +257,7 @@ $of_options[] = array( 	"name" 		=> "Colorpicker",
 						"id" 		=> "example_colorpicker",
 						"std" 		=> "",
 						"type" 		=> "color"
-					); 
+					);
 
 $of_options[] = array( 	"name" 		=> "Colorpicker (default #2098a8)",
 						"desc" 		=> "Color selected.",
@@ -302,7 +302,7 @@ $of_options[] = array( 	"name" 		=> "Mini Select",
 						"type" 		=> "select",
 						"mod" 		=> "mini",
 						"options" 	=> $of_options_radio
-				); 
+				);
 
 $of_options[] = array( 	"name" 		=> "Google Font Select",
 						"desc" 		=> "Some description. Note that this is a custom text added added from options file.",

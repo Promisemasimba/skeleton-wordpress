@@ -1,5 +1,5 @@
 /**
- * SASS/SCSS/Compass Transcription of Skeleton Responsive Grid 
+ * SASS/SCSS/Compass Transcription of Skeleton Responsive Grid
  * originally authored by Dave Gamache. This translation offers
  * mixins that support fluid and as well as fixed grids to supplement
  * the work that Dave Gamache has done.
@@ -13,6 +13,7 @@
 @import "compass/css3";
 @import "vars"; // import _global_variables.scss
 @import "mixins"; // import _mixins.scss
+@import "partials/dropdown";
 
 // VAR OVERRIDES
 $fontFamily: Helvetica, Arial, sans-serif;
@@ -64,7 +65,7 @@ code, pre {
 			}
 		}
 	}
-	&.main-nav {
+	&.main-navigation {
 		@if($seeFields) { background: darken($base, 6%); }
 		nav {
 			@if($seeFields) { background: darken($base, 9%); }
@@ -74,7 +75,6 @@ code, pre {
 				@include clear("this");
 				li {
 					float: left;
-					display: inline;
 					line-height: normal;
 					margin-bottom: 0;
 					padding: 15px 0;
@@ -85,10 +85,26 @@ code, pre {
 						padding: 15px;
 						&:hover { color: #222; }
 					}
-				}
-			}
-		}
-	}
+					& > ul {
+						width: 200px;
+						padding: 0;
+						margin: 0;
+						li {
+							float: none;
+							padding: 0;
+							margin: 0;
+							a {
+								width: 100%;
+								display: block;
+								padding: 0;
+								margin: 0;
+							}
+						}
+					}
+				} // end li
+			} // end ul
+		} // end nav
+	} // end /.main-nav
 	&.main-content {
 		@if($seeFields) { background: darken($base, 12%); }
 		main {
@@ -108,9 +124,9 @@ code, pre {
 			section.footer-widgets {
 				padding: 9px 0;
 				@include clear("this");
-				div { 
+				div {
 					@if($seeFields) { background: darken($base, 27%); }
-					p { padding: 5px; }					
+					p { padding: 5px; }
 				}
 			}
 			.copyright { text-align: center; }
@@ -120,8 +136,8 @@ code, pre {
 
 /* PAGE STYLES
  * ------------------------------------------------ */
-img.centered, 
-.aligncenter, 
+img.centered,
+.aligncenter,
 div.aligncenter {
 	display: block;
 	margin-left: auto;

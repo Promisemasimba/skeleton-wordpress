@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
  * SMOF Interface
  *
@@ -27,7 +27,7 @@ function optionsframework_admin_init() {
 			'smof_data'			=> $smof_data
 		)
 	);
-	
+
 	if(empty($smof_data['smof_init'])) { // Let's set the values if the theme's already been active
 		of_save_options($options_machine->Defaults);
 		of_save_options(date('r'), 'smof_init');
@@ -67,7 +67,7 @@ function optionsframework_options_page() {
 	// for debugging
 	$smof_data = of_get_options();
 	print_r($smof_data);
-	*/	
+	*/
 
 	include_once(ADMIN_PATH . 'front-end/options.php');
 }
@@ -105,11 +105,12 @@ function of_load_only() {
 	wp_enqueue_script("tipsy", ADMIN_DIR ."assets/js/jquery.tipsy.js", array("jquery"), false, true);
 
 	// enqueue codemirror
-	wp_enqueue_script("codemirror", ADMIN_DIR . "assets/js/codemirror/codemirror.min.js", array(), "3.15", true);
+	wp_enqueue_script("codemirror", ADMIN_DIR . "assets/js/codemirror/codemirror.min.js", array(), "3.16", true);
 
 	// wp_enqueue_script('color-picker', ADMIN_DIR .'assets/js/colorpicker.js', array('jquery'));
 	wp_enqueue_script("cookie", ADMIN_DIR . "assets/js/cookie.js", array("jquery"), false, true);
 	wp_enqueue_script("smof", ADMIN_DIR ."assets/js/smof.js", array("jquery"), false, true);
+
 	// Enqueue colorpicker scripts for versions below 3.5 for compatibility
 	if(!wp_script_is("wp-color-picker", "registered")) {
 		wp_register_script("iris", ADMIN_DIR ."assets/js/iris.min.js", array("jquery-ui-draggable", "jquery-ui-slider", "jquery-touch-punch"), false, 1);
@@ -136,34 +137,34 @@ function of_ajax_callback() {
 	if(! wp_verify_nonce($nonce, "of_ajax_nonce")) {
 		die("-1");
 	}
-			
+
 	// get options array from db
 	$all = of_get_options();
-	
+
 	$save_type = $_POST["type"];
-	
+
 	// echo $_POST["data"];
-	
+
 	// Uploads
 	if($save_type == "upload") {
 		$clickedID = $_POST["data"]; // Acts as the name
 		$filename = $_FILES[$clickedID];
-		$filename["name"] = preg_replace("/[^a-zA-Z0-9._\-]/", "", $filename["name"]); 
+		$filename["name"] = preg_replace("/[^a-zA-Z0-9._\-]/", "", $filename["name"]);
 
 		$override["test_form"] = false;
-		$override["action"] = "wp_handle_upload";    
+		$override["action"] = "wp_handle_upload";
 		$uploaded_file = wp_handle_upload($filename,$override);
 
 			$upload_tracking[] = $clickedID;
 
-			// update $options array w/ image URL			  
+			// update $options array w/ image URL
 			$upload_image = $all; // preserve current data
 			$upload_image[$clickedID] = $uploaded_file["url"];
 			of_save_options($upload_image);
 
 		if(!empty($uploaded_file["error"])) {
 			echo "Upload Error: " . $uploaded_file["error"];
-		} else { 
+		} else {
 			echo $uploaded_file["url"];
 		} // Is the Response
 
