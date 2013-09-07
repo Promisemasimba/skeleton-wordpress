@@ -66,11 +66,26 @@ Skeleton WordPress has a verbose and flexible structure that allows for rapid th
 #### The Breakdown
 Each "main" section of Skeleton WordPress has the following structure:
 
-* element wrapper
-	* element
-		* content
+* element wrapper that span the entire viewport
+	* element that spans the width of `.container`
+		* content that allows you to control everything inside `.container`
 
-Why so many HTML elements anyway? As designers and front-end developers, your client's choices might change on a dime. That background on the `nav` element might stretch across the browser viewport today and they might want it to stretch across the width of the `nav` element tomorrow. Skeleton WordPress makes this a breeze. Instead of meddling with pesky PHP and HTML, you can spend more time getting stuff done easily.
+##### For Designers
+Designers need to be able to quickly and efficiently style a WordPress theme without having to wade through seas of code. Skeleton WordPress allows you to do this. Easily meet clients requests without having to touch any HTML or PHP code!
+
+##### For Developers
+Skeleton WordPress is founded on [SMOF](https://github.com/syamilmj/Options-Framework). This framework creates and fortifies the admin interface for your clients. All files are separated into unambiguous sections in the theme directory.
+
+* `nav`
+* `posts`
+* `sidebars`
+* `pages`
+* `assets`
+	* `fonts`
+	* `images`
+	* `js`
+	* `functions`
+
 
 ### Shortcodes
 * [wp-link] prints a link to WordPress.org. Here's the HTML `<a href="http://wordpress.org">WordPress</a>`
@@ -82,3 +97,4 @@ Why so many HTML elements anyway? As designers and front-end developers, your cl
 		* [year format="y"] produces `13`
 		* [year format="l, F j, Y"] produces `Tuesday, August 13, 2013`
 		* [year format="h:iA"] produces `12:59PM`
+* `[button]` creates a button that is easy to style and ready for your client's use

@@ -46,7 +46,7 @@ class Skeleton_Helper {
 	 * @static $log
 	 */
 	public static $log = array();
-	
+
 	public function __construct() {
 		static::$log[] = "Skeleton helper initialized";
 	}
