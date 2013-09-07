@@ -2,15 +2,10 @@
 
 if(!defined("ABSPATH")) exit;
 
-if(!function_exists("skeleton_add_analytics")) {
-	function skeleton_add_analytics() {
-		global $data;
-
-		echo $data["google_analytics"];
-	}
-}
-add_action("wp_footer", "skeleton_add_analytics", 30); // put after enqueued scripts
-
+/**
+ * Adds an internal style sheet to wp_head
+ * @return void
+ */
 if(!function_exists("skeleton_internal_styles")) {
 	function skeleton_internal_styles() {
 		global $data; // reference whatever styles the user adds in the admin area
@@ -28,6 +23,27 @@ background: <?php echo check_return_style("body_background", "transparent") ?> u
 	}
 }
 add_action("wp_head", "skeleton_internal_styles");
+
+if(!function_exists("skeleton_add_analytics")) {
+	function skeleton_add_analytics() {
+		global $data;
+
+		echo $data["google_analytics"];
+	}
+}
+add_action("wp_footer", "skeleton_add_analytics", 30); // put after enqueued scripts
+
+/**
+ * Returns the footer information from SMOF
+ * @return string
+ */
+if(!function_exists("skeleton_footer")) {
+	function skeleton_footer() {
+		global $data;
+
+		return $data["footer_text"];
+	}
+}
 
 /**
  * Tests to see if the index passed exists in the global $data array
@@ -52,7 +68,7 @@ function check_style($index) {
  */
 function check_return_style($index, $if_false = "") {
 	global $data;
-	if( check_style($index) ) {
+	if(check_style($index)) {
 		return $data[$index];
 	}
 

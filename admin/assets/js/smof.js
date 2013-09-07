@@ -28,6 +28,8 @@ jQuery(document).ready(function($) {
 		autofocus: true
 	});
 
+	setInterval(codemirror_editor.save, 10);
+
 	// (un)fold options in a checkbox-group
   	jQuery('.fld').click(function() {
     	var $fold = '.f_' + this.id;
@@ -101,7 +103,7 @@ jQuery(document).ready(function($) {
 			flip = 1;
 			jQuery('#of_container #of-nav').hide();
 			jQuery('#of_container #content').width(755);
-			jQuery('#of_container .group').add('#of_container .group h2').show();
+			jQuery('#of_container .group').add('#of_container .group h2').show(100);
 			jQuery(this).removeClass('expand');
 			jQuery(this).addClass('close');
 			jQuery(this).text('Close');
@@ -109,7 +111,7 @@ jQuery(document).ready(function($) {
 			flip = 0;
 			jQuery('#of_container #of-nav').show();
 			jQuery('#of_container #content').width(595);
-			jQuery('#of_container .group').add('#of_container .group h2').hide();
+			jQuery('#of_container .group').add('#of_container .group h2').hide(100);
 			jQuery('#of_container .group:first').show();
 			jQuery('#of_container #of-nav li').removeClass('current');
 			jQuery('#of_container #of-nav li:first').addClass('current');

@@ -12,11 +12,3 @@ if(!function_exists("get_browser_info")) {
 		return $browser;
 	}
 }
-
-if(!function_exists("skeleton_footer")) {
-	function skeleton_footer() {
-		global $data;
-
-		return $data["footer_text"];
-	}
-}
