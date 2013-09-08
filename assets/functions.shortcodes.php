@@ -4,8 +4,9 @@ if(!defined("ABSPATH")) exit;
 
 /**
  * TABLE OF CONTENTS
- * Shortcode functions
- * `add_shortcode`
+ * functions in no particular order
+ * `add_shortcode()`
+ * @see http://codex.wordpress.org/Shortcode_API
  */
 
 /**
@@ -15,10 +16,10 @@ if(!defined("ABSPATH")) exit;
  * @return string
  * @since 0.1
  */
-if(!function_exists("skeleton_credit")) {
-	function skeleton_credit($atts, $content = NULL) {
+if(!function_exists("skeleton_shotcode_credit")) {
+	function skeleton_shotcode_credit($atts, $content = NULL) {
 		if($content == NULL) {
-			$content = "Proudly Built with Skeleton Wordpress"; // woosh
+			$content = "Proudly built with Skeleton Wordpress"; // woosh
 		} else {
 			$content = htmlspecialchars(strip_tags($content)); // keep it safe
 		}
@@ -57,12 +58,26 @@ if(!function_exists("skeleton_shortcode_blog_title")) {
  * @return string
  * @since 0.1
  */
-if(!function_exists("skeleton_shortcode_blog_link")) {
-	function skeleton_shortcode_blog_link() {
+if(!function_exists("skeleton_shortcode_home_url")) {
+	function skeleton_shortcode_home_url() {
 		return home_url();
 	}
 }
-add_shortcode("credit", "skeleton_credit");
+
+/**
+ * Generates a link to wordpress.org
+ * @return string
+ * @since 0.3
+ */
+if(!function_exists("skeleton_shortcode_wordpress_link")) {
+	function skeleton_shortcode_wordpress_link() {
+		return '<a href="http://wordpress.org/" target="_blank">WordPress</a>';
+	}
+}
+
+// ADD SHORTCODES
+add_shortcode("credit", "skeleton_shotcode_credit");
 add_shortcode("year", "skeleton_shortcode_year");
-add_shortcode("blog-title", "skeleton_shortcode_blog_title");
-add_shortcode("blog-link", "skeleton_shortcode_blog_link");
+add_shortcode("wordpress", "skeleton_shortcode_wordpress_link");
+add_shortcode("blog_title", "skeleton_shortcode_blog_title");
+add_shortcode("home_url", "skeleton_shortcode_home_url");
