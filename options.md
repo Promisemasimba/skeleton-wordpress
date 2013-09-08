@@ -194,6 +194,50 @@
 			* title: Optionally add a custom title for when the user hovers over your icon.
 			* profile_type: Optionally specify the type of profile in use.
 
+## Admin Interface
+* General Settings
+	* Branding
+		* Custom Logo
+		* Favicon
+		* Custom Login Logo
+	* Footer
+		* Back to Top Button y/n
+		* Footer (copyright)
+		* Tracking Code
+* Style Settings
+	* Colors
+		* Style
+			* Light
+			* Dark
+		* Body Background Color
+		* Header Background Color
+		* Footer Background Color
+		* Body Background Image
+	* Layout
+		* one-col-l
+		* one-col-r
+		* two-cols-l
+		* two-cols-r
+		* two-cols-lr
+* Typography
+	* Global font selection (incl google fonts)
+		* Family
+		* Line Height
+		* Size
+		* Color
+	* Headings
+		* Font
+		* Weight
+		* Color
+	* Navigation
+		* Font
+		* Size
+		* Weight
+		* Transform
+		* Hover Color
+
+
+
 ## Design
 * Body Text
 * Body Text Color

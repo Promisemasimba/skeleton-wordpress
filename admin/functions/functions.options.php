@@ -52,7 +52,7 @@ if(!function_exists('of_options')) {
 		// Background Images Reader
 		$bg_images_path = get_stylesheet_directory(). '/images/bg/'; // change this to where you store your bg images
 		$bg_images_url = get_template_directory_uri().'/images/bg/'; // change this to where you store your bg images
-		$bg_images = array();
+		$bg_images = array("");
 
 		if(is_dir($bg_images_path) ) {
 			if($bg_images_dir = opendir($bg_images_path)) {
@@ -91,17 +91,8 @@ if(!function_exists('of_options')) {
 global $of_options;
 $of_options = array();
 
-$of_options[] = array( 	"name" 		=> "Home Settings",
+$of_options[] = array( 	"name" 		=> "General Settings",
 						"type" 		=> "heading"
-				);
-
-$of_options[] = array( 	"name" 		=> "Hello there!",
-						"desc" 		=> "",
-						"id" 		=> "introduction",
-						"std" 		=> '<h3 style="margin: 0 0 10px;">Welcome to the Skeleton Wordpress!</h3>
-						This is the main hub where you can configure and customize your theme easily.',
-						"icon" 		=> true,
-						"type" 		=> "info"
 				);
 
 $of_options[] = array( 	"name" 		=> "Logo Upload",
@@ -112,17 +103,10 @@ $of_options[] = array( 	"name" 		=> "Logo Upload",
 						"type" 		=> "upload"
 				);
 
-$of_options[] = array( 	"name" 		=> "Slider Options",
-						"desc" 		=> "Unlimited slider with drag and drop sortings.",
-						"id" 		=> "pingu_slider",
-						"std" 		=> "",
-						"type" 		=> "slider"
-				);
-
 $of_options[] = array( 	"name" 		=> "Background Images",
 						"desc" 		=> "Select a background pattern.",
 						"id" 		=> "custom_bg",
-						"std" 		=> $bg_images_url."bg0.png",
+						"std" 		=> $bg_images_url . "bg0.png",
 						"type" 		=> "tiles",
 						"options" 	=> $bg_images,
 				);
@@ -134,7 +118,7 @@ $of_options[] = array( 	"name" 		=> "Typography",
 						"type" 		=> "typography"
 				);
 
-$of_options[] = array( 	"name" 		=> "General Settings",
+$of_options[] = array( 	"name" 		=> "Design Settings",
 						"type" 		=> "heading"
 				);
 
@@ -161,9 +145,9 @@ $of_options[] = array( 	"name" 		=> "Tracking Code",
 				);
 
 $of_options[] = array( 	"name" 		=> "Footer Text",
-						"desc" 		=> "You can use the following shortcodes in your footer text: [wp-link] [theme-link] [blog-title] [blog-link] [year]",
+						"desc" 		=> "Customize your footer easily!",
 						"id" 		=> "footer_text",
-						"std" 		=> "Powered by [wp-link]. Built on the [theme-link].",
+						"std" 		=> "Powered by [wordpress]. Built on the [credit].",
 						"type" 		=> "textarea"
 				);
 
@@ -205,8 +189,9 @@ $of_options[] = array( 	"name" 		=> "Body Font",
 						"id" 		=> "body_font",
 						"std" 		=> array(
 										"size" => "12px",
-										"face" => "Arial",
+										"face" => "Arial, sans-serif",
 										"style" => "normal",
+										"weight" => "normal",
 										"color" => "#000000"
 									),
 						"type" 		=> "typography"

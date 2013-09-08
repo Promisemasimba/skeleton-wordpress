@@ -30,8 +30,12 @@ class SkeletonAdmin {
 		return $this->data[$index];
 	}
 
-	public function build_property($property, $index) {
-		$index = $this->get_data($index);
+	public function build_property($property, $index, $array = FALSE) {
+		if(!empty($array)) {
+			$index = $array[$index];
+		} else {
+			$index = $this->get_data($index);
+		}
 		$p = "";
 		if(!empty($index)) {
 			if(preg_match("/image$|url$/i", $property)) {
@@ -56,8 +60,8 @@ $smof = new SkeletonAdmin();
  */
 if(!function_exists("skeleton_internal_styles")) {
 	function skeleton_internal_styles() {
-		global $smof; // reference whatever styles the user adds in the admin area
-		$body_font = check_return_style("body_font");
+		global $smof;
+		$body_font = $smof->get_data("body_font");
 ?>
 <style type="text/css">
 	body {
@@ -65,8 +69,10 @@ if(!function_exists("skeleton_internal_styles")) {
 		<?php echo $smof->build_property("background-image", "custom_bg") ?>
 		background-repeat: repeat;
 		background-position: 0 0;
-		font: <?php echo $body_font["style"] ?> <?php echo $body_font["size"] ?> <?php echo $body_font["face"] ?>, sans-serf;
-		color: <?php echo $body_font["color"]; ?>;
+		<?php echo $smof->build_property("font-family", "face", $body_font) ?>
+		<?php echo $smof->build_property("font-size", "size", $body_font) ?>
+		<?php echo $smof->build_property("font-style", "style", $body_font) ?>
+		<?php  echo $smof->build_property("color", "color", $body_font) ?>
 	}
 	<?php echo $data["custom_css"] . "\n"; // custom styles ?>
 </style>

@@ -918,7 +918,6 @@ width: 225px;
 /*-------------------------------------------------------------------------------------------*/
 /* CodeMirror Styles
 /*-------------------------------------------------------------------------------------------*/
-#of_container #content .section .explain { display: none; }
 #of_container #content .section .controls { width: 100%; }
 .CodeMirror {
 	border: 1px solid #ccc;
