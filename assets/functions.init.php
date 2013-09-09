@@ -139,7 +139,7 @@ if(!function_exists("skeleton_sidebar_init")) {
 		);
 
 		$footer_widgets = array(
-			'name'			=> __('Footer %d', 'txt_domain'),
+			'name'			=> __('Footer %d', 'skeleton_wordpress'),
 			'id'			=> "footer-$i",
 			'description'	=> '',
 			'class'			=> '',

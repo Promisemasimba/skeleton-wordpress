@@ -13,7 +13,7 @@
 @import "compass/css3";
 @import "vars"; // import _global_variables.scss
 @import "mixins"; // import _mixins.scss
-@import "partials/dropdown";
+// @import "partials/dropdown";
 
 // VAR OVERRIDES
 $fontFamily: Helvetica, Arial, sans-serif;
@@ -43,9 +43,9 @@ code, pre {
 	@include clear("this");
 	&.main-header { /* still at 100% of viewport */
 		@if($seeFields) { background: $base; }
-		header { /* at a fixed viewport ~ default of 960px */
+		header { /* default 960px */
 			@if($seeFields) { background: darken($base, 3%); }
-			.top-nav {
+			.top-nav { /* add padding and margins here */
 				float: right;
 				@include clear("this");
 				ul {

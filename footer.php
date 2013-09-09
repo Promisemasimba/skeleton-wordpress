@@ -1,19 +1,29 @@
-<?php 
+<?php
 	// Exit if access directly
-	if (!defined('ABSPATH')) exit; 
+	if (!defined('ABSPATH')) exit;
 ?>
 <div class="wrapper main-footer">
 	<footer id="footer" class="container">
-		<section class="footer-widgets">
-			<div class="four columns"></div>
-			<div class="four columns"></div>
-			<div class="four columns"></div>
-			<div class="four columns"></div>
+		<section class="sixteen columns footer-widgets">
+			<?php if(!is_active_sidebar("footer-1")) : ?>
+			<div class="four columns alpha">
+				<?php dynamic_sidebar("footer-1") ?>
+			</div>
+			<div class="four columns">
+				<?php dynamic_sidebar("footer-2") ?>
+			</div>
+			<div class="four columns">
+				<?php dynamic_sidebar("footer-3") ?>
+			</div>
+			<div class="four columns omega">
+				<?php dynamic_sidebar("footer-4") ?>
+			</div>
+			<?php endif; ?>
 		</section>
+		<div class="sixteen columns copyright">
+			<p><?php echo do_shortcode(skeleton_footer()) ?></p>
+		</div>
 	</footer>
-	<div class="sixteen columns copyright">
-		<p><?php echo do_shortcode(skeleton_footer()) ?></p>
-	</div>
 </div>
 <?php wp_footer(); ?>
 </body>

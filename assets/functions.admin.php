@@ -30,9 +30,10 @@ class SkeletonAdmin {
 		return $this->data[$index];
 	}
 
-	public function build_property($property, $index, $array = FALSE) {
+	public function build_property($property, $index, $array = FALSE, $append = FALSE) {
 		if(!empty($array)) {
 			$index = $array[$index];
+			$index .= $append ? ", " . $append : "";
 		} else {
 			$index = $this->get_data($index);
 		}
@@ -47,12 +48,17 @@ class SkeletonAdmin {
 
 		return $p;
 	}
+
+	public function value_is_empty($index) {
+		if(empty($this->get_data($index))) {
+			return TRUE;
+		}
+
+		return FALSE;
+	}
 }
 
 $smof = new SkeletonAdmin();
-// var_dump($foo->_validate_index("custom_bg"));
-// echo $foo->get_data("custom_bg");
-// echo $smof->build_property("background-image", "custom_bg");
 
 /**
  * Adds an internal style sheet to wp_head
@@ -67,14 +73,16 @@ if(!function_exists("skeleton_internal_styles")) {
 	body {
 <?php echo $smof->build_property("background-color", "body_background") ?>
 		<?php echo $smof->build_property("background-image", "custom_bg") ?>
+		<?php if(!$smof->value_is_empty("custom_bg")) : ?>
 		background-repeat: repeat;
 		background-position: 0 0;
-		<?php echo $smof->build_property("font-family", "face", $body_font) ?>
+		<?php endif; ?>
+		<?php echo $smof->build_property("font-family", "face", $body_font, "sans-serif") ?>
 		<?php echo $smof->build_property("font-size", "size", $body_font) ?>
 		<?php echo $smof->build_property("font-style", "style", $body_font) ?>
 		<?php  echo $smof->build_property("color", "color", $body_font) ?>
 	}
-	<?php echo $data["custom_css"] . "\n"; // custom styles ?>
+	<?php echo $smof->get_data("custom_css") . "\n"; // custom styles ?>
 </style>
 		<?php // ... and we're back
 	}

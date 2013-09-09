@@ -75,6 +75,10 @@ if(!function_exists("skeleton_shortcode_wordpress_link")) {
 	}
 }
 
+function skeleton_two_columns($atts, $content = NULL) {
+	
+}
+
 // ADD SHORTCODES
 add_shortcode("credit", "skeleton_shotcode_credit");
 add_shortcode("year", "skeleton_shortcode_year");

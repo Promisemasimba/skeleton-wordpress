@@ -52,7 +52,7 @@ if(!function_exists('of_options')) {
 		// Background Images Reader
 		$bg_images_path = get_stylesheet_directory(). '/images/bg/'; // change this to where you store your bg images
 		$bg_images_url = get_template_directory_uri().'/images/bg/'; // change this to where you store your bg images
-		$bg_images = array("");
+		$bg_images = array(""); // add single item for no image
 
 		if(is_dir($bg_images_path) ) {
 			if($bg_images_dir = opendir($bg_images_path)) {
@@ -91,7 +91,7 @@ if(!function_exists('of_options')) {
 global $of_options;
 $of_options = array();
 
-$of_options[] = array( 	"name" 		=> "General Settings",
+$of_options[] = array( 	"name" 		=> "General",
 						"type" 		=> "heading"
 				);
 
@@ -111,14 +111,7 @@ $of_options[] = array( 	"name" 		=> "Background Images",
 						"options" 	=> $bg_images,
 				);
 
-$of_options[] = array( 	"name" 		=> "Typography",
-						"desc" 		=> "Typography option with each property can be called individually.",
-						"id" 		=> "custom_type",
-						"std" 		=> array('size' => '12px','style' => 'bold italic'),
-						"type" 		=> "typography"
-				);
-
-$of_options[] = array( 	"name" 		=> "Design Settings",
+$of_options[] = array( 	"name" 		=> "Styles",
 						"type" 		=> "heading"
 				);
 
@@ -151,7 +144,7 @@ $of_options[] = array( 	"name" 		=> "Footer Text",
 						"type" 		=> "textarea"
 				);
 
-$of_options[] = array( 	"name" 		=> "Styling Options",
+$of_options[] = array( 	"name" 		=> "Typography",
 						"type" 		=> "heading"
 				);
 
@@ -434,7 +427,6 @@ $of_options[] = array( 	"name" 		=> "Hello there!",
 // Backup Options
 $of_options[] = array( 	"name" 		=> "Backup Options",
 						"type" 		=> "heading",
-						"icon"		=> ADMIN_IMAGES . "icon-slider.png"
 				);
 
 $of_options[] = array( 	"name" 		=> "Backup and Restore Options",

@@ -3,8 +3,8 @@
  * Functions Load
  * @package     WordPress
  * @subpackage  SMOF
- * @since       1.4.0
- * @author      Syamil MJ
+ * @since       0.3
+ * @author      AtomicPages LLC
  */
 require_once( ADMIN_PATH . 'functions/functions.php' );
 require_once( ADMIN_PATH . 'functions/functions.filters.php' );

@@ -5,10 +5,6 @@
  * inside SMOF
  */
 
- /* var editor = ace.edit("custom_css");
- editor.setTheme("ace/theme/chrome");
- editor.getSession().setMode(""); */
-
 jQuery.noConflict();
 
 /** Fire up jQuery - let's dance!
