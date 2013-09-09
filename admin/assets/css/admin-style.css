@@ -54,6 +54,7 @@
 	display:inline-block;
 	font-style:normal;
 	padding-right:5px;
+	font-size: 30px;
 }
 #of_container #header .logo span {
 	color:#888888;
@@ -135,10 +136,9 @@ border-radius: 2px;
 
 #of_container #of-nav li a, #of_container #of-nav ul li a:link, #of-nav ul li a:visited {
 	display: block;
-	padding: 10px 10px 10px 40px;
-	background-repeat: no-repeat;
-	background-position: 13px 10px;
 	padding: 10px 10px 10px 25px;
+	/* background-repeat: no-repeat;
+	background-position: 13px 10px; */
 	font-weight:bold;
 	font-size: 12px;
 	text-decoration: none;
@@ -157,13 +157,13 @@ border-radius: 2px;
 }
 
 /*menu icons - customize to your liking*/
-#of_container #of-nav li.slideroptions a{ background-image:url(../images/icon-slider.png);}
+/* #of_container #of-nav li.slideroptions a{ background-image:url(../images/icon-slider.png);}
 #of_container #of-nav li.generalsettings a{ background-image:url(../images/icon-settings.png);}
 #of_container #of-nav li.stylingoptions a{ background-image:url(../images/icon-paint.png);}
 #of_container #of-nav li.exampleoptions a{ background-image:url(../images/icon-docs.png);}
 #of_container #of-nav li.homesettings a{ background-image:url(../images/icon-home.png);}
 #of_container #of-nav li.backupoptions a {background: url(../images/icon-backup.png) no-repeat;}
-#of_container #of-nav li.advancedsettings a {background: url(../images/wrench16.png) no-repeat;}
+#of_container #of-nav li.advancedsettings a {background: url(../images/wrench16.png) no-repeat;} */
 
 #of_container #content {
 	float: left;
