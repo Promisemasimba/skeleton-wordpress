@@ -119,15 +119,15 @@ $url =  ADMIN_DIR . 'assets/images/';
 $of_options[] = array( 	"name" 		=> "Main Layout",
 						"desc" 		=> "Select main content and sidebar alignment. Choose between 1, 2 or 3 column layout.",
 						"id" 		=> "layout",
-						"std" 		=> "2cl-fixed",
+						"std" 		=> "2cl",
 						"type" 		=> "images",
 						"options" 	=> array(
-							"1col-fixed" 	=> $url . "1col.png",
-							"2cr-fixed" 	=> $url . "2cr.png",
-							"2cl-fixed" 	=> $url . "2cl.png",
-							"3c-fixed" 		=> $url . "3cm.png",
-							"3cr-fixed" 	=> $url . "3cr.png",
-							// "3cl-fixed"		=> $url . "3cl.png"
+							"1c" 	=> $url . "1col.png",
+							"2cr" 	=> $url . "2cr.png",
+							"2cl" 	=> $url . "2cl.png",
+							"3clr" 	=> $url . "3clr.png",
+							"3cr" 	=> $url . "3cr.png",
+							"3cl"	=> $url . "3cl.png"
 						)
 				);
 

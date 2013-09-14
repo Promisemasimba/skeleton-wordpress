@@ -26,6 +26,7 @@
 <?php get_header(); ?>
 
 	<div class="wrapper main-content">
+		<?php skeleton_content_before(); ?>
 		<div class="container content" role="main">
 			<main id="main" class="twelve columns omega">
 				<?php if(have_posts()) : ?>
@@ -66,7 +67,8 @@
 
 				<?php endif; ?>
 			</main><!-- /main -->
-			<?php get_sidebar(); ?>
+			<?php // get_sidebar(); ?>
+			<?php skeleton_content_after(); ?>
 		</div><!-- /.content -->
 	</div><!-- /.main-content -->
 <?php get_footer(); ?>

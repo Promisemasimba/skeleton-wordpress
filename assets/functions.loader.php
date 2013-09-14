@@ -23,3 +23,4 @@ require("functions.posts.php");
 require("functions.admin.php");
 require("functions.helper.php");
 require("functions.sidebar.php");
+require("functions.hooks.php");

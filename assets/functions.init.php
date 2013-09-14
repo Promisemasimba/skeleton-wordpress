@@ -112,6 +112,12 @@ if(!function_exists("skeleton_init")) {
 		} else {
 			add_custom_image_header();
 		}
+
+		if(version_compare($wp_version, "3.6", ">=")) {
+			// Add theme support for Semantic Markup
+			$markup = array('search-form', 'comment-form', 'comment-list');
+			add_theme_support('html5', $markup);
+		}
 	}
 }
 
