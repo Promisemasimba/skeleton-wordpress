@@ -26,8 +26,8 @@
 <?php get_header(); ?>
 
 	<div class="wrapper main-content">
-		<?php skeleton_content_before(); ?>
 		<div class="container content" role="main">
+			<?php skeleton_content_before(); ?>
 			<main id="main" class="twelve columns omega">
 				<?php if(have_posts()) : ?>
 

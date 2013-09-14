@@ -36,8 +36,10 @@ if(!function_exists("skeleton_get_layout")) {
 }
 
 if(!function_exists("skeleton_sidebar_left")) {
-	if(skeleton_get_layout() == "2cl") {
-		return get_sidebar();
+	function skeleton_sidebar_left() {
+		if(skeleton_get_layout() == "2cl") {
+			return get_sidebar();
+		}
 	}
 }
 //add_action("skeleton_content_before", "skeleton_sidebar_left");
