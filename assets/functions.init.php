@@ -6,9 +6,23 @@ if(!defined("ABSPATH")) exit;
  * TABLE OF CONENTS
  * Constants
  * Dependencies
+ * Hooks
+ 	* Actions
+ 	* Filters
  * Theme initialization
+ 	* auto feed links
+ 	* post types
+ 	* post thumbnails
+ 	* custom background
+ 	* custom header
  * Nav initialization
+ 	* top 		at the top of the page (above the main nav)
+ 	* main 		the main nav of the site
+ 	* footer 	in the footer, the nav will be
  * Widget initialization
+ 	* Left
+ 	* Right
+ 	* Footer 1-4
  * Custom wp_title
  * Additional theme setup
  	* Addition of first and last selectors to wp_nav_menu
@@ -25,8 +39,20 @@ define("STYLES", TEMPPATH . "/css/");
 define("SKELETON_VERSION", "0.3.0");
 
 // DEPENDENCIES
-require(get_template_directory() . "/admin/index.php");				// highway to the danger zone
-require(get_template_directory() . "/inc/browser_detection.php");	// used to generate those lovely helper selectors
+require(get_template_directory() . "/admin/index.php");						// highway to the danger zone
+require(get_template_directory() . "/assets/inc/browser_detection.php");	// used to generate those lovely helper selectors that tell you all about the working browser and OS
+
+// HOOKS
+add_action("after_setup_theme", "skeleton_init");
+add_action("init", "skeleton_nav_init");
+add_action("widgets_init", "skeleton_sidebar_init");
+
+// filters
+add_filter("wp_title", "skeleton_wp_title", 10, 2);
+add_filter("wp_nav_menu_objects", "skeleton_add_first_last_classes_to_menu");
+add_filter("body_class", "skeleton_add_os_to_body");
+add_filter("body_class", "skeleton_add_browser_to_body");
+
 
 /**
  * General theme support and other initialization tasks for Skeleton
@@ -88,7 +114,6 @@ if(!function_exists("skeleton_init")) {
 		}
 	}
 }
-add_action("after_setup_theme", "skeleton_init");
 
 /**
  * Initialize menus for Skeleton
@@ -107,7 +132,6 @@ if(!function_exists("skeleton_nav_init")) {
 		register_nav_menus($locations);
 	}
 }
-add_action("init", "skeleton_nav_init");
 
 /**
  * Skeleton sidebar initialization information and configuration
@@ -154,7 +178,6 @@ if(!function_exists("skeleton_sidebar_init")) {
 		register_sidebars(4, $footer_widgets);
 	}
 }
-add_action("widgets_init", "skeleton_sidebar_init");
 
 /**
  * Generates a custom and clean title tag!
@@ -189,7 +212,6 @@ if(!function_exists("skeleton_wp_title")) {
 		return $title;
 	}
 }
-add_filter("wp_title", "skeleton_wp_title", 10, 2);
 
 /**
  * Adds first and last classes to navigation list items
@@ -204,7 +226,6 @@ if(!function_exists("skeleton_add_first_last_classes_to_menu")) {
 		return $items;
 	}
 }
-add_filter("wp_nav_menu_objects", "skeleton_add_first_last_classes_to_menu");
 
 /**
  * Function to add OS to body class. Mobile support included.
@@ -219,7 +240,6 @@ if(!function_exists("skeleton_add_os_to_body")) {
 		return $classes;
 	}
 }
-add_filter("body_class", "skeleton_add_os_to_body");
 
 /**
  * Function to add current browser to body class
@@ -234,4 +254,3 @@ if(!function_exists("skeleton_add_browser_to_body")) {
 		return $classes;
 	}
 }
-add_filter("body_class", "skeleton_add_browser_to_body");

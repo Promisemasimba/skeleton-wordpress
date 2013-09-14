@@ -1,6 +1,6 @@
 <?php 
 	// Exit if access directly
-	if (!defined('ABSPATH')) exit; 
+	if (!defined('ABSPATH')) exit;
 
 /**
  * The template for displaying all pages.
