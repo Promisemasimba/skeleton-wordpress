@@ -13,7 +13,10 @@ class Skeleton_shortcode {
 		if($number < 2 || $number > 6) {
 			die("Only a minimum of two columns or a maximum of six columns are supported");
 		}
-		
+	}
+
+	public function is_last_col() {
+		// condition...
 	}
 
 }

@@ -119,14 +119,15 @@ $url =  ADMIN_DIR . 'assets/images/';
 $of_options[] = array( 	"name" 		=> "Main Layout",
 						"desc" 		=> "Select main content and sidebar alignment. Choose between 1, 2 or 3 column layout.",
 						"id" 		=> "layout",
-						"std" 		=> "2c-l-fixed.css",
+						"std" 		=> "2cl-fixed",
 						"type" 		=> "images",
 						"options" 	=> array(
-							"1col-fixed.css" 	=> $url . "1col.png",
-							"2c-r-fixed.css" 	=> $url . "2cr.png",
-							"2c-l-fixed.css" 	=> $url . "2cl.png",
-							"3c-fixed.css" 		=> $url . "3cm.png",
-							"3c-r-fixed.css" 	=> $url . "3cr.png"
+							"1col-fixed" 	=> $url . "1col.png",
+							"2cr-fixed" 	=> $url . "2cr.png",
+							"2cl-fixed" 	=> $url . "2cl.png",
+							"3c-fixed" 		=> $url . "3cm.png",
+							"3cr-fixed" 	=> $url . "3cr.png",
+							// "3cl-fixed"		=> $url . "3cl.png"
 						)
 				);
 
@@ -140,7 +141,7 @@ $of_options[] = array( 	"name" 		=> "Tracking Code",
 $of_options[] = array( 	"name" 		=> "Footer Text",
 						"desc" 		=> "Customize your footer easily!",
 						"id" 		=> "footer_text",
-						"std" 		=> "Powered by [wordpress]. Built on the [credit].",
+						"std" 		=> "Powered by [wordpress]. Built with [credit].",
 						"type" 		=> "textarea"
 				);
 

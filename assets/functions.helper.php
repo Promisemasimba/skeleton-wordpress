@@ -12,3 +12,19 @@ if(!function_exists("get_browser_info")) {
 		return $browser;
 	}
 }
+
+if(!function_exists("skeleton_get_active_sidebar")) {
+	function skeleton_get_active_sidebar() {
+		global $data;
+
+		if(preg_match("/^[1-3]cl/", $data["layout"])) {
+			$data = "left";
+		} elseif(preg_match("/^[1-3]cr/", $data["layout"])) {
+			$data = "right";
+		} else {
+			$data = FALSE;
+		}
+
+		return $data;
+	}
+}

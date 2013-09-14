@@ -1,6 +1,6 @@
-<?php 
+<?php
 	// Exit if access directly
-	if(!defined('ABSPATH')) exit; 
+	if(!defined('ABSPATH')) exit;
 ?>
 
 <?php
@@ -18,7 +18,7 @@
  * @author Dennis Thompson
  * @copyright 2009-2013 AtomicPages LLC
  * @license license.txt
- * 
+ *
  * @since Skeleton 1.0
  */
 ?>

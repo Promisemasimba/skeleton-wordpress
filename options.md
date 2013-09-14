@@ -1,3 +1,7 @@
+## IMPROVEMENTS
+* Look at Twenty Thirteen for footer widget/sidebar
+* Add smooth scroll to top (allow for option on admin end too)
+
 ## TODO
 * Shortcodes
 	* `[button]`

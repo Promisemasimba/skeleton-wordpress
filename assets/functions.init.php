@@ -38,7 +38,7 @@ if(!function_exists("skeleton_init")) {
 		global $wp_version;
 
 		// Add theme support for Automatic Feed Links
-		if (version_compare($wp_version, "3.0", ">=")) {
+		if(version_compare($wp_version, "3.0", ">=")) {
 			add_theme_support("automatic-feed-links");
 		} else {
 			automatic_feed_links();
@@ -115,9 +115,9 @@ add_action("init", "skeleton_nav_init");
  * @since 0.1
  */
 if(!function_exists("skeleton_sidebar_init")) {
-	function skeleton_sidebar_init()  {
-		$sidebar_one = array(
-			"id"			=> "sidebar-1",
+	function skeleton_sidebar_init() {
+		$sidebar_left = array(
+			"id"			=> "sidebar-left",
 			"name"			=> __("Left Sidebar", "skeleton_wordpress"),
 			"description"	=> __("Sidebar appears on the left side of the page on all pages unless the full-width template is selected", "skeleton_wordpress"),
 			"class"			=> "sidebar left",
@@ -127,8 +127,8 @@ if(!function_exists("skeleton_sidebar_init")) {
 			"after_widget"	=> "</div>",
 		);
 
-		$sidebar_two = array(
-			"id"			=> "sidebar-2",
+		$sidebar_right = array(
+			"id"			=> "sidebar-right",
 			"name"			=> __("Right Sidebar", "skeleton_wordpress"),
 			"description"	=> __("Sidebar appears on the right side of the page on all pages unless the full-width template is selected", "skeleton_wordpress"),
 			"class"			=> "sidebar right",
@@ -149,8 +149,8 @@ if(!function_exists("skeleton_sidebar_init")) {
 			'after_title'	=> '</h2>'
 		);
 
-		register_sidebar($sidebar_one);
-		register_sidebar($sidebar_two);
+		register_sidebar($sidebar_left);
+		register_sidebar($sidebar_right);
 		register_sidebars(4, $footer_widgets);
 	}
 }

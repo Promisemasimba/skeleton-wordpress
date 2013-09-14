@@ -19,7 +19,7 @@ if(!defined("ABSPATH")) exit;
 if(!function_exists("skeleton_shotcode_credit")) {
 	function skeleton_shotcode_credit($atts, $content = NULL) {
 		if($content == NULL) {
-			$content = "Proudly built with Skeleton Wordpress"; // woosh
+			$content = "Skeleton Wordpress"; // woosh
 		} else {
 			$content = htmlspecialchars(strip_tags($content)); // keep it safe
 		}
@@ -73,10 +73,6 @@ if(!function_exists("skeleton_shortcode_wordpress_link")) {
 	function skeleton_shortcode_wordpress_link() {
 		return '<a href="http://wordpress.org/" target="_blank">WordPress</a>';
 	}
-}
-
-function skeleton_two_columns($atts, $content = NULL) {
-	
 }
 
 // ADD SHORTCODES
