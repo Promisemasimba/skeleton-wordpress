@@ -40,4 +40,4 @@ if(!function_exists("skeleton_sidebar_left")) {
 		return get_sidebar();
 	}
 }
-add_action("skeleton_content_before", "skeleton_sidebar_left");
+//add_action("skeleton_content_before", "skeleton_sidebar_left");

@@ -10,6 +10,63 @@ if(!defined("ABSPATH")) exit;
  */
 
 /**
+ * 
+ * 
+ * 
+ * 
+ */
+if(!function_exists("skeleton_shortcode_button")) {
+	function skeleton_shortcode_button($atts, $content = '') {
+		$classes = array();
+		$styles = array();
+		$href = '#';
+		$new_window = false;
+
+		$classes[] = 'nice_button';
+
+		if (is_array($atts)) {
+			if (array_key_exists("size", $atts)) {
+				$classes[] = $atts['size'];
+			}
+
+			if (array_key_exists("style", $atts)) {
+				$classes[] = $atts['style'];
+			}
+
+			if (array_key_exists("color", $atts)) {
+				if ($atts['color'][0] == "#") {
+					$styles[] = 'background-color: '.$atts['color'].';'; 
+				} else {
+					$classes[] = $atts['color'];
+				}
+			}
+
+			if (array_key_exists('border', $atts)) {
+				$styles[] = 'border-color: '.$atts['border'].';';
+			}
+
+			if (array_key_exists('text', $atts)) {
+				$styles[] = 'color: '.$atts['text'].';';
+			}
+
+			if (array_key_exists('class', $atts)) {
+				$classes[] = $atts['class'];
+			}
+
+			if (array_key_exists('link', $atts)) {
+				$href = $atts['link'];
+			}
+
+			if (array_key_exists('window', $atts)) {
+				$new_window = ($atts['window'] == 'true');
+			}
+		}
+
+		return '<a href="'.$href.'" class="'.implode(' ', $classes).'" style="'.implode(' ', $styles).'"'.($new_window ? ' target="_blank"': '').'>'.$content.'</a>';
+	}
+}
+
+/**
  * Give us some lovin'
  * @param string $atts
  * @param string $content [ $content = NULL ]
@@ -76,6 +133,7 @@ if(!function_exists("skeleton_shortcode_wordpress_link")) {
 }
 
 // ADD SHORTCODES
+add_shortcode("button", "skeleton_shortcode_button");
 add_shortcode("credit", "skeleton_shotcode_credit");
 add_shortcode("year", "skeleton_shortcode_year");
 add_shortcode("wordpress", "skeleton_shortcode_wordpress_link");
