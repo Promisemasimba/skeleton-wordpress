@@ -40,7 +40,7 @@ define("SKELETON_VERSION", "0.3.0");
 
 // DEPENDENCIES
 require(get_template_directory() . "/admin/index.php");						// highway to the danger zone
-require(get_template_directory() . "/assets/inc/browser_detection.php");	// used to generate those lovely helper selectors that tell you all about the working browser and OS
+require(get_template_directory() . "/assets/includes/browser_detection.php");	// used to generate those lovely helper selectors that tell you all about the working browser and OS
 
 // HOOKS
 add_action("after_setup_theme", "skeleton_init");

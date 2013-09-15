@@ -1,6 +1,6 @@
 <?php
 
-add_action('init','of_options');
+add_action('init', 'of_options');
 
 if(!function_exists('of_options')) {
 	function of_options() {
@@ -20,7 +20,7 @@ if(!function_exists('of_options')) {
 
 		// Testing
 		$of_options_select 	= array("one","two","three","four","five");
-		$of_options_radio 	= array("one" => "One","two" => "Two","three" => "Three","four" => "Four","five" => "Five");
+		$of_options_radio 	= array("one" => "One","two" => "Two", "three" => "Three", "four" => "Four", "five" => "Five");
 		// Sample Homepage blocks for the layout manager (sorter)
 		$of_options_homepage_blocks = array(
 			"disabled" => array(
@@ -37,7 +37,7 @@ if(!function_exists('of_options')) {
 
 		// Stylesheets Reader
 		$alt_stylesheet_path = LAYOUT_PATH;
-		$alt_stylesheets = array();
+		$alt_stylesheets = array("");
 
 		if(is_dir($alt_stylesheet_path) ) {
 			if($alt_stylesheet_dir = opendir($alt_stylesheet_path)) {
@@ -63,6 +63,46 @@ if(!function_exists('of_options')) {
 				}
 			}
 		}
+
+		// Google webfont array
+		$of_webfont_options = array(
+			"none" 					=> "Select a font", // please, always use this key: "none"
+			"Bitter"				=> "Bitter",
+			"Cabin"					=> "Cabin",
+			"Cantata One"			=> "Cantata One",
+			"Cardo"					=> "Cardo",
+			"Crimson Text"			=> "Crimson Text",
+			"Droid Sans"			=> "Droid Sans",
+			"Droid Serif"			=> "Droid Serif",
+			"EB Garamond"			=> "EB Garamond",
+			"Fjalla One"			=> "Fjalla One",
+			"Francois One"			=> "Francois One",
+			"Gentium Book Basic"	=> "Gentium Book Basic",
+			"Goudy Bookletter 1911"	=> "Goudy Bookletter 1911",
+			"Istok Web"				=> "Istok Web",
+			"Lato"					=> "Lato",
+			"Lora"					=> "Lora",
+			"Loved By the King"		=> "Loved By the King",
+			"Maven Pro"				=> "Maven Pro",
+			"Merriweather"			=> "Merriweather",
+			"Noto Sans"				=> "Noto Sans",
+			"Noto Serif"			=> "Noto Serif",
+			"Open Sans"				=> "Open Sans",
+			"Oxygen"				=> "Oxygen",
+			"PT Sans"				=> "PT Sans",
+			"PT Sans Caption"		=> "PT Sans Caption",
+			"PT Serif"				=> "PT Serif",
+			"PT Serif Caption"		=> "PT Serif Caption",
+			"Playfair Display"		=> "Playfair Display",
+			"Quattrocento"			=> "Quattrocento",
+			"Raleway"				=> "Raleway",
+			"Roboto"				=> "Roboto",
+			"Source Sans Pro"		=> "Source Sans Pro",
+			"Tangerine"				=> "Tangerine",
+			"Terminal Dosis"		=> "Terminal Dosis",
+			"Tinos"					=> "Tinos",
+			"Ubuntu"				=> "Ubuntu",
+		);
 
 		/*-----------------------------------------------------------------------------------*/
 		/* TO DO: Add options/functions that use these */
@@ -103,12 +143,18 @@ $of_options[] = array( 	"name" 		=> "Logo Upload",
 						"type" 		=> "upload"
 				);
 
-$of_options[] = array( 	"name" 		=> "Background Images",
-						"desc" 		=> "Select a background pattern.",
-						"id" 		=> "custom_bg",
-						"std" 		=> $bg_images_url . "bg0.png",
-						"type" 		=> "tiles",
-						"options" 	=> $bg_images,
+$of_options[] = array( 	"name" 		=> "Tracking Code",
+						"desc" 		=> "Paste your Google Analytics (or other) tracking code here. This will be added into the footer template of your theme.",
+						"id" 		=> "google_analytics",
+						"std" 		=> "",
+						"type" 		=> "textarea"
+				);
+
+$of_options[] = array( 	"name" 		=> "Footer Text",
+						"desc" 		=> "Customize your footer easily!",
+						"id" 		=> "footer_text",
+						"std" 		=> "Powered by [wordpress]. Built with [credit].",
+						"type" 		=> "textarea"
 				);
 
 $of_options[] = array( 	"name" 		=> "Styles",
@@ -131,30 +177,12 @@ $of_options[] = array( 	"name" 		=> "Main Layout",
 						)
 				);
 
-$of_options[] = array( 	"name" 		=> "Tracking Code",
-						"desc" 		=> "Paste your Google Analytics (or other) tracking code here. This will be added into the footer template of your theme.",
-						"id" 		=> "google_analytics",
-						"std" 		=> "",
-						"type" 		=> "textarea"
-				);
-
-$of_options[] = array( 	"name" 		=> "Footer Text",
-						"desc" 		=> "Customize your footer easily!",
-						"id" 		=> "footer_text",
-						"std" 		=> "Powered by [wordpress]. Built with [credit].",
-						"type" 		=> "textarea"
-				);
-
-$of_options[] = array( 	"name" 		=> "Typography",
-						"type" 		=> "heading"
-				);
-
-$of_options[] = array( 	"name" 		=> "Theme Stylesheet",
-						"desc" 		=> "Select your themes alternative color scheme.",
-						"id" 		=> "alt_stylesheet",
-						"std" 		=> "default.css",
-						"type" 		=> "select",
-						"options" 	=> $alt_stylesheets
+$of_options[] = array( 	"name" 		=> "Background Images",
+						"desc" 		=> "Select a background pattern. By default no patten is selected.",
+						"id" 		=> "custom_bg",
+						"std" 		=> $bg_images_url . "bg0.png",
+						"type" 		=> "tiles",
+						"options" 	=> $bg_images,
 				);
 
 $of_options[] = array( 	"name" 		=> "Body Background Color",
@@ -176,6 +204,18 @@ $of_options[] = array( 	"name" 		=> "Footer Background Color",
 						"id" 		=> "footer_background",
 						"std" 		=> "",
 						"type" 		=> "color"
+				);
+
+$of_options[] = array( 	"name" 		=> "Typography",
+						"type" 		=> "heading"
+				);
+
+$of_options[] = array( 	"name" 		=> "Theme Stylesheet",
+						"desc" 		=> "Select your themes alternative color scheme.",
+						"id" 		=> "alt_stylesheet",
+						"std" 		=> "default.css",
+						"type" 		=> "select",
+						"options" 	=> $alt_stylesheets
 				);
 
 $of_options[] = array( 	"name" 		=> "Body Font",
@@ -293,11 +333,11 @@ $of_options[] = array( 	"name" 		=> "Google Font Select",
 										"size" => "30px" // this is the text size from preview box
 						),
 						"options" 	=> array(
-										"none" => "Select a font",// please, always use this key: "none"
-										"Lato" => "Lato",
+										"none" 				=> "Select a font", // please, always use this key: "none"
+										"Lato" 				=> "Lato",
 										"Loved by the King" => "Loved By the King",
-										"Tangerine" => "Tangerine",
-										"Terminal Dosis" => "Terminal Dosis"
+										"Tangerine" 		=> "Tangerine",
+										"Terminal Dosis" 	=> "Terminal Dosis"
 						)
 				);
 
@@ -306,13 +346,8 @@ $of_options[] = array( 	"name" 		=> "Google Font Select2",
 						"id" 		=> "g_select2",
 						"std" 		=> "Select a font",
 						"type" 		=> "select_google_font",
-						"options" 	=> array(
-										"none" => "Select a font",// please, always use this key: "none"
-										"Lato" => "Lato",
-										"Loved by the King" => "Loved By the King",
-										"Tangerine" => "Tangerine",
-										"Terminal Dosis" => "Terminal Dosis"
-									)
+						"preview" 	=> array("size" => "30px"),
+						"options" 	=> $of_webfont_options
 				);
 
 $of_options[] = array( 	"name" 		=> "Input Radio (one)",
@@ -358,72 +393,6 @@ $of_options[] = array( 	"name" 		=> "Select a Category",
 						"type" 		=> "select",
 						"options" 	=> $of_categories
 				);
-
-// Advanced Settings
-$of_options[] = array( 	"name" 		=> "Advanced Settings",
-						"type" 		=> "heading"
-				);
-
-$of_options[] = array( 	"name" 		=> "Folding Checkbox",
-						"desc" 		=> "This checkbox will hide/show a couple of options group. Try it out!",
-						"id" 		=> "offline",
-						"std" 		=> 0,
-						"folds" 	=> 1,
-						"type" 		=> "checkbox"
-				);
-
-$of_options[] = array( 	"name" 		=> "Hidden option 1",
-						"desc" 		=> "This is a sample hidden option 1",
-						"id" 		=> "hidden_option_1",
-						"std" 		=> "Hi, I\'m just a text input",
-						"fold" 		=> "offline", /* the checkbox hook */
-						"type" 		=> "text"
-				);
-
-$of_options[] = array( 	"name" 		=> "Hidden option 2",
-						"desc" 		=> "This is a sample hidden option 2",
-						"id" 		=> "hidden_option_2",
-						"std" 		=> "Hi, I\'m just a text input",
-						"fold" 		=> "offline", /* the checkbox hook */
-						"type" 		=> "text"
-				);
-
-$of_options[] = array( 	"name" 		=> "Hello there!",
-						"desc" 		=> "",
-						"id" 		=> "introduction_2",
-						"std" 		=> "<h3 style=\"margin: 0 0 10px;\">Grouped Options.</h3>
-						You can group a bunch of options under a single heading by removing the 'name' value from the options array except for the first option in the group.",
-						"icon" 		=> true,
-						"type" 		=> "info"
-				);
-
-				$of_options[] = array( 	"name" 		=> "Some pretty colors for you",
-										"desc" 		=> "Color 1.",
-										"id" 		=> "example_colorpicker_3",
-										"std" 		=> "#2098a8",
-										"type" 		=> "color"
-								);
-
-				$of_options[] = array( 	"name" 		=> "",
-										"desc" 		=> "Color 2.",
-										"id" 		=> "example_colorpicker_4",
-										"std" 		=> "#2098a8",
-										"type" 		=> "color"
-								);
-
-				$of_options[] = array( 	"name" 		=> "",
-										"desc" 		=> "Color 3.",
-										"id" 		=> "example_colorpicker_5",
-										"std" 		=> "#2098a8",
-										"type" 		=> "color"
-								);
-
-				$of_options[] = array( 	"name" 		=> "",
-										"desc" 		=> "Color 4.",
-										"id" 		=> "example_colorpicker_6",
-										"std" 		=> "#2098a8",
-										"type" 		=> "color"
-								);
 
 // Backup Options
 $of_options[] = array( 	"name" 		=> "Backup Options",

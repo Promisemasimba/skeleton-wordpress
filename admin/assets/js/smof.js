@@ -24,6 +24,8 @@ jQuery(document).ready(function($) {
 		autofocus: true
 	});
 
+	// jQuery("#section-custom_bg .controls span:first-child").css("background-image", "");
+
 	setInterval(codemirror_editor.save, 10);
 
 	// (un)fold options in a checkbox-group

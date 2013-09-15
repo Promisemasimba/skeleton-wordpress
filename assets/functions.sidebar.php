@@ -53,6 +53,9 @@ if(!function_exists("skeleton_main_classes")) {
 			case "3cl" :
 				$classes[0] = "eight";
 				break;
+			case "2cl" :
+				$classes[0] = "twelve";
+				break;
 			default :
 				$classes[0] = "sixteen";
 				break;
