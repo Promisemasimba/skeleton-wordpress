@@ -13,7 +13,7 @@
 @import "compass/css3";
 @import "vars"; // import _global_variables.scss
 @import "mixins"; // import _mixins.scss
-// @import "partials/dropdown";
+@import "partials/tipsy";
 
 // VAR OVERRIDES
 $fontFamily: Helvetica, Arial, sans-serif;

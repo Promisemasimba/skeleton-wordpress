@@ -2,62 +2,11 @@
 
 if(!defined("ABSPATH")) exit;
 
-/**
- * A simple helper class to aid in bridging SMOF to Skeleton WordPress
- * @since 0.3
- */
-class SkeletonAdmin {
-	private $data;
+add_action("wp_head", "skeleton_internal_styles");
+// add_action("wp_footer", "skeleton_internal_scripts", 29);
+add_action("wp_footer", "skeleton_add_analytics", 30); // put after enqueued scripts
 
-	public function __construct() {
-		global $data;
-		$this->data = $data;
-	}
-
-	public function _validate_index($index) {
-		if(array_key_exists($index, $this->data)) {
-			return TRUE;
-		}
-
-		return FALSE;
-	}
-
-	public function get_data($index = "") {
-		if(!$index) {
-			return $this->data;
-		}
-
-		return $this->data[$index];
-	}
-
-	public function build_property($property, $index, $array = FALSE, $append = FALSE) {
-		if(!empty($array)) {
-			$index = $array[$index];
-			$index .= $append ? ", " . $append : "";
-		} else {
-			$index = $this->get_data($index);
-		}
-		$p = "";
-		if(!empty($index)) {
-			if(preg_match("/image$|url$/i", $property)) {
-				$p = $property . ': url("' . $index . '");' . "\n";
-			} else {
-				$p = $property . ": " . $index . ";\n";
-			}
-		}
-
-		return $p;
-	}
-
-	public function value_is_empty($index) {
-		if(empty($this->get_data($index))) {
-			return TRUE;
-		}
-
-		return FALSE;
-	}
-}
-
+require("classes/class.smof.php");
 $smof = new SkeletonAdmin();
 
 /**
@@ -87,7 +36,13 @@ if(!function_exists("skeleton_internal_styles")) {
 		<?php // ... and we're back
 	}
 }
-add_action("wp_head", "skeleton_internal_styles");
+
+if(!function_exists("skeleton_internal_scripts")) {
+	function skeleton_internal_scripts() {
+		global $smof;
+		// $smof->get_data();
+	}
+}
 
 if(!function_exists("skeleton_add_analytics")) {
 	function skeleton_add_analytics() {
@@ -95,47 +50,4 @@ if(!function_exists("skeleton_add_analytics")) {
 
 		echo $smof->get_data("google_analytics");
 	}
-}
-add_action("wp_footer", "skeleton_add_analytics", 30); // put after enqueued scripts
-
-/**
- * Returns the footer information from SMOF
- * @return string
- */
-if(!function_exists("skeleton_footer")) {
-	function skeleton_footer() {
-		global $data;
-
-		return $data["footer_text"];
-	}
-}
-
-/**
- * Tests to see if the index passed exists in the global $data array
- * @param string $index index of the $data array to test
- * @return boolean
- */
-function check_style($index) {
-	global $data;
-	if(in_array($index, $data) && $data[$index]) {
-		return TRUE;
-	}
-
-	return FALSE;
-}
-
-/**
- * Checks to see if index exists in the $data array. If it does then whatever is on that index is returned.
- * If it does not, then whatever is supplied for the second parameter is returned instead.
- * @param string $index index of the $data array to test
- * @param string [ $if_false = "" ] what to output if check_style returns false
- * @return string
- */
-function check_return_style($index, $if_false = "") {
-	global $data;
-	if(check_style($index)) {
-		return $data[$index];
-	}
-
-	return $if_false;
 }

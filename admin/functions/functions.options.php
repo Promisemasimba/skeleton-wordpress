@@ -323,24 +323,6 @@ $of_options[] = array( 	"name" 		=> "Mini Select",
 						"options" 	=> $of_options_radio
 				);
 
-$of_options[] = array( 	"name" 		=> "Google Font Select",
-						"desc" 		=> "Some description. Note that this is a custom text added added from options file.",
-						"id" 		=> "g_select",
-						"std" 		=> "Select a font",
-						"type" 		=> "select_google_font",
-						"preview" 	=> array(
-										"text" => "This is my preview text!", // this is the text from preview box
-										"size" => "30px" // this is the text size from preview box
-						),
-						"options" 	=> array(
-										"none" 				=> "Select a font", // please, always use this key: "none"
-										"Lato" 				=> "Lato",
-										"Loved by the King" => "Loved By the King",
-										"Tangerine" 		=> "Tangerine",
-										"Terminal Dosis" 	=> "Terminal Dosis"
-						)
-				);
-
 $of_options[] = array( 	"name" 		=> "Google Font Select2",
 						"desc" 		=> "Some description.",
 						"id" 		=> "g_select2",
@@ -350,12 +332,15 @@ $of_options[] = array( 	"name" 		=> "Google Font Select2",
 						"options" 	=> $of_webfont_options
 				);
 
-$of_options[] = array( 	"name" 		=> "Input Radio (one)",
-						"desc" 		=> "Radio select with default of 'one'.",
-						"id" 		=> "example_radio",
-						"std" 		=> "one",
+$of_options[] = array( 	"name" 		=> "Use Tipsy Tooltip",
+						"desc" 		=> "Use tipsy tooltip for all tags with the title attribute instead of browser default",
+						"id" 		=> "use_tipsy",
+						"std" 		=> "yes",
 						"type" 		=> "radio",
-						"options" 	=> $of_options_radio
+						"options" 	=> array(
+			                    			"no" => "No",
+			                    			"yes" => "Yes"
+			                    		)
 				);
 
 $url =  ADMIN_DIR . 'assets/images/';
@@ -410,7 +395,7 @@ $of_options[] = array( 	"name" 		=> "Transfer Theme Options Data",
 						"id" 		=> "of_transfer",
 						"std" 		=> "",
 						"type" 		=> "transfer",
-						"desc" 		=> 'You can tranfer the saved options data between different installs by copying the text inside the text box. To import data from another install, replace the data in the text box with the one from another install and click "Import Options".',
+						"desc" 		=> 'You can transfer the saved options data between different installs by copying the text inside the text box. To import data from another install, replace the data in the text box with the one from another install and click "Import Options".',
 				);
 
 	} // End function: of_options()

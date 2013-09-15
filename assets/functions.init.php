@@ -261,6 +261,7 @@ if(!function_exists("skeleton_add_first_last_classes_to_menu")) {
  * Function to add OS to body class. Mobile support included.
  * @param string [ $classes = "" ]
  * @return string
+ * @uses get_browser_info()
  */
 if(!function_exists("skeleton_add_os_to_body")) {
 	function skeleton_add_os_to_body($classes = "") {
@@ -282,5 +283,17 @@ if(!function_exists("skeleton_add_browser_to_body")) {
 		$tmp = get_browser_info();
 		$classes[] = $tmp["browser_name"];
 		return $classes;
+	}
+}
+
+/**
+ * Returns an array of in-depth browser and os information for your use.
+ * @return array
+ * @uses includes/browser_detection.php
+ */
+if(!function_exists("get_browser_info")) {
+	function get_browser_info() {
+		$browser = browser_detection("full_assoc");
+		return $browser;
 	}
 }

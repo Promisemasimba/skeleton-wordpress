@@ -31,6 +31,7 @@
 <?php wp_head(); ?>
 <?php global $data; ?>
 <pre><?php var_dump($data) ?></pre>
+<?php skeleton_header_bottom() // action hook ?>
 </head>
 <body <?php body_class(); ?>>
 	<div class="wrapper main-header">

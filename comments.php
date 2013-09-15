@@ -26,12 +26,12 @@ if (post_password_required()) return;
 			<?php
 				printf(
 					__(
-						'One thought on %2$s', '%1$s thoughts on %2$s', 
-						get_comments_number(), 
-						'comments title', 
+						'One thought on %2$s', '%1$s thoughts on %2$s',
+						get_comments_number(),
+						'comments title',
 						'skeleton_wordpress'
 					),
-					number_format_i18n(get_comments_number()), 
+					number_format_i18n(get_comments_number()),
 					'<span>' . get_the_title() . '</span>'
 				);
 			?>

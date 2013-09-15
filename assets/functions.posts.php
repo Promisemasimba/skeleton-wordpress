@@ -6,8 +6,8 @@ if(!defined("ABSPATH")) exit;
  * Prints HTML with meta information for current post: categories, tags, permalink, author, and date.
  * @since 1.0
  */
-if(!function_exists("skeleton_entry_meta")) {
-	function skeleton_entry_meta() {
+if(!function_exists("skeleton_post_meta")) {
+	function skeleton_post_meta() {
 		// Translators: used between list items, there is a space after the comma.
 		$categories_list = get_the_category_list(__(", ", "skeleton_wordpress"));
 

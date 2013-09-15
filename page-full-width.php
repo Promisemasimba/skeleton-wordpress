@@ -8,12 +8,9 @@ if ( !defined('ABSPATH')) exit;
  *
    Template Name:  Full Width Page (no sidebar)
  *
- * @file           full-width.php
  * @package        Skeleton WrdPress
  * @author         AtomicPages LLC
  * @copyright      2013 AtomicPages LLC
- * @license        license.txt
- * @version        0.3
  * @link           http://codex.wordpress.org/Theme_Development#Pages_.28page.php.29
  * @since          0.3
  */
@@ -23,7 +20,7 @@ if ( !defined('ABSPATH')) exit;
 
 	<div class="wrapper main-content">
 		<div class="container content" role="main">
-			<main id="main" class="twelve columns omega">
+			<main id="main" class="sixteen columns">
 				<?php if(have_posts()) : ?>
 
 					<?php while(have_posts()) : ?>
@@ -62,7 +59,6 @@ if ( !defined('ABSPATH')) exit;
 
 				<?php endif; ?>
 			</main><!-- /main -->
-			<?php get_sidebar(); ?>
 		</div><!-- /.content -->
 	</div><!-- /.main-content -->
 <?php get_footer(); ?>
