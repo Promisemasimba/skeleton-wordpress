@@ -157,10 +157,32 @@ if(!function_exists("skeleton_sidebar_init")) {
 			"after_widget"	=> "</div>",
 		);
 
+		$sidebar_left_2 = array(
+			"id"			=> "sidebar-left-2",
+			"name"			=> __("Second Left Sidebar", "skeleton_wordpress"),
+			"description"	=> __("Sidebar will only appear when the three column double left sidebar layout is active", "skeleton_wordpress"),
+			"class"			=> "sidebar left",
+			"before_title"	=> '<h2 class="widgettitle">',
+			"after_title"	=> "</h2>",
+			"before_widget"	=> '<div id="%1$s" class="widget %2$s">',
+			"after_widget"	=> "</div>",
+		);
+
 		$sidebar_right = array(
 			"id"			=> "sidebar-right",
 			"name"			=> __("Right Sidebar", "skeleton_wordpress"),
 			"description"	=> __("Sidebar appears on the right side of the page on all pages unless the full-width template is selected", "skeleton_wordpress"),
+			"class"			=> "sidebar right",
+			"before_title"	=> '<h2 class="widgettitle">',
+			"after_title"	=> "</h2>",
+			"before_widget"	=> '<div id="%1$s" class="widget %2$s">',
+			"after_widget"	=> "</div>",
+		);
+
+		$sidebar_right_2 = array(
+			"id"			=> "sidebar-right-2",
+			"name"			=> __("Second Right Sidebar", "skeleton_wordpress"),
+			"description"	=> __("Sidebar will only appear when the three column double right sidebar layout is active", "skeleton_wordpress"),
 			"class"			=> "sidebar right",
 			"before_title"	=> '<h2 class="widgettitle">',
 			"after_title"	=> "</h2>",
@@ -180,7 +202,9 @@ if(!function_exists("skeleton_sidebar_init")) {
 		);
 
 		register_sidebar($sidebar_left);
+		register_sidebar($sidebar_left_2);
 		register_sidebar($sidebar_right);
+		register_sidebar($sidebar_right_2);
 		register_sidebars(4, $footer_widgets);
 	}
 }

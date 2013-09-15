@@ -98,7 +98,7 @@ code, pre {
             margin: 0; }
   .wrapper.main-content main article {
     padding: 10px; }
-  .wrapper.main-content aside section {
+  .wrapper.main-content .sidebar aside section {
     padding: 10px; }
   .wrapper.main-footer footer {
     padding-bottom: 5px; }

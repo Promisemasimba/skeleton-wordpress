@@ -111,9 +111,14 @@ code, pre {
 			@if($seeFields) { background: darken($base, 15%); }
 			article { padding: 10px; }
 		}
-		aside {
-			@if($seeFields) { background: darken($base, 18%); }
-			section { padding: 10px; }
+		.sidebar {
+			// height: 100%;
+			// display: block;
+			// @include clear("this");
+			aside {
+				@if($seeFields) { background: darken($base, 18%); }
+				section { padding: 10px; }
+			}
 		}
 	}
 	&.main-footer {

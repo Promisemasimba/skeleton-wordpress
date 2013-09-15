@@ -28,7 +28,8 @@
 	<div class="wrapper main-content">
 		<div class="container content" role="main">
 			<?php skeleton_content_before(); ?>
-			<main id="main" class="twelve columns omega">
+			<main id="main" <?php skeleton_main_classes() ?>>
+				<?php skeleton_content_top(); ?>
 				<?php if(have_posts()) : ?>
 
 					<?php while(have_posts()) : ?>
@@ -66,8 +67,8 @@
 					</article>
 
 				<?php endif; ?>
+				<?php skeleton_content_bottom(); ?>
 			</main><!-- /main -->
-			<?php // get_sidebar(); ?>
 			<?php skeleton_content_after(); ?>
 		</div><!-- /.content -->
 	</div><!-- /.main-content -->

@@ -3,8 +3,8 @@
 	if (!defined('ABSPATH')) exit;
 ?>
 
-<div class="sidebar-container">
-	<aside class="four columns sidebar alpha">
+<div class="sidebar">
+	<aside class="four columns alpha">
 		<?php if(!dynamic_sidebar()) : ?>
 		<div class="widget-wrapper">
 			<div class="widget-title"><?php _e("In Archive", "skeleton_wordpress") ?></div>
