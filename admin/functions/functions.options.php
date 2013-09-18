@@ -67,24 +67,26 @@ if(!function_exists('of_options')) {
 		// Google webfont array
 		$of_webfont_options = array(
 			"none" 					=> "Select a font", // please, always use this key: "none"
+			"Alegreya"				=> "Alegreya",
+			"Alegreya SC"			=> "Alegreya SC",
 			"Bitter"				=> "Bitter",
+			"Buenard"				=> "Buenard",
 			"Cabin"					=> "Cabin",
-			"Cantata One"			=> "Cantata One",
 			"Cardo"					=> "Cardo",
 			"Crimson Text"			=> "Crimson Text",
 			"Droid Sans"			=> "Droid Sans",
 			"Droid Serif"			=> "Droid Serif",
-			"EB Garamond"			=> "EB Garamond",
-			"Fjalla One"			=> "Fjalla One",
-			"Francois One"			=> "Francois One",
 			"Gentium Book Basic"	=> "Gentium Book Basic",
-			"Goudy Bookletter 1911"	=> "Goudy Bookletter 1911",
 			"Istok Web"				=> "Istok Web",
+			"Josefin Slab"			=> "Josefin Slab",
+			"Josefin Sans"			=> "Josefin Sans",
 			"Lato"					=> "Lato",
 			"Lora"					=> "Lora",
-			"Loved By the King"		=> "Loved By the King",
+			"Lusitana"				=> "Lusitana",
 			"Maven Pro"				=> "Maven Pro",
 			"Merriweather"			=> "Merriweather",
+			"Neuton"				=> "Neuton",
+			"Noticia Text"			=> "Noticia Text",
 			"Noto Sans"				=> "Noto Sans",
 			"Noto Serif"			=> "Noto Serif",
 			"Open Sans"				=> "Open Sans",
@@ -99,9 +101,9 @@ if(!function_exists('of_options')) {
 			"Roboto"				=> "Roboto",
 			"Source Sans Pro"		=> "Source Sans Pro",
 			"Tangerine"				=> "Tangerine",
-			"Terminal Dosis"		=> "Terminal Dosis",
 			"Tinos"					=> "Tinos",
 			"Ubuntu"				=> "Ubuntu",
+			"Volkhov"				=> "Volkhov"
 		);
 
 		/*-----------------------------------------------------------------------------------*/
@@ -231,6 +233,28 @@ $of_options[] = array( 	"name" 		=> "Body Font",
 						"type" 		=> "typography"
 				);
 
+$of_options[] = array( 	"name" 		=> "Heading Font",
+						"desc" 		=> "Specify the heading font properties",
+						"id" 		=> "heading_font",
+						"std" 		=> array(
+										"face" => "Arial, sans-serif",
+										"style" => "normal",
+										"weight" => "normal",
+										"color" => "#000000"
+									),
+						"type" 		=> "typography_limited"
+				);
+/*
+$of_options[] = array( 	"name" 		=> "Body Font Selection",
+						"desc" 		=> "Some description.",
+						"id" 		=> "body_font_select",
+						"std" 		=> "Select a font",
+						"type" 		=> "select_google_font",
+						"preview" 	=> array("size" => "30px"),
+						"style"		=> array("normal" => "Normal", "bold" => "Bold"),
+						"options" 	=> $of_webfont_options
+				);
+*/
 $of_options[] = array(
 						"name"		=> "Custom CSS",
 						"type"		=> "heading"
@@ -323,24 +347,22 @@ $of_options[] = array( 	"name" 		=> "Mini Select",
 						"options" 	=> $of_options_radio
 				);
 
-$of_options[] = array( 	"name" 		=> "Google Font Select2",
-						"desc" 		=> "Some description.",
-						"id" 		=> "g_select2",
-						"std" 		=> "Select a font",
-						"type" 		=> "select_google_font",
-						"preview" 	=> array("size" => "30px"),
-						"options" 	=> $of_webfont_options
+$of_options[] = array( 	"name" 		=> "Use Tipsy Tooltip",
+						"desc" 		=> "Switch to enable Tipsy Tooltips on user-specified selectors",
+						"id" 		=> "switch_tipsy",
+						"std" 		=> 0,
+						"on" 		=> "Enable",
+						"off" 		=> "Disable",
+						"folds"		=> 1,
+						"type" 		=> "switch"
 				);
 
-$of_options[] = array( 	"name" 		=> "Use Tipsy Tooltip",
-						"desc" 		=> "Use tipsy tooltip for all tags with the title attribute instead of browser default",
-						"id" 		=> "use_tipsy",
-						"std" 		=> "yes",
-						"type" 		=> "radio",
-						"options" 	=> array(
-			                    			"no" => "No",
-			                    			"yes" => "Yes"
-			                    		)
+$of_options[] = array( 	"name" 		=> "Tipsy Selectors",
+						"desc" 		=> "Add custom selectors separated by commas",
+						"id" 		=> "hidden_tipsy_selectors",
+						"std" 		=> "abbr[title], dd[title]",
+						"fold" 		=> "switch_tipsy", /* the switch hook */
+						"type" 		=> "text"
 				);
 
 $url =  ADMIN_DIR . 'assets/images/';

@@ -30,10 +30,10 @@ class Options_Machine {
 	 * Sanitize & returns default values if don't exist
 	 *
 	 * Notes:
-	 	- For further uses, you can check for the $value['type'] and performs
-	 	  more speficic sanitization on the option
-	 	- The ultimate objective of this function is to prevent the "undefined index"
-	 	  errors some authors are having due to malformed options array
+		- For further uses, you can check for the $value['type'] and performs
+		  more speficic sanitization on the option
+		- The ultimate objective of this function is to prevent the "undefined index"
+		  errors some authors are having due to malformed options array
 	 */
 	static function sanitize_option( $value ) {
 		$defaults = array(
@@ -71,7 +71,7 @@ class Options_Machine {
 		$data = $smof_data;
 
 		$defaults = array();
-	    $counter = 0;
+		$counter = 0;
 		$menu = '';
 		$output = '';
 		$update_data = false;
@@ -127,7 +127,7 @@ class Options_Machine {
 			//Start Heading
 			 if ( $value['type'] != "heading" )
 			 {
-			 	$class = ''; if(isset( $value['class'] )) { $class = $value['class']; }
+				$class = ''; if(isset( $value['class'] )) { $class = $value['class']; }
 
 				//hide items in checkbox group
 				$fold='';
@@ -164,7 +164,7 @@ class Options_Machine {
 					if(!isset($value['mod'])) $value['mod'] = '';
 					if($value['mod'] == 'mini') { $mini = 'mini';}
 
-					$output .= '<input class="of-input '.$mini.'" name="'.$value['id'].'" id="'. $value['id'] .'" type="'. $value['type'] .'" value="'. $t_value .'" />';
+					$output .= '<input class="of-input '.$mini.'" name="'.$value['id'].'" id="'. $value['id'] .'" type="'. $value['type'] .'" value="'. $t_value .'">';
 				break;
 
 				//select option
@@ -179,7 +179,7 @@ class Options_Machine {
 						$theValue = $option;
 						if (!is_numeric($select_ID))
 							$theValue = $select_ID;
-						$output .= '<option id="' . $select_ID . '" value="'.$theValue.'" ' . selected($smof_data[$value['id']], $theValue, false) . ' />'.$option.'</option>';
+						$output .= '<option id="' . $select_ID . '" value="'.$theValue.'" ' . selected($smof_data[$value['id']], $theValue, false) . '>'.$option.'</option>';
 					 }
 					$output .= '</select></div>';
 				break;
@@ -204,7 +204,7 @@ class Options_Machine {
 				case "radio":
 					$checked = (isset($smof_data[$value['id']])) ? checked($smof_data[$value['id']], $option, false) : '';
 					 foreach($value['options'] as $option=>$name) {
-						$output .= '<input class="of-input of-radio" name="'.$value['id'].'" type="radio" value="'.$option.'" ' . checked($smof_data[$value['id']], $option, false) . ' /><label class="radio">'.$name.'</label><br/>';
+						$output .= '<input class="of-input of-radio" name="'.$value['id'].'" type="radio" value="'.$option.'" ' . checked($smof_data[$value['id']], $option, false) . '><label class="radio">'.$name.'</label><b>';
 					}
 				break;
 
@@ -217,8 +217,8 @@ class Options_Machine {
 					$fold = '';
 					if (array_key_exists("folds",$value)) $fold="fld ";
 
-					$output .= '<input type="hidden" class="'.$fold.'checkbox of-input" name="'.$value['id'].'" id="'. $value['id'] .'" value="0"/>';
-					$output .= '<input type="checkbox" class="'.$fold.'checkbox of-input" name="'.$value['id'].'" id="'. $value['id'] .'" value="1" '. checked($smof_data[$value['id']], 1, false) .' />';
+					$output .= '<input type="hidden" class="'.$fold.'checkbox of-input" name="'.$value['id'].'" id="'. $value['id'] .'" value="0>';
+					$output .= '<input type="checkbox" class="'.$fold.'checkbox of-input" name="'.$value['id'].'" id="'. $value['id'] .'" value="1" '. checked($smof_data[$value['id']], 1, false) .'>';
 				break;
 
 				//multiple checkbox option
@@ -228,7 +228,7 @@ class Options_Machine {
 					foreach ($value['options'] as $key => $option) {
 						if (!isset($multi_stored[$key])) {$multi_stored[$key] = '';}
 						$of_key_string = $value['id'] . '_' . $key;
-						$output .= '<input type="checkbox" class="checkbox of-input" name="'.$value['id'].'['.$key.']'.'" id="'. $of_key_string .'" value="1" '. checked($multi_stored[$key], 1, false) .' /><label class="multicheck" for="'. $of_key_string .'">'. $option .'</label><br />';
+						$output .= '<input type="checkbox" class="checkbox of-input" name="'.$value['id'].'['.$key.']'.'" id="'. $of_key_string .'" value="1" '. checked($multi_stored[$key], 1, false) .'><label class="multicheck" for="'. $of_key_string .'">'. $option .'</label><br>';
 					}
 				break;
 
@@ -238,7 +238,7 @@ class Options_Machine {
 					if ( isset($value['std']) ) {
 						$default_color = ' data-default-color="' .$value['std'] . '" ';
 					}
-					$output .= '<input name="' . $value['id'] . '" id="' . $value['id'] . '" class="of-color"  type="text" value="' . $smof_data[$value['id']] . '"' . $default_color .' />';
+					$output .= '<input name="' . $value['id'] . '" id="' . $value['id'] . '" class="of-color"  type="text" value="' . $smof_data[$value['id']] . '"' . $default_color .'>';
 
 				break;
 
@@ -281,15 +281,54 @@ class Options_Machine {
 						$output .= '<div class="select_wrapper typography-face" original-title="Font family">';
 						$output .= '<select class="of-typography of-typography-face select" name="'.$value['id'].'[face]" id="'. $value['id'].'_face">';
 
-						$faces = array('arial'=>'Arial',
-										'verdana'=>'Verdana, Geneva',
-										'trebuchet'=>'Trebuchet',
-										'georgia' =>'Georgia',
-										'times'=>'Times New Roman',
-										'tahoma'=>'Tahoma, Geneva',
-										'palatino'=>'Palatino',
-										'helvetica'=>'Helvetica' );
-						foreach ($faces as $i=>$face) {
+						$faces = array(
+							"Arial"					=> "Arial",
+							"Verdana"				=> "Verdana, Geneva",
+							"Trebuchet MS"			=> "Trebuchet",
+							"Georgia" 				=> "Georgia",
+							"Times"					=> "Times New Roman",
+							"Tahoma"				=> "Tahoma, Geneva",
+							"Palatino"				=> "Palatino",
+							"Helvetica"				=> "Helvetica",
+							"Alegreya"				=> "Alegreya",
+							"Alegreya SC"			=> "Alegreya SC",
+							"Bitter"				=> "Bitter",
+							"Buenard"				=> "Buenard",
+							"Cabin"					=> "Cabin",
+							"Cardo"					=> "Cardo",
+							"Crimson Text"			=> "Crimson Text",
+							"Droid Sans"			=> "Droid Sans",
+							"Droid Serif"			=> "Droid Serif",
+							"Gentium Book Basic"	=> "Gentium Book Basic",
+							"Istok Web"				=> "Istok Web",
+							"Josefin Slab"			=> "Josefin Slab",
+							"Josefin Sans"			=> "Josefin Sans",
+							"Lato"					=> "Lato",
+							"Lora"					=> "Lora",
+							"Lusitana"				=> "Lusitana",
+							"Maven Pro"				=> "Maven Pro",
+							"Merriweather"			=> "Merriweather",
+							"Neuton"				=> "Neuton",
+							"Noticia Text"			=> "Noticia Text",
+							"Noto Sans"				=> "Noto Sans",
+							"Noto Serif"			=> "Noto Serif",
+							"Open Sans"				=> "Open Sans",
+							"Oxygen"				=> "Oxygen",
+							"PT Sans"				=> "PT Sans",
+							"PT Sans Caption"		=> "PT Sans Caption",
+							"PT Serif"				=> "PT Serif",
+							"PT Serif Caption"		=> "PT Serif Caption",
+							"Playfair Display"		=> "Playfair Display",
+							"Quattrocento"			=> "Quattrocento",
+							"Raleway"				=> "Raleway",
+							"Roboto"				=> "Roboto",
+							"Source Sans Pro"		=> "Source Sans Pro",
+							"Tangerine"				=> "Tangerine",
+							"Tinos"					=> "Tinos",
+							"Ubuntu"				=> "Ubuntu",
+							"Volkhov"				=> "Volkhov"
+						);
+						foreach($faces as $i => $face) {
 							$output .= '<option value="'. $i .'" ' . selected($typography_stored['face'], $i, false) . '>'. $face .'</option>';
 						}
 
@@ -300,14 +339,16 @@ class Options_Machine {
 					/* Font Weight */
 					if(isset($typography_stored['style'])) {
 
-						$output .= '<div class="select_wrapper typography-style" original-title="Font style">';
+						$output .= '<div class="select_wrapper typography-style" original-title="Font weight">';
 						$output .= '<select class="of-typography of-typography-style select" name="'.$value['id'].'[style]" id="'. $value['id'].'_style">';
-						$styles = array('normal'=>'Normal',
-										'italic'=>'Italic',
-										'bold'=>'Bold',
-										'bold italic'=>'Bold Italic');
+						$styles = array(
+			                'normal'=>'Normal',
+							// 'italic'=>'Italic',
+							'bold'=>'Bold',
+							// 'bold italic'=>'Bold Italic'
+						);
 
-						foreach ($styles as $i=>$style){
+						foreach ($styles as $i => $style){
 
 							$output .= '<option value="'. $i .'" ' . selected($typography_stored['style'], $i, false) . '>'. $style .'</option>';
 						}
@@ -319,10 +360,101 @@ class Options_Machine {
 					if(isset($typography_stored['color'])) {
 
 						$output .= '<div id="' . $value['id'] . '_color_picker" class="colorSelector typography-color"><div style="background-color: '.$typography_stored['color'].'"></div></div>';
-						$output .= '<input class="of-color of-typography of-typography-color" original-title="Font color" name="'.$value['id'].'[color]" id="'. $value['id'] .'_color" type="text" value="'. $typography_stored['color'] .'" />';
+						$output .= '<input class="of-color of-typography of-typography-color" original-title="Font color" name="'.$value['id'].'[color]" id="'. $value['id'] .'_color" type="text" value="'. $typography_stored['color'] .'">';
 
 					}
 
+				break;
+
+				case 'typography_limited' :
+				/* Font Face */
+					if(isset($typography_stored['face'])) {
+
+						$output .= '<div class="select_wrapper typography-face" original-title="Font family">';
+						$output .= '<select class="of-typography of-typography-face select" name="'.$value['id'].'[face]" id="'. $value['id'].'_face">';
+
+						$faces = array(
+							"Arial"					=> "Arial",
+							"Verdana"				=> "Verdana, Geneva",
+							"Trebuchet MS"			=> "Trebuchet",
+							"Georgia" 				=> "Georgia",
+							"Times"					=> "Times New Roman",
+							"Tahoma"				=> "Tahoma, Geneva",
+							"Palatino"				=> "Palatino",
+							"Helvetica"				=> "Helvetica",
+							"Alegreya"				=> "Alegreya",
+							"Alegreya SC"			=> "Alegreya SC",
+							"Bitter"				=> "Bitter",
+							"Buenard"				=> "Buenard",
+							"Cabin"					=> "Cabin",
+							"Cardo"					=> "Cardo",
+							"Crimson Text"			=> "Crimson Text",
+							"Droid Sans"			=> "Droid Sans",
+							"Droid Serif"			=> "Droid Serif",
+							"Gentium Book Basic"	=> "Gentium Book Basic",
+							"Istok Web"				=> "Istok Web",
+							"Josefin Slab"			=> "Josefin Slab",
+							"Josefin Sans"			=> "Josefin Sans",
+							"Lato"					=> "Lato",
+							"Lora"					=> "Lora",
+							"Lusitana"				=> "Lusitana",
+							"Maven Pro"				=> "Maven Pro",
+							"Merriweather"			=> "Merriweather",
+							"Neuton"				=> "Neuton",
+							"Noticia Text"			=> "Noticia Text",
+							"Noto Sans"				=> "Noto Sans",
+							"Noto Serif"			=> "Noto Serif",
+							"Open Sans"				=> "Open Sans",
+							"Oxygen"				=> "Oxygen",
+							"PT Sans"				=> "PT Sans",
+							"PT Sans Caption"		=> "PT Sans Caption",
+							"PT Serif"				=> "PT Serif",
+							"PT Serif Caption"		=> "PT Serif Caption",
+							"Playfair Display"		=> "Playfair Display",
+							"Quattrocento"			=> "Quattrocento",
+							"Raleway"				=> "Raleway",
+							"Roboto"				=> "Roboto",
+							"Source Sans Pro"		=> "Source Sans Pro",
+							"Tangerine"				=> "Tangerine",
+							"Tinos"					=> "Tinos",
+							"Ubuntu"				=> "Ubuntu",
+							"Volkhov"				=> "Volkhov"
+						);
+						foreach($faces as $i => $face) {
+							$output .= '<option value="'. $i .'" ' . selected($typography_stored['face'], $i, false) . '>'. $face .'</option>';
+						}
+
+						$output .= '</select></div>';
+
+					}
+
+					/* Font Weight */
+					if(isset($typography_stored['style'])) {
+
+						$output .= '<div class="select_wrapper typography-style" original-title="Font weight">';
+						$output .= '<select class="of-typography of-typography-style select" name="'.$value['id'].'[style]" id="'. $value['id'].'_style">';
+						$styles = array(
+			                'normal'=>'Normal',
+							// 'italic'=>'Italic',
+							'bold'=>'Bold',
+							// 'bold italic'=>'Bold Italic'
+						);
+
+						foreach ($styles as $i => $style){
+
+							$output .= '<option value="'. $i .'" ' . selected($typography_stored['style'], $i, false) . '>'. $style .'</option>';
+						}
+						$output .= '</select></div>';
+
+					}
+
+					/* Font Color */
+					if(isset($typography_stored['color'])) {
+
+						$output .= '<div id="' . $value['id'] . '_color_picker" class="colorSelector typography-color"><div style="background-color: '.$typography_stored['color'].'"></div></div>';
+						$output .= '<input class="of-color of-typography of-typography-color" original-title="Font color" name="'.$value['id'].'[color]" id="'. $value['id'] .'_color" type="text" value="'. $typography_stored['color'] .'">';
+
+					}
 				break;
 
 				//border option
@@ -354,7 +486,7 @@ class Options_Machine {
 
 					/* Border Color */
 					$output .= '<div id="' . $value['id'] . '_color_picker" class="colorSelector"><div style="background-color: '.$border_stored['color'].'"></div></div>';
-					$output .= '<input class="of-color of-border of-border-color" name="'.$value['id'].'[color]" id="'. $value['id'] .'_color" type="text" value="'. $border_stored['color'] .'" />';
+					$output .= '<input class="of-color of-border of-border-color" name="'.$value['id'].'[color]" id="'. $value['id'] .'_color" type="text" value="'. $border_stored['color'] .'">';
 
 				break;
 
@@ -376,9 +508,9 @@ class Options_Machine {
 							$selected = 'of-radio-img-selected';
 						}
 						$output .= '<span>';
-						$output .= '<input type="radio" id="of-radio-img-' . $value['id'] . $i . '" class="checkbox of-radio-img-radio" value="'.$key.'" name="'.$value['id'].'" '.$checked.' />';
+						$output .= '<input type="radio" id="of-radio-img-' . $value['id'] . $i . '" class="checkbox of-radio-img-radio" value="'.$key.'" name="'.$value['id'].'" '.$checked.'>';
 						$output .= '<div class="of-radio-img-label">'. $key .'</div>';
-						$output .= '<img src="'.$option.'" alt="" class="of-radio-img-img '. $selected .'" onClick="document.getElementById(\'of-radio-img-'. $value['id'] . $i.'\').checked = true;" />';
+						$output .= '<img src="'.$option.'" alt="" class="of-radio-img-img '. $selected .'" onClick="document.getElementById(\'of-radio-img-'. $value['id'] . $i.'\').checked = true;">';
 						$output .= '</span>';
 					}
 
@@ -440,77 +572,71 @@ class Options_Machine {
 				//drag & drop block manager
 				case 'sorter':
 
-				    // Make sure to get list of all the default blocks first
-				    $all_blocks = $value['std'];
+					// Make sure to get list of all the default blocks first
+					$all_blocks = $value['std'];
 
-				    $temp = array(); // holds default blocks
-				    $temp2 = array(); // holds saved blocks
+					$temp = array(); // holds default blocks
+					$temp2 = array(); // holds saved blocks
 
 					foreach($all_blocks as $blocks) {
-					    $temp = array_merge($temp, $blocks);
+						$temp = array_merge($temp, $blocks);
 					}
 
-				    $sortlists = isset($data[$value['id']]) && !empty($data[$value['id']]) ? $data[$value['id']] : $value['std'];
+					$sortlists = isset($data[$value['id']]) && !empty($data[$value['id']]) ? $data[$value['id']] : $value['std'];
 
-				    foreach( $sortlists as $sortlist ) {
-					$temp2 = array_merge($temp2, $sortlist);
-				    }
-
-				    // now let's compare if we have anything missing
-				    foreach($temp as $k => $v) {
-					if(!array_key_exists($k, $temp2)) {
-					    $sortlists['disabled'][$k] = $v;
+					foreach( $sortlists as $sortlist ) {
+						$temp2 = array_merge($temp2, $sortlist);
 					}
-				    }
 
-				    // now check if saved blocks has blocks not registered under default blocks
-				    foreach( $sortlists as $key => $sortlist ) {
-					foreach($sortlist as $k => $v) {
-					    if(!array_key_exists($k, $temp)) {
-						unset($sortlist[$k]);
-					    }
-					}
-					$sortlists[$key] = $sortlist;
-				    }
-
-				    // assuming all sync'ed, now get the correct naming for each block
-				    foreach( $sortlists as $key => $sortlist ) {
-					foreach($sortlist as $k => $v) {
-					    $sortlist[$k] = $temp[$k];
-					}
-					$sortlists[$key] = $sortlist;
-				    }
-
-				    $output .= '<div id="'.$value['id'].'" class="sorter">';
-
-
-				    if ($sortlists) {
-
-					foreach ($sortlists as $group=>$sortlist) {
-
-					    $output .= '<ul id="'.$value['id'].'_'.$group.'" class="sortlist_'.$value['id'].'">';
-					    $output .= '<h3>'.$group.'</h3>';
-
-					    foreach ($sortlist as $key => $list) {
-
-						$output .= '<input class="sorter-placebo" type="hidden" name="'.$value['id'].'['.$group.'][placebo]" value="placebo">';
-
-						if ($key != "placebo") {
-
-						    $output .= '<li id="'.$key.'" class="sortee">';
-						    $output .= '<input class="position" type="hidden" name="'.$value['id'].'['.$group.']['.$key.']" value="'.$list.'">';
-						    $output .= $list;
-						    $output .= '</li>';
-
+					// now let's compare if we have anything missing
+					foreach($temp as $k => $v) {
+						if(!array_key_exists($k, $temp2)) {
+							$sortlists['disabled'][$k] = $v;
 						}
-
-					    }
-
-					    $output .= '</ul>';
 					}
-				    }
 
-				    $output .= '</div>';
+					// now check if saved blocks has blocks not registered under default blocks
+					foreach( $sortlists as $key => $sortlist ) {
+						foreach($sortlist as $k => $v) {
+							if(!array_key_exists($k, $temp)) {
+								unset($sortlist[$k]);
+							}
+						}
+						$sortlists[$key] = $sortlist;
+					}
+
+					// assuming all sync'ed, now get the correct naming for each block
+					foreach( $sortlists as $key => $sortlist ) {
+						foreach($sortlist as $k => $v) {
+							$sortlist[$k] = $temp[$k];
+						}
+						$sortlists[$key] = $sortlist;
+					}
+
+					$output .= '<div id="'.$value['id'].'" class="sorter">';
+
+
+					if ($sortlists) {
+						foreach ($sortlists as $group=>$sortlist) {
+							$output .= '<ul id="'.$value['id'].'_'.$group.'" class="sortlist_'.$value['id'].'">';
+							$output .= '<h3>'.$group.'</h3>';
+
+							foreach ($sortlist as $key => $list) {
+								$output .= '<input class="sorter-placebo" type="hidden" name="'.$value['id'].'['.$group.'][placebo]" value="placebo">';
+
+								if ($key != "placebo") {
+									$output .= '<li id="'.$key.'" class="sortee">';
+									$output .= '<input class="position" type="hidden" name="'.$value['id'].'['.$group.']['.$key.']" value="'.$list.'">';
+									$output .= $list;
+									$output .= '</li>';
+								}
+							}
+
+							$output .= '</ul>';
+						}
+					}
+
+					$output .= '</div>';
 				break;
 
 				//background images option
@@ -529,7 +655,7 @@ class Options_Machine {
 								$selected = 'of-radio-tile-selected';
 							}
 							$output .= '<span>';
-							$output .= '<input type="radio" id="of-radio-tile-' . $value['id'] . $i . '" class="checkbox of-radio-tile-radio" value="'.$option.'" name="'.$value['id'].'" '.$checked.' />';
+							$output .= '<input type="radio" id="of-radio-tile-' . $value['id'] . $i . '" class="checkbox of-radio-tile-radio" value="'.$option.'" name="'.$value['id'].'" '.$checked.'>';
 							$output .= '<div class="of-radio-tile-img '. $selected .'" style="background: url('.$option.')" onClick="document.getElementById(\'of-radio-tile-'. $value['id'] . $i.'\').checked = true;"></div>';
 							$output .= '</span>';
 						}
@@ -574,14 +700,14 @@ class Options_Machine {
 					$output .= '<div class="select_wrapper">';
 					$output .= '<select class="select of-input google_font_select" name="'.$value['id'].'" id="'. $value['id'] .'">';
 					foreach ($value['options'] as $select_key => $option) {
-						$output .= '<option value="'.$select_key.'" ' . selected((isset($smof_data[$value['id']]))? $smof_data[$value['id']] : "", $option, false) . ' />'.$option.'</option>';
+						$output .= '<option value="'.$select_key.'" ' . selected((isset($smof_data[$value['id']]))? $smof_data[$value['id']] : "", $option, false) . '>'.$option.'</option>';
 					}
 					$output .= '</select></div>';
 
 					if(isset($value['preview']['text'])){
 						$g_text = $value['preview']['text'];
 					} else {
-						$g_text = '0123456789 ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz';
+						$g_text = '0123456789 ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz -=_+[]{};\':",.<>/?';
 					}
 					if(isset($value['preview']['size'])) {
 						$g_size = 'style="font-size: '. $value['preview']['size'] .';"';
@@ -619,7 +745,7 @@ class Options_Machine {
 					$s_data = 'data-id="'.$value['id'].'" data-val="'.$s_val.'" data-min="'.$s_min.'" data-max="'.$s_max.'" data-step="'.$s_step.'"';
 
 					//html output
-					$output .= '<input type="text" name="'.$value['id'].'" id="'.$value['id'].'" value="'. $s_val .'" class="mini" '. $s_edit .' />';
+					$output .= '<input type="text" name="'.$value['id'].'" id="'.$value['id'].'" value="'. $s_val .'" class="mini" '. $s_edit .'>';
 					$output .= '<div id="'.$value['id'].'-slider" class="smof_sliderui" style="margin-left: 7px;" '. $s_data .'></div>';
 
 				break;
@@ -663,8 +789,8 @@ class Options_Machine {
 						$output .= '<label class="'.$fold.'cb-enable'. $cb_enabled .'" data-id="'.$value['id'].'"><span>'. $on .'</span></label>';
 						$output .= '<label class="'.$fold.'cb-disable'. $cb_disabled .'" data-id="'.$value['id'].'"><span>'. $off .'</span></label>';
 
-						$output .= '<input type="hidden" class="'.$fold.'checkbox of-input" name="'.$value['id'].'" id="'. $value['id'] .'" value="0"/>';
-						$output .= '<input type="checkbox" id="'.$value['id'].'" class="'.$fold.'checkbox of-input main_checkbox" name="'.$value['id'].'"  value="1" '. checked($smof_data[$value['id']], 1, false) .' />';
+						$output .= '<input type="hidden" class="'.$fold.'checkbox of-input" name="'.$value['id'].'" id="'. $value['id'] .'" value="0>';
+						$output .= '<input type="checkbox" id="'.$value['id'].'" class="'.$fold.'checkbox of-input main_checkbox" name="'.$value['id'].'"  value="1" '. checked($smof_data[$value['id']], 1, false) .'>';
 
 					$output .= '</p>';
 
@@ -718,9 +844,9 @@ class Options_Machine {
 			of_save_options($smof_data);
 		}
 
-	    $output .= '</div>';
+		$output .= '</div>';
 
-	    do_action('optionsframework_machine_after', array(
+		do_action('optionsframework_machine_after', array(
 					'options'		=> $options,
 					'smof_data'		=> $smof_data,
 					'defaults'		=> $defaults,
@@ -734,7 +860,7 @@ class Options_Machine {
 			$smof_output = "";
 		}
 
-	    return array($output,$menu,$defaults);
+		return array($output,$menu,$defaults);
 
 	}
 
@@ -751,20 +877,20 @@ class Options_Machine {
 	 */
 	public static function optionsframework_media_uploader_function($id,$std,$mod){
 
-	    $data = of_get_options();
-	    $smof_data = of_get_options();
+		$data = of_get_options();
+		$smof_data = of_get_options();
 
 		$uploader = '';
 		$upload = "";
 		if (isset($smof_data[$id]))
-	    	$upload = $smof_data[$id];
+			$upload = $smof_data[$id];
 		$hide = '';
 
 		if ($mod == "min") {$hide ='hide';}
 
-	    if ( $upload != "") { $val = $upload; } else {$val = $std;}
+		if ( $upload != "") { $val = $upload; } else {$val = $std;}
 
-		$uploader .= '<input class="'.$hide.' upload of-input" name="'. $id .'" id="'. $id .'_upload" value="'. $val .'" />';
+		$uploader .= '<input class="'.$hide.' upload of-input" name="'. $id .'" id="'. $id .'_upload" value="'. $val .'">';
 
 		//Upload controls DIV
 		$uploader .= '<div class="upload_button_div">';
@@ -785,9 +911,9 @@ class Options_Machine {
 		//Preview
 		$uploader .= '<div class="screenshot">';
 		if(!empty($upload)){
-	    	$uploader .= '<a class="of-uploaded-image" href="'. $upload . '">';
-	    	$uploader .= '<img class="of-option-image" id="image_'.$id.'" src="'.$upload.'" alt="" />';
-	    	$uploader .= '</a>';
+			$uploader .= '<a class="of-uploaded-image" href="'. $upload . '">';
+			$uploader .= '<img class="of-option-image" id="image_'.$id.'" src="'.$upload.'" alt="">';
+			$uploader .= '</a>';
 			}
 		$uploader .= '</div>';
 		$uploader .= '<div class="clear"></div>' . "\n";
@@ -808,15 +934,15 @@ class Options_Machine {
 	 */
 	public static function optionsframework_slider_function($id,$std,$oldorder,$order){
 
-	    $data = of_get_options();
-	    $smof_data = of_get_options();
+		$data = of_get_options();
+		$smof_data = of_get_options();
 
 		$slider = '';
 		$slide = array();
 		if (isset($smof_data[$id]))
-	    	$slide = $smof_data[$id];
+			$slide = $smof_data[$id];
 
-	    if (isset($slide[$oldorder])) { $val = $slide[$oldorder]; } else {$val = $std;}
+		if (isset($slide[$oldorder])) { $val = $slide[$oldorder]; } else {$val = $std;}
 
 		//initialize all vars
 		$slidevars = array('title','url','link','description');
@@ -834,17 +960,17 @@ class Options_Machine {
 			$slider .= '<li><div class="slide_header"><strong>Slide '.$order.'</strong>';
 		}
 
-		$slider .= '<input type="hidden" class="slide of-input order" name="'. $id .'['.$order.'][order]" id="'. $id.'_'.$order .'_slide_order" value="'.$order.'" />';
+		$slider .= '<input type="hidden" class="slide of-input order" name="'. $id .'['.$order.'][order]" id="'. $id.'_'.$order .'_slide_order" value="'.$order.'">';
 
 		$slider .= '<a class="slide_edit_button" href="#">Edit</a></div>';
 
 		$slider .= '<div class="slide_body">';
 
 		$slider .= '<label>Title</label>';
-		$slider .= '<input class="slide of-input of-slider-title" name="'. $id .'['.$order.'][title]" id="'. $id .'_'.$order .'_slide_title" value="'. stripslashes($val['title']) .'" />';
+		$slider .= '<input class="slide of-input of-slider-title" name="'. $id .'['.$order.'][title]" id="'. $id .'_'.$order .'_slide_title" value="'. stripslashes($val['title']) .'">';
 
 		$slider .= '<label>Image URL</label>';
-		$slider .= '<input class="upload slide of-input" name="'. $id .'['.$order.'][url]" id="'. $id .'_'.$order .'_slide_url" value="'. $val['url'] .'" />';
+		$slider .= '<input class="upload slide of-input" name="'. $id .'['.$order.'][url]" id="'. $id .'_'.$order .'_slide_url" value="'. $val['url'] .'">';
 
 		$slider .= '<div class="upload_button_div"><span class="button media_upload_button" id="'.$id.'_'.$order .'">Upload</span>';
 
@@ -854,20 +980,20 @@ class Options_Machine {
 		$slider .= '<div class="screenshot">';
 		if(!empty($val['url'])){
 
-	    	$slider .= '<a class="of-uploaded-image" href="'. $val['url'] . '">';
-	    	$slider .= '<img class="of-option-image" id="image_'.$id.'_'.$order .'" src="'.$val['url'].'" alt="" />';
-	    	$slider .= '</a>';
+			$slider .= '<a class="of-uploaded-image" href="'. $val['url'] . '">';
+			$slider .= '<img class="of-option-image" id="image_'.$id.'_'.$order .'" src="'.$val['url'].'" alt="">';
+			$slider .= '</a>';
 
 			}
 		$slider .= '</div>';
 		$slider .= '<label>Link URL (optional)</label>';
-		$slider .= '<input class="slide of-input" name="'. $id .'['.$order.'][link]" id="'. $id .'_'.$order .'_slide_link" value="'. $val['link'] .'" />';
+		$slider .= '<input class="slide of-input" name="'. $id .'['.$order.'][link]" id="'. $id .'_'.$order .'_slide_link" value="'. $val['link'] .'">';
 
 		$slider .= '<label>Description (optional)</label>';
 		$slider .= '<textarea class="slide of-input" name="'. $id .'['.$order.'][description]" id="'. $id .'_'.$order .'_slide_description" cols="8" rows="8">'.stripslashes($val['description']).'</textarea>';
 
 		$slider .= '<a class="slide_delete_button" href="#">Delete</a>';
-	    $slider .= '<div class="clear"></div>' . "\n";
+		$slider .= '<div class="clear"></div>' . "\n";
 
 		$slider .= '</div>';
 		$slider .= '</li>';

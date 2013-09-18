@@ -21,7 +21,7 @@
 			<?php endif; ?>
 		</section>
 		<div class="sixteen columns copyright">
-			<p><?php echo do_shortcode(skeleton_footer()) ?></p>
+			<p><?php skeleton_footer() ?></p>
 		</div>
 	</footer>
 </div>

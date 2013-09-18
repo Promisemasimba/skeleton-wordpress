@@ -1,9 +1,5 @@
 $(function() {
 	$("html").removeClass("no-js");
-	$("*[title]").tipsy({
-		fade: true,
-		gravity: "s"
-	});
 });
 
 /*
