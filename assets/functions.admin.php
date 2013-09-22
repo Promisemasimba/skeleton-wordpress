@@ -1,8 +1,18 @@
 <?php
 
+/**
+ * This page bridges everything from the admin end to the frontend.
+ * All of the options from SMOF are linked here along with a simple
+ * helper class that does some heavy lifting.
+ *
+ * @package WordPress
+ * @subpackage skeleton_wordpress
+ * @since 0.1
+ */
+
 if(!defined("ABSPATH")) exit;
 
-add_action("wp_head", "skeleton_add_google_font", 10); // added before any internal styles
+add_action("wp_head", "skeleton_add_google_fonts", 10); // added before any internal styles
 add_action("wp_head", "skeleton_internal_styles", 15); // after after other internal styles
 add_action("wp_footer", "skeleton_internal_scripts", 29);
 add_action("wp_footer", "skeleton_add_analytics", 30); // put after enqueued scripts
@@ -18,6 +28,8 @@ if(!function_exists("skeleton_internal_styles")) {
 	function skeleton_internal_styles() {
 		global $smof;
 		$body_font = $smof->get_data("body_font");
+		$heading_font = $smof->get_data("heading_font");
+		$nav_font = $smof->get_data("nav_font");
 ?>
 <style type="text/css">
 	body {
@@ -30,7 +42,19 @@ if(!function_exists("skeleton_internal_styles")) {
 		<?php echo $smof->build_property("font-family", "face", $body_font, "sans-serif") ?>
 		<?php echo $smof->build_property("font-size", "size", $body_font) ?>
 		<?php echo $smof->build_property("font-style", "style", $body_font) ?>
-		<?php  echo $smof->build_property("color", "color", $body_font) ?>
+		<?php echo $smof->build_property("color", "color", $body_font) ?>
+	}
+	h1, h2, h3,
+	h4, h5, h6 {
+		<?php echo $smof->build_property("font-family", "face", $heading_font, "sans-serif") ?>
+		<?php echo $smof->build_property("font-style", "style", $heading_font) ?>
+		<?php echo $smof->build_property("color", "color", $heading_font) ?>
+	}
+	.wrapper nav {
+		<?php echo $smof->build_property("font-family", "face", $nav_font, "sans-serif") ?>
+		<?php echo $smof->build_property("font-size", "size", $nav_font) ?>
+		<?php echo $smof->build_property("font-style", "style", $nav_font) ?>
+		<?php echo $smof->build_property("color", "color", $nav_font) ?>
 	}
 	<?php echo $smof->get_data("custom_css") . "\n"; // custom styles ?>
 </style>
@@ -38,6 +62,10 @@ if(!function_exists("skeleton_internal_styles")) {
 	}
 }
 
+/**
+ * Allows for custom scripts to be places just before the closing of the body tag.
+ * @return void
+ */
 if(!function_exists("skeleton_internal_scripts")) {
 	function skeleton_internal_scripts() {
 		global $smof;
@@ -56,6 +84,10 @@ if(!function_exists("skeleton_internal_scripts")) {
 	}
 }
 
+/**
+ * Adds any user-tracking software to the bottom of each page
+ * @return void
+ */
 if(!function_exists("skeleton_add_analytics")) {
 	function skeleton_add_analytics() {
 		global $smof;
@@ -63,6 +95,10 @@ if(!function_exists("skeleton_add_analytics")) {
 	}
 }
 
+/**
+ * Gets the custom footer text and places it on the page! Also, this function automatically executes shortcodes.
+ * @return void
+ */
 if(!function_exists("skeleton_footer")) {
 	function skeleton_footer() {
 		global $smof;
@@ -70,19 +106,18 @@ if(!function_exists("skeleton_footer")) {
 	}
 }
 
-if(!function_exists("skeleton_check_font")) {
-	function skeleton_check_font($font) {
 
+/**
+ * Prints the generated URL to Google WebFonts to the head
+ * @return void
+ */
+if(!function_exists("skeleton_add_google_fonts")) {
+	function skeleton_add_google_fonts() {
+		global $smof;
 	}
 }
 
-if(!function_exists("skeleton_add_google_font")) {
-	function skeleton_add_google_font() {
-		global $smof;
-
-		$font_info = $smof->get_data("body_font");
-		if($smof->is_google_font($font_info["face"])) {
-			echo $smof->build_google_font($font_info["face"], $font_info["style"]);
-		}
-	}
+function foo() {
+	global $smof;
+	var_dump(htmlspecialchars($smof->build_google_fonts()));
 }

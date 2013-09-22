@@ -1,11 +1,23 @@
 <?php
+
+/**
+ * Where all of the theme layout magic happens
+ *
+ * @package WordPress
+ * @subpackage skeleton_wordpress
+ * @since 0.1
+ */
+
 // Exit if access directly
 if (!defined('ABSPATH')) exit;
 
 add_action("skeleton_content_before", "skeleton_sidebar_left");
 add_action("skeleton_content_after", "skeleton_sidebar_right");
 
-// help me!
+/**
+ * Simply returns the current layout that is selected on the admin side
+ * @return String
+ */
 if(!function_exists("skeleton_get_layout")) {
 	function skeleton_get_layout() {
 		global $data;
@@ -14,6 +26,10 @@ if(!function_exists("skeleton_get_layout")) {
 	}
 }
 
+/**
+ * Returns the LEFT sidebar based on the active layout
+ * @return String
+ */
 if(!function_exists("skeleton_sidebar_left")) {
 	function skeleton_sidebar_left() {
 		if(skeleton_get_layout() == "2cl" || skeleton_get_layout() == "3clr") {
@@ -24,6 +40,10 @@ if(!function_exists("skeleton_sidebar_left")) {
 	}
 }
 
+/**
+ * Returns the RIGHT sidebar based on the active layout
+ * @return String
+ */
 if(!function_exists("skeleton_sidebar_right")) {
 	function skeleton_sidebar_right() {
 		if(skeleton_get_layout() == "2cr" || skeleton_get_layout() == "3clr") {
@@ -34,6 +54,10 @@ if(!function_exists("skeleton_sidebar_right")) {
 	}
 }
 
+/**
+ * Adds the proper classes to the main and aside elements so everything fits flush
+ * @return void
+ */
 if(!function_exists("skeleton_main_classes")) {
 	function skeleton_main_classes() {
 		$classes = array("twelve", "columns", "omega"); // default classes

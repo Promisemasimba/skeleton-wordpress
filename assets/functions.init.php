@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * All of the theme initialization actions here. This is the real meat of the theme where everything is stated.
+ *
+ * @package WordPress
+ * @subpackage skeleton_wordpress
+ * @since 0.1
+ */
+
 if(!defined("ABSPATH")) exit;
 
 /**

@@ -30,18 +30,18 @@ if (post_password_required()) return;
 						get_comments_number(),
 						'comments title',
 						'skeleton_wordpress'
-					),
+					), // end __
 					number_format_i18n(get_comments_number()),
 					'<span>' . get_the_title() . '</span>'
-				);
+				); // end printf
 			?>
 		</h2>
 		<ol class="comment-list">
 			<?php
 				wp_list_comments(array(
-					'style'       => 'ol',
-					'short_ping'  => true,
-					'avatar_size' => 74,
+					'style'			=> 'ol',
+					'short_ping'	=> true,
+					'avatar_size'	=> 74,
 				));
 			?>
 		</ol><!-- .comment-list -->

@@ -6,7 +6,7 @@ if ( !defined('ABSPATH')) exit;
 /**
  * Full Content Template
  *
-   Template Name:  1 Column Page (No Sidebars)
+   Template Name:  2 Column Page (Right Sidebar)
  *
  * @package        Skeleton WrdPress
  * @author         AtomicPages LLC
@@ -21,7 +21,7 @@ if ( !defined('ABSPATH')) exit;
 	<div class="wrapper main-content">
 		<div class="container content" role="main">
 			<?php skeleton_content_before(); ?>
-			<main id="main" class="sixteen columns">
+			<main id="main" class="sixteen columns alpha">
 				<?php skeleton_content_top(); ?>
 				<?php if(have_posts()) : ?>
 
@@ -61,6 +61,7 @@ if ( !defined('ABSPATH')) exit;
 
 				<?php endif; ?>
 				<?php skeleton_content_bottom(); ?>
+				<?php get_sidebar("right"); ?>
 			</main><!-- /main -->
 			<?php skeleton_content_after(); ?>
 		</div><!-- /.content -->

@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * All shortcode-related functions are here!
+ *
+ * @package WordPress
+ * @subpackage skeleton_wordpress
+ * @since 0.1
+ */
+
 if(!defined("ABSPATH")) exit;
 
 /**

@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * Hooks, baby!
+ *
+ * @package WordPress
+ * @subpackage skeleton_wordpress
+ * @since 0.1
+ */
+
 if(!defined("ABSPATH")) exit;
 
 if(!function_exists("skeleton_content_before")) {
@@ -17,6 +25,12 @@ if(!function_exists("skeleton_content_after")) {
 if(!function_exists("skeleton_sidebar_before")) {
 	function skeleton_sidebar_before() {
 		do_action("skeleton_sidebar_before");
+	}
+}
+
+if(!function_exists("skeleton_sidebar_after")) {
+	function skeleton_sidebar_after() {
+		do_action("skeleton_sidebar_after");
 	}
 }
 
@@ -56,14 +70,14 @@ if(!function_exists("skeleton_comments_after")) {
 	}
 }
 
-if(!function_exists("skeleton_")) {
-	function skeleton_() {
-		do_action("skeleton_");
+if(!function_exists("skeleton_container_before")) {
+	function skeleton_container_before() {
+		do_action("skeleton_container_before");
 	}
 }
 
-if(!function_exists("skeleton_")) {
-	function skeleton_() {
-		do_action("skeleton_");
+if(!function_exists("skeleton_container_after")) {
+	function skeleton_container_after() {
+		do_action("skeleton_container_after");
 	}
 }

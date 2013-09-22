@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * Want to enqueue a script or style? Want to register those styles? Want to replace an existing style? Do so here.
+ *
+ * @package WordPress
+ * @subpackage skeleton_wordpress
+ * @since 0.1
+ */
+
 if(!defined("ABSPATH")) exit;
 
 /**

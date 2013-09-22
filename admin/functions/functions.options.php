@@ -182,7 +182,8 @@ $of_options[] = array( 	"name" 		=> "Main Layout",
 $of_options[] = array( 	"name" 		=> "Background Images",
 						"desc" 		=> "Select a background pattern. By default no patten is selected.",
 						"id" 		=> "custom_bg",
-						"std" 		=> $bg_images_url . "bg0.png",
+						// "std" 		=> $bg_images_url . "bg0.png",
+						"std" 		=> "",
 						"type" 		=> "tiles",
 						"options" 	=> $bg_images,
 				);
@@ -243,6 +244,19 @@ $of_options[] = array( 	"name" 		=> "Heading Font",
 										"color" => "#000000"
 									),
 						"type" 		=> "typography_limited"
+				);
+
+$of_options[] = array( 	"name" 		=> "Navigation Font",
+						"desc" 		=> "Specify the nav font properties",
+						"id" 		=> "nav_font",
+						"std" 		=> array(
+										"size" => "12px",
+										"face" => "Arial, sans-serif",
+										"style" => "normal",
+										"weight" => "normal",
+										"color" => "#000000"
+									),
+						"type" 		=> "typography"
 				);
 /*
 $of_options[] = array( 	"name" 		=> "Body Font Selection",
@@ -360,7 +374,7 @@ $of_options[] = array( 	"name" 		=> "Use Tipsy Tooltip",
 $of_options[] = array( 	"name" 		=> "Tipsy Selectors",
 						"desc" 		=> "Add custom selectors separated by commas",
 						"id" 		=> "hidden_tipsy_selectors",
-						"std" 		=> "abbr[title], dd[title]",
+						"std" 		=> "abbr[title], dd[title], .comments-link a",
 						"fold" 		=> "switch_tipsy", /* the switch hook */
 						"type" 		=> "text"
 				);

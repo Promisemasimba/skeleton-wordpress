@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * Let the magic begin
+ *
+ * @package WordPress
+ * @subpackage skeleton_wordpress
+ * @since 0.1
+ */
+
 if(!defined("ABSPATH")) exit;
 
 /**

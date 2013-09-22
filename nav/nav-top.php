@@ -2,8 +2,8 @@
 if ( !defined("ABSPATH")) exit;
 
 /**
- * Main navigation file. This provides the most essential information that is
- * required to make this navigation work in wordpress. See comments on individual
+ * Top navigation file. This provides the most essential information that is
+ * required to make this navigation work in WordPress. See comments on individual
  * indexes for what can be changed.
  *
  * @package			skeleton_wordpress
@@ -15,8 +15,8 @@ if ( !defined("ABSPATH")) exit;
  */
 ?>
 
-<?php if(has_nav_menu("main-nav")) : // does the menu exist? ?>
-<div class="wrapper main-navigation">
+<?php if(has_nav_menu("top-nav")) : // does the menu exist? ?>
+<div class="wrapper top-navigation">
 <?php
 	wp_nav_menu(
 		array(
@@ -25,8 +25,8 @@ if ( !defined("ABSPATH")) exit;
 			"container_class"	=> "container",					// do not change
 			"container_id"		=> "nav", 						// change if you want, it's there if you need it
 			"fallback_cb"		=> false,
-			"menu_class"		=> "sixteen columns main-nav",	// do not change
-			"theme_location"	=> "main-nav"
+			"menu_class"		=> "sixteen columns top-nav",	// do not change
+			"theme_location"	=> "top-nav"
 		)
 	);
 ?>

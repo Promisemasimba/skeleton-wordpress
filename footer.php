@@ -25,6 +25,7 @@
 		</div>
 	</footer>
 </div>
+<?php skeleton_container_after(); ?>s
 <?php wp_footer(); ?>
 </body>
 </html>

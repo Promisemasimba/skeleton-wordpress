@@ -2,6 +2,10 @@
 * Look at Twenty Thirteen for footer widget/sidebar
 * Add smooth scroll to top (allow for option on admin end too)
 
+## ADDITIONS
+* Add page templates
+* Add blog post templates for all post types
+
 ## TODO
 * Shortcodes
 	* `[button]`
