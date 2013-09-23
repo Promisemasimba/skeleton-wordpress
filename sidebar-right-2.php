@@ -3,6 +3,7 @@
 	if (!defined('ABSPATH')) exit;
 ?>
 
+<?php skeleton_sidebar_before(); ?>
 <div class="sidebar">
 	<aside class="four columns omega">
 		<?php if(!dynamic_sidebar()) : ?>
@@ -15,3 +16,4 @@
 		<?php endif; ?>
 	</aside>
 </div>
+<?php skeleton_sidebar_after(); ?>

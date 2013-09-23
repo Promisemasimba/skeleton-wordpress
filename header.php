@@ -30,7 +30,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <?php wp_head(); ?>
 <?php global $data; ?>
-<pre><?php foo() // var_dump($data) ?></pre>
+<pre><?php // var_dump($data) ?></pre>
 <?php skeleton_header_bottom() // action hook ?>
 </head>
 <body <?php body_class(); ?>>

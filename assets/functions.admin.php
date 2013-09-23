@@ -114,10 +114,6 @@ if(!function_exists("skeleton_footer")) {
 if(!function_exists("skeleton_add_google_fonts")) {
 	function skeleton_add_google_fonts() {
 		global $smof;
+		echo $smof->build_google_fonts();
 	}
-}
-
-function foo() {
-	global $smof;
-	var_dump(htmlspecialchars($smof->build_google_fonts()));
 }

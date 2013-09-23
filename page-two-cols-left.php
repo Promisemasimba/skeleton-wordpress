@@ -22,7 +22,7 @@ if ( !defined('ABSPATH')) exit;
 		<div class="container content" role="main">
 			<?php get_sidebar("left"); ?>
 			<?php skeleton_content_before(); ?>
-			<main id="main" class="sixteen columns omega">
+			<main id="main" class="twelve columns omega">
 				<?php skeleton_content_top(); ?>
 				<?php if(have_posts()) : ?>
 

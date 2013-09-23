@@ -6,7 +6,7 @@ if ( !defined('ABSPATH')) exit;
 /**
  * Full Content Template
  *
-   Template Name:  2 Column Page (Right Sidebar)
+   Template Name:  3 Column Page (Left & Right Sidebars)
  *
  * @package        Skeleton WrdPress
  * @author         AtomicPages LLC
@@ -20,8 +20,9 @@ if ( !defined('ABSPATH')) exit;
 
 	<div class="wrapper main-content">
 		<div class="container content" role="main">
+			<?php get_sidebar("left"); ?>
 			<?php skeleton_content_before(); ?>
-			<main id="main" class="twelve columns alpha">
+			<main id="main" class="eight columns alpha omega">
 				<?php skeleton_content_top(); ?>
 				<?php if(have_posts()) : ?>
 
@@ -61,9 +62,9 @@ if ( !defined('ABSPATH')) exit;
 
 				<?php endif; ?>
 				<?php skeleton_content_bottom(); ?>
-				<?php get_sidebar("right"); ?>
 			</main><!-- /main -->
 			<?php skeleton_content_after(); ?>
+			<?php get_sidebar("right"); ?>
 		</div><!-- /.content -->
 	</div><!-- /.main-content -->
 <?php get_footer(); ?>
