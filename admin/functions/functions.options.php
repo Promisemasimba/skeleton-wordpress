@@ -139,8 +139,14 @@ $of_options[] = array( 	"name" 		=> "General",
 
 $of_options[] = array( 	"name" 		=> "Logo Upload",
 						"desc" 		=> "Upload your logo or type in the path to the logo here.",
-						"id" 		=> "media_upload_35",
-						// Use the shortcodes [site_url] or [site_url_secure] for setting default URLs
+						"id" 		=> "logo",
+						"std" 		=> "",
+						"type" 		=> "upload"
+				);
+
+$of_options[] = array( 	"name" 		=> "Favicon Upload",
+						"desc" 		=> "Upload your favicon or type in the path to the icon here.",
+						"id" 		=> "favicon",
 						"std" 		=> "",
 						"type" 		=> "upload"
 				);
@@ -158,6 +164,14 @@ $of_options[] = array( 	"name" 		=> "Footer Text",
 						"std" 		=> "Powered by [wordpress]. Built with [credit].",
 						"type" 		=> "textarea"
 				);
+
+$of_options[] = array(
+			"name" 		=> "Upload Slides",
+			"desc" 		=> "Unlimited slider with drag and drop sortings.",
+			"id" 		=> "pingu_slider",
+			"std" 		=> "",
+			"type" 		=> "slider"
+		);
 
 $of_options[] = array( 	"name" 		=> "Styles",
 						"type" 		=> "heading"
@@ -269,6 +283,74 @@ $of_options[] = array( 	"name" 		=> "Body Font Selection",
 						"options" 	=> $of_webfont_options
 				);
 */
+
+$of_options[] = array(
+						"name"		=> "Slider Options",
+						"type"		=> "heading"
+				);
+
+$of_options[] = array( 	"name" 		=> "Slider Animation",
+						"desc" 		=> "Choose whether the slider will slide or fade",
+						"id" 		=> "slider_animation",
+						"std" 		=> "slide",
+						"type" 		=> "select",
+						"options" 	=> array("slide" => "Slide", "fade" => "Fade")
+				);
+
+$of_options[] = array( 	"name" 		=> "Slider Direction",
+						"desc" 		=> "Choose the direction in which the slider will move",
+						"id" 		=> "slider_direction",
+						"std" 		=> "horizontal",
+						"type" 		=> "select",
+						"options" 	=> array("horizontal" => "Horizontal", "vertical" => "Vertical")
+				);
+
+$of_options[] = array( 	"name" 		=> "Slider Slideshow",
+						"desc" 		=> "Choose whether the slide will animate automatically",
+						"id" 		=> "slide_auto",
+						"std" 		=> "false",
+						"type" 		=> "select",
+						"options" 	=> array("false" => "False", "true" => "True")
+				);
+
+$of_options[] = array(  "name" 		=> "Slideshow Speed",
+						"desc" 		=> "Set the speed of the slideshow cycling, in milliseconds",
+						"id" 		=> "slideshow_speed",
+						"std" 		=> "7000",
+						"min" 		=> "0",
+						"step"		=> "500",
+						"max" 		=> "30000",
+						"type" 		=> "sliderui"
+				);
+
+$of_options[] = array(  "name" 		=> "Animation Speed",
+						"desc" 		=> "Set the speed of the slideshow cycling, in milliseconds",
+						"id" 		=> "animation_speed",
+						"std" 		=> "600",
+						"min" 		=> "0",
+						"step"		=> "100",
+						"max" 		=> "3000",
+						"type" 		=> "sliderui"
+				);
+
+$of_options[] = array( 	"name" 		=> "Use Control Navigation",
+						"desc" 		=> "Create navigation for paging control of each slide?",
+						"id" 		=> "slide_control_nav",
+						"std" 		=> "true",
+						"type" 		=> "select",
+						"mod" 		=> "mini",
+						"options" 	=> array("true" => "True", "false" => "False")
+				);
+
+$of_options[] = array( 	"name" 		=> "Use Direction Navigation",
+						"desc" 		=> "Create navigation for previous/next navigation?",
+						"id" 		=> "slide_direction_nav",
+						"std" 		=> "true",
+						"type" 		=> "select",
+						"mod" 		=> "mini",
+						"options" 	=> array("true" => "True", "false" => "False")
+				);
+
 $of_options[] = array(
 						"name"		=> "Custom CSS",
 						"type"		=> "heading"

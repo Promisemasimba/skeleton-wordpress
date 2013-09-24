@@ -44,6 +44,9 @@ if(!function_exists("skeleton_add_scripts")) {
 		wp_enqueue_script("jquery", SCRIPTS . "jquery.min.js", false, "1.10.1", true); // ahh, up to date!
 		wp_enqueue_script("skeleton-respond", SCRIPTS . "respond.min.js", false, "1.1.0", true); // allow IE to cooperate for media queries
 		wp_enqueue_script("skeleton-modernizr", SCRIPTS . "modernizr.min.js", false, "2.6.2", true); // make older browser behave
+		if(count($data["pingu_slider"]) != 0) {
+			wp_enqueue_script("flexslider", SCRIPTS . "jquery.flexslider.min.js", false, "2.2.0", true);
+		}
 		wp_enqueue_script("skeleton-script", SCRIPTS . "dev/skeleton.js", false, "0.11.0", true); // your custom scripts
 	}
 }

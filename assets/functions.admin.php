@@ -39,6 +39,18 @@ if(!function_exists("skeleton_internal_styles")) {
 		background-repeat: repeat;
 		background-position: 0 0;
 		<?php endif; ?>
+	}
+	/**
+	 * reset all of the styles to match the font that is set on the body
+	 */
+	body,
+	.button,
+	button,
+	input[type="submit"],
+	input[type="reset"],
+	input[type="button"],
+	select,
+	keygen {
 		<?php echo $smof->build_property("font-family", "face", $body_font, "sans-serif") ?>
 		<?php echo $smof->build_property("font-size", "size", $body_font) ?>
 		<?php echo $smof->build_property("font-style", "style", $body_font) ?>
@@ -69,18 +81,31 @@ if(!function_exists("skeleton_internal_styles")) {
 if(!function_exists("skeleton_internal_scripts")) {
 	function skeleton_internal_scripts() {
 		global $smof;
-		if($smof->get_data("switch_tipsy") == "1") {
 			?>
 			<script type="text/javascript">
 				(function($) {
+					<?php if($smof->get_data("switch_tipsy") == "1") : ?>
 					jQuery("<?php echo $smof->get_data("hidden_tipsy_selectors") ?>").tipsy({
 						fade: true,
 						gravity: "s"
 					});
+					<?php endif; ?>
+					<?php if(count($smof->get_data("pingu_slider")) != 0) : ?>
+					jQuery(".home-slider").flexslider({
+						animation: "<?php echo $smof->get_data("slider_animation") ?>",
+						direction: "<?php echo $smof->get_data("slider_direction") ?>",
+						<?php if($smof->get_data("slide_auto") != "false") : ?>
+						slideshow: <?php echo $smof->get_data("slide_auto") ?>,
+						slideshowSpeed: <?php echo $smof->get_data("slideshow_speed") ?>,
+						<?php endif; ?>
+						animationSpeed: <?php echo $smof->get_data("animation_speed") ?>,
+						controlNav: <?php echo $smof->get_data("slide_control_nav") ?>,
+						directionNav: <?php echo $smof->get_data("slide_direction_nav") ?>
+					});
+					<?php endif; ?>
 				})(jQuery);
 			</script>
 			<?php
-		}
 	}
 }
 
@@ -115,5 +140,19 @@ if(!function_exists("skeleton_add_google_fonts")) {
 	function skeleton_add_google_fonts() {
 		global $smof;
 		echo $smof->build_google_fonts();
+	}
+}
+
+if(!function_exists("skeleton_add_favicon")) {
+	function add_favicon() {
+		global $smof;
+		if($smof->get_data("favicon")) {
+			$image = wp_get_image_editor($smof->get_data("favicon"));
+			if (!is_wp_error($image)) {
+				$image->set_quality(100);
+				$image->resize(16, 16, true);
+				$image->save(wp_upload_dir()["url"] . 'favicon.ino', "ico");
+			}
+		}
 	}
 }
