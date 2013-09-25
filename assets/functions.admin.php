@@ -121,7 +121,7 @@ if(!function_exists("skeleton_add_analytics")) {
 }
 
 /**
- * Gets the custom footer text and places it on the page! Also, this function automatically executes shortcodes.
+ * Gets the custom footer text and places it on the page!
  * @return void
  */
 if(!function_exists("skeleton_footer")) {
@@ -130,7 +130,6 @@ if(!function_exists("skeleton_footer")) {
 		echo do_shortcode($smof->get_data("footer_text"));
 	}
 }
-
 
 /**
  * Prints the generated URL to Google WebFonts to the head
@@ -143,16 +142,56 @@ if(!function_exists("skeleton_add_google_fonts")) {
 	}
 }
 
-if(!function_exists("skeleton_add_favicon")) {
-	function add_favicon() {
+if(!function_exists("skeleton_slider")) {
+	function skeleton_slider() {
 		global $smof;
-		if($smof->get_data("favicon")) {
-			$image = wp_get_image_editor($smof->get_data("favicon"));
-			if (!is_wp_error($image)) {
-				$image->set_quality(100);
-				$image->resize(16, 16, true);
-				$image->save(wp_upload_dir()["url"] . 'favicon.ino', "ico");
+		$slides = $smof->get_data("pingu_slider");
+		$uploads = wp_upload_dir();
+		if(count($slides) > 1) {
+			foreach($slides as $slide) {
+				skeleton_save_slider_image($slide["url"]);
+			}
+		} elseif(count($slides) == 1) {
+			skeleton_save_slider_image($slides[1]["url"]);
+		}
+	}
+}
+
+if(!function_exists("skeleton_save_slider_image")) {
+	function skeleton_save_slider_image($image) {
+		$image = wp_get_image_editor($image);
+		$uploads = wp_upload_dir();
+		if(!is_wp_error($image)) {
+			if($image->supports_mime_type("image/jpeg")) {
+				$image->save($uploads["path"] . "/" . skeleton_get_image_name($slide["url"]));
 			}
 		}
+	}
+}
+
+/**
+ * Gets the name of the image when a path is passed in
+ * @param String $path
+ * @return String
+ */
+if(!function_exists("skeleton_get_image_name")) {
+	function skeleton_get_image_name($path) {
+		$path = preg_split("/\/|\\\/", $path);
+		$path = $path[count($path) - 1];
+
+		return $path;
+	}
+}
+
+/**
+ * Checks to see if an image exists. Assumes wp_uploads_dir()
+ * @param String $image name of the image to check
+ * @return bool
+ */
+if(!function_exists("image_exists")) {
+	function image_exists($image) {
+		$uploads = wp_upload_dir();
+
+		return file_exists($uploads["path"] . "/" . $image);
 	}
 }

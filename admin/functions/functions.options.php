@@ -144,13 +144,6 @@ $of_options[] = array( 	"name" 		=> "Logo Upload",
 						"type" 		=> "upload"
 				);
 
-$of_options[] = array( 	"name" 		=> "Favicon Upload",
-						"desc" 		=> "Upload your favicon or type in the path to the icon here.",
-						"id" 		=> "favicon",
-						"std" 		=> "",
-						"type" 		=> "upload"
-				);
-
 $of_options[] = array( 	"name" 		=> "Tracking Code",
 						"desc" 		=> "Paste your Google Analytics (or other) tracking code here. This will be added into the footer template of your theme.",
 						"id" 		=> "google_analytics",
@@ -357,7 +350,6 @@ $of_options[] = array(
 				);
 
 $of_options[] = array( 	"name" 		=> "Custom CSS",
-						// "desc" 		=> "Quickly add some CSS to your theme by adding it to this block.",
 						"desc" 		=> "",
 						"id" 		=> "custom_css",
 						"std" 		=> "",

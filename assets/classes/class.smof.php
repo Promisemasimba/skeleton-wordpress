@@ -79,7 +79,8 @@ class SkeletonAdmin {
 	 * @access public
 	 */
 	public function value_is_empty($index) {
-		if(empty($this->get_data($index))) {
+	    $data = $this->get_data($index);  // fixes http://stackoverflow.com/questions/1075534/cant-use-method-return-value-in-write-context
+		if(empty($data)) {
 			return TRUE;
 		}
 
