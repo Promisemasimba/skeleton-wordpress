@@ -146,52 +146,9 @@ if(!function_exists("skeleton_slider")) {
 	function skeleton_slider() {
 		global $smof;
 		$slides = $smof->get_data("pingu_slider");
-		$uploads = wp_upload_dir();
-		if(count($slides) > 1) {
-			foreach($slides as $slide) {
-				skeleton_save_slider_image($slide["url"]);
-			}
-		} elseif(count($slides) == 1) {
-			skeleton_save_slider_image($slides[1]["url"]);
-		}
-	}
-}
-
-if(!function_exists("skeleton_save_slider_image")) {
-	function skeleton_save_slider_image($image) {
-		$image = wp_get_image_editor($image);
-		$uploads = wp_upload_dir();
-		if(!is_wp_error($image)) {
-			if($image->supports_mime_type("image/jpeg")) {
-				$image->save($uploads["path"] . "/" . skeleton_get_image_name($slide["url"]));
-			}
-		}
-	}
-}
-
-/**
- * Gets the name of the image when a path is passed in
- * @param String $path
- * @return String
- */
-if(!function_exists("skeleton_get_image_name")) {
-	function skeleton_get_image_name($path) {
-		$path = preg_split("/\/|\\\/", $path);
-		$path = $path[count($path) - 1];
-
-		return $path;
-	}
-}
-
-/**
- * Checks to see if an image exists. Assumes wp_uploads_dir()
- * @param String $image name of the image to check
- * @return bool
- */
-if(!function_exists("image_exists")) {
-	function image_exists($image) {
-		$uploads = wp_upload_dir();
-
-		return file_exists($uploads["path"] . "/" . $image);
+		require("classes/class.slider.php");
+		$obj = new Skeleton_Slider();
+		// var_dump($obj->get_all_slide_urls());
+		var_dump($obj);
 	}
 }

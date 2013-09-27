@@ -5,15 +5,19 @@
  * @since 0.3
  */
 class SkeletonAdmin {
-	private $data;
+	protected $data;
 
 	/**
 	 * Assumes SMOF
 	 * @since 0.3
 	 */
-	public function __construct() {
+	public function __construct($filter_at_index = null) {
 		global $data;
-		$this->data = $data;
+		if(!is_null($filter_at_index)) {
+			$this->data = $data[$filter_at_index];
+		} else {
+			$this->data = $data;
+		}
 	}
 
 	/**

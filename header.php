@@ -30,12 +30,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <?php wp_head(); ?>
 <?php global $data; ?>
-<pre><?php skeleton_slider(); // var_dump($data) ?></pre>
+<pre><?php // skeleton_slider();
+// var_dump($data) ?></pre>
 <?php skeleton_header_bottom() // action hook ?>
 </head>
 <body <?php body_class(); ?>>
 	<?php skeleton_container_before(); ?>
-	<?php get_template_part('nav/nav', 'top'); ?>
+	<?php get_template_part('templates/nav/nav', 'top'); ?>
 	<div class="wrapper main-header">
 	<header class="container">
 		<div class="sixteen columns">
@@ -54,4 +55,4 @@
 		</div>
 	</header>
 	</div>
-	<?php get_template_part('nav/nav', 'main'); ?>
+	<?php get_template_part('templates/nav/nav', 'main'); ?>
