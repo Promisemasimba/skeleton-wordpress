@@ -145,10 +145,5 @@ if(!function_exists("skeleton_add_google_fonts")) {
 if(!function_exists("skeleton_slider")) {
 	function skeleton_slider() {
 		global $smof;
-		$slides = $smof->get_data("pingu_slider");
-		require("classes/class.slider.php");
-		$obj = new Skeleton_Slider();
-		// var_dump($obj->get_all_slide_urls());
-		var_dump($obj);
 	}
 }

@@ -6,9 +6,12 @@ if(! defined('ABSPATH')) exit;
  *
  * The area of the page that contains comments and the comment form.
  *
- * @package WordPress
- * @subpackage Twenty_Thirteen
- * @since Twenty Thirteen 1.0
+ * @package			WordPress
+ * @subpackage		Skeleton
+ * @author 			Dennis Thompson <http://atomicpages.net/>
+ * @copyright		2009 - 2013 AtomicPages LLC
+ * @license			license.txt
+ * @since 			0.1
  */
 
 /*

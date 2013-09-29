@@ -20,6 +20,7 @@ if(!function_exists('of_options')) {
 
 		// Testing
 		$of_options_select 	= array("one","two","three","four","five");
+		$of_options_tf 		= array("true" => "True", "false" => "False");
 		$of_options_radio 	= array("one" => "One","two" => "Two", "three" => "Three", "four" => "Four", "five" => "Five");
 		// Sample Homepage blocks for the layout manager (sorter)
 		$of_options_homepage_blocks = array(
@@ -487,6 +488,19 @@ $of_options[] = array( 	"name" 		=> "Select a Category",
 						"std" 		=> "Select a category:",
 						"type" 		=> "select",
 						"options" 	=> $of_categories
+				);
+
+$of_options[] = array( 	"name" 		=> "Advanced Options",
+						"type" 		=> "heading",
+				);
+
+$of_options[] = array( 	"name" 		=> "Use Built-in Colorbox",
+						"desc" 		=> "Disable this if you wish to use a colrobox or lightbox-like plugin",
+						"id" 		=> "use_colorbox",
+						"std" 		=> "true",
+						"type" 		=> "select",
+						"mod" 		=> "mini",
+						"options" 	=> $of_options_tf
 				);
 
 // Backup Options

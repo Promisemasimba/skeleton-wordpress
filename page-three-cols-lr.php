@@ -8,11 +8,12 @@ if ( !defined('ABSPATH')) exit;
  *
    Template Name:  3 Column Page (Left & Right Sidebars)
  *
- * @package        Skeleton WrdPress
- * @author         AtomicPages LLC
- * @copyright      2013 AtomicPages LLC
- * @link           http://codex.wordpress.org/Theme_Development#Pages_.28page.php.29
- * @since          0.3
+ * @package			WordPress
+ * @subpackage		Skeleton
+ * @author         	AtomicPages LLC
+ * @copyright      	2013 AtomicPages LLC
+ * @link           	http://codex.wordpress.org/Theme_Development#Pages_.28page.php.29
+ * @since          	0.3
  */
 ?>
 
@@ -65,6 +66,6 @@ if ( !defined('ABSPATH')) exit;
 			</main><!-- /main -->
 			<?php skeleton_content_after(); ?>
 			<?php get_sidebar("right"); ?>
-		</div><!-- /.content -->
-	</div><!-- /.main-content -->
+		</div><!-- /.wrapper.main-content -->
+	</div><!-- /.container.content -->
 <?php get_footer(); ?>
