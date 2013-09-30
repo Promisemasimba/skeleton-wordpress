@@ -86,8 +86,8 @@ if(!function_exists('skeleton_entry_date')) {
  * @return void
  * @since 0.3
  */
-if(!function_exists('skeleton_wordpress_paging_nav')) {
-	function skeleton_wordpress_paging_nav() {
+if(!function_exists('skeleton_paging_nav')) {
+	function skeleton_paging_nav() {
 		global $wp_query;
 		// Don't print empty markup if there's only one page.
 		if($wp_query->max_num_pages < 2) { return; }
@@ -106,4 +106,3 @@ if(!function_exists('skeleton_wordpress_paging_nav')) {
 		<?php
 	}
 }
-

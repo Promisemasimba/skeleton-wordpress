@@ -6,6 +6,7 @@
  */
 class SkeletonAdmin {
 	protected $data;
+	protected $slides;
 
 	/**
 	 * Assumes SMOF

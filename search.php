@@ -25,11 +25,11 @@
 						<h1 class="page-title"><?php printf(__('Search Results for: %s', 'skeleton_wordpress'), get_search_query()); ?></h1>
 					</header>
 					<?php while(have_posts()) : the_post(); ?>
-						<?php get_template_part('content', get_post_format()); ?>
+						<?php get_template_part('templates/content/content', get_post_format()); ?>
 					<?php endwhile; ?>
 					<?php skeleton_paging_nav(); ?>
 				<?php else : ?>
-					<?php get_template_part('content', 'none'); ?>
+					<?php get_template_part('templates/content/content', 'none'); ?>
 				<?php endif; ?>
 				<?php skeleton_content_bottom(); ?>
 			</main><!-- /main -->

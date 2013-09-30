@@ -6,6 +6,16 @@ A friendly responsive boilerplate theme for WordPress.
 ## So What's Different?
 Skeleton WordPress is different from your run-of-the-mill boilerplate responsive templates. Skeleton WordPress is a marriage between [Skeleton Sass](https://github.com/atomicpages/skeleton-sass) and an easy to style WordPress theme. Skeleton WordPress is 100% responsive so your WordPress site will look amazing on all of your or your client's devices. Skeleton WordPress is optimized for using Sass or your favorite CSS preprocessor.
 
+## Requirements
+* [WordPress Requirements](http://wordpress.org/about/requirements/)
+	* PHP version 5.2.4 or greater
+	* MySQL version 5.0 or greater
+	* The `mod_rewrite` Apache module
+
+### Recommended Software
+* [Sass](http://sass-lang.com/)
+* [Compass](http://compass-style.org/)
+
 ## TL;DR
 
 ### Better Structure
@@ -88,13 +98,13 @@ Skeleton WordPress is founded on [SMOF](https://github.com/syamilmj/Options-Fram
 
 
 ### Shortcodes
-* [wp-link] prints a link to WordPress.org. Here's the HTML `<a href="http://wordpress.org">WordPress</a>`
-* [theme-link] prints out `<a href="https://github.com/atomicpages/skeleton-wordpress">Skeleton WordPress</a>`
-* [blog-title] prints out the title of the site
-* [blog-link] prints out the home url of the site
-* [year] prints out the year.
+* `[wp-link]` prints a link to WordPress.org. Here's the HTML `<a href="http://wordpress.org">WordPress</a>`
+* `[theme-link]` prints out `<a href="https://github.com/atomicpages/skeleton-wordpress">Skeleton WordPress</a>`
+* `[blog-title]` prints out the title of the site
+* `[blog-link]` prints out the home url of the site
+* `[year]` prints out the year.
 	* Options for the `[year]` shortcode include an **optional** format attribute which use values as [WordPress Date/Time functions](http://codex.wordpress.org/Formatting_Date_and_Time). Examples are:
-		* [year format="y"] produces `13`
-		* [year format="l, F j, Y"] produces `Tuesday, August 13, 2013`
-		* [year format="h:iA"] produces `12:59PM`
+		* `[year format="y"]` produces `13`
+		* `[year format="l, F j, Y"]` produces `Tuesday, August 13, 2013`
+		* `[year format="h:iA"]` produces `12:59PM`
 * `[button]` creates a button that is easy to style and ready for your client's use

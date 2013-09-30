@@ -21,7 +21,7 @@
 	<div class="sidebar">
 		<aside class="four columns">
 			<div class="widget-wrapper">
-			<?php if(!dynamic_sidebar("sidebar-right-2")) : ?>
+			<?php if(!is_dynamic_sidebar()) : ?>
 				<div class="widget-title"><?php _e("In Archive", "skeleton_wordpress") ?></div>
 				<ul>
 					<?php wp_get_archives(array('type' => 'monthly', 'limit' => 6)); ?>
