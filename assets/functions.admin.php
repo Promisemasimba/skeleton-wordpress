@@ -141,12 +141,3 @@ if(!function_exists("skeleton_add_google_fonts")) {
 		echo $smof->build_google_fonts();
 	}
 }
-<<<<<<< HEAD
-=======
-
-if(!function_exists("skeleton_slider")) {
-	function skeleton_slider() {
-		global $smof;
-	}
-}
->>>>>>> b521916e5fdbbe572ed319d6288ff6dd070f7a5f
