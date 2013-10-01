@@ -5,12 +5,12 @@
  *   * Header information
  *   * Main navigation
  *
- * @package			skeleton_wordpress
+ * @package			WordPress
+ * @subpackage		Skeleton
  * @author 			Dennis Thompson <http://atomicpages.net/>
  * @copyright		2009 - 2013 AtomicPages LLC
- * @license			license.txt MIT
- * @version			1.0
- * @since 			1.0
+ * @license			license.txt
+ * @since 			0.1
  */
 ?>
 <?php if (!defined('ABSPATH')) exit; ?>
@@ -56,3 +56,4 @@
 	</header>
 	</div>
 	<?php get_template_part('templates/nav/nav', 'main'); ?>
+	<?php skeleton_slider(); ?>

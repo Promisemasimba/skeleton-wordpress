@@ -903,7 +903,7 @@ class Options_Machine {
 		}
 		else
 		{
-			$output .= '<p class="upload-notice"><i>Upgrade your version of WordPress for full media support.</i></p>';
+			$output .= '<p class="upload-notice"><em>Upgrade your version of WordPress for full media support.</em></p>';
 		}
 
 		$uploader .='</div>' . "\n";

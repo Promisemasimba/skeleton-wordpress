@@ -11,21 +11,25 @@
  * different template.
  *
  * @package WordPress
- * @subpackage skeleton_wordpress
- * @since Skeleton WordPress 1.0
+ * @subpackage Skeleton
+ * @author Dennis Thompson
+ * @copyright 2009-2013 AtomicPages LLC
+ * @license license.txt
+ * @since 0.1
  */
 ?>
 <?php get_header(); ?>
 <div class="wrapper main-content">
 	<div class="container content" role="main">
-		<main id="main" class="twelve columns omega">
+		<?php skeleton_content_before(); ?>
+		<main id="main" <?php skeleton_main_classes() ?>>
+			<?php skeleton_content_top(); ?>
 			<?php while(have_posts()) : ?>
 				<?php the_post(); ?>
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 					<header class="post-header">
 						<h1 class="post-title"><?php the_title(); ?></h1>
 					</header>
-
 					<div class="post-content">
 						<?php the_content(); ?>
 						<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'skeleton_wordpress' ), 'after' => '</div>' ) ); ?>
@@ -35,8 +39,9 @@
 					</footer><!-- .post-meta -->
 				</article><!-- #post -->
 			<?php endwhile; ?>
-		</main>
-	</div>
-		<?php get_sidebar(); ?>
-</div>
+			<?php skeleton_content_bottom(); ?>
+		</main><!-- /main -->
+		<?php skeleton_content_after(); ?>
+	</div><!-- /.wrapper.main-content -->
+</div><!-- /.container.content -->
 <?php get_footer(); ?>

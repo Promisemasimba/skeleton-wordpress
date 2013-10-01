@@ -25,7 +25,7 @@ if ( !defined("ABSPATH")) exit;
 			"container_class"	=> "container",					// do not change
 			"container_id"		=> "nav", 						// change if you want, it's there if you need it
 			"fallback_cb"		=> false,
-			"menu_class"		=> "sixteen columns main-nav",	// do not change
+			"menu_class"		=> "sixteen columns main-nav sf-menu",	// do not change
 			"theme_location"	=> "main-nav"
 		)
 	);

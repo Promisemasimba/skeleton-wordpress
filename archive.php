@@ -1,13 +1,16 @@
 <?php
 /**
- * 404 page is for those lovely pages that are not found.
+ * Archive Pages
  *
- * @package			skeleton_wordpress
+ * Have old posts that are noq hidden from your post page? All of your previous
+ * postings will show up here!
+ *
+ * @package			WordPress
+ * @subpackage		Skeleton
  * @author 			Dennis Thompson <http://atomicpages.net/>
  * @copyright		2009 - 2013 AtomicPages LLC
- * @license			license.txt MIT
- * @version			1.0
- * @since 			1.0
+ * @license			license.txt
+ * @since 			0.1
  */
 ?>
 

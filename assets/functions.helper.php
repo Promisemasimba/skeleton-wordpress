@@ -19,3 +19,20 @@ if(!function_exists("skeleton_header_image_helper_width")) {
 		return HEADER_IMAGE_WIDTH;
 	}
 }
+
+if(!function_exists("skeleton_slider")) {
+	function skeleton_slider() {
+		global $data;
+		
+		$slider = '<div class="home-slider">';
+		$slider .= '<ul class="slides">';
+		$slides = $data['pingu_slider'];
+		foreach($slides as $slide) {
+			$slider .= '<li><img src="' . $slide['url'] . '"></li>';
+		}
+		$slider .= "</ul>";
+		$slider .= "</div>";
+		
+		echo $slider;
+	}
+}

@@ -1,4 +1,14 @@
 /**
+ * SASS/SCSS/Compass Transcription of Skeleton Responsive Grid
+ * originally authored by Dave Gamache. This translation offers
+ * mixins that support fluid and as well as fixed grids to supplement
+ * the work that Dave Gamache has done.
+ * @author Dennis Thompson <http://www.atomicpages.net>
+ * @copyright Copyright (c) 2013 AtomicPages LLC
+ * @license MIT
+ * @version 1.4.2
+ */
+/**
  * SASS/SCSS/Compass Transcription of Skeleton Responsive Grid 
  * originally authored by Dave Gamache. This translation offers
  * mixins that support fluid and as well as fixed grids to supplement
@@ -253,3 +263,348 @@
   visibility: hidden;
   width: 0;
   height: 0; }
+
+.tipsy {
+  font-size: 10px;
+  position: absolute;
+  padding: 5px;
+  z-index: 100000; }
+
+.tipsy-inner {
+  background-color: #000;
+  color: #FFF;
+  max-width: 200px;
+  padding: 5px 8px 4px 8px;
+  text-align: center; }
+
+/* Rounded corners */
+.tipsy-inner {
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px; }
+
+/* Uncomment for shadow */
+/*.tipsy-inner { box-shadow: 0 0 5px #000000; -webkit-box-shadow: 0 0 5px #000000; -moz-box-shadow: 0 0 5px #000000; }*/
+.tipsy-arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  line-height: 0;
+  border: 5px dashed #000; }
+
+/* Rules to color arrows */
+.tipsy-arrow-n {
+  border-bottom-color: #000; }
+
+.tipsy-arrow-s {
+  border-top-color: #000; }
+
+.tipsy-arrow-e {
+  border-left-color: #000; }
+
+.tipsy-arrow-w {
+  border-right-color: #000; }
+
+.tipsy-n .tipsy-arrow {
+  top: 0px;
+  left: 50%;
+  margin-left: -5px;
+  border-bottom-style: solid;
+  border-top: none;
+  border-left-color: transparent;
+  border-right-color: transparent; }
+
+.tipsy-nw .tipsy-arrow {
+  top: 0;
+  left: 10px;
+  border-bottom-style: solid;
+  border-top: none;
+  border-left-color: transparent;
+  border-right-color: transparent; }
+
+.tipsy-ne .tipsy-arrow {
+  top: 0;
+  right: 10px;
+  border-bottom-style: solid;
+  border-top: none;
+  border-left-color: transparent;
+  border-right-color: transparent; }
+
+.tipsy-s .tipsy-arrow {
+  bottom: 0;
+  left: 50%;
+  margin-left: -5px;
+  border-top-style: solid;
+  border-bottom: none;
+  border-left-color: transparent;
+  border-right-color: transparent; }
+
+.tipsy-sw .tipsy-arrow {
+  bottom: 0;
+  left: 10px;
+  border-top-style: solid;
+  border-bottom: none;
+  border-left-color: transparent;
+  border-right-color: transparent; }
+
+.tipsy-se .tipsy-arrow {
+  bottom: 0;
+  right: 10px;
+  border-top-style: solid;
+  border-bottom: none;
+  border-left-color: transparent;
+  border-right-color: transparent; }
+
+.tipsy-e .tipsy-arrow {
+  right: 0;
+  top: 50%;
+  margin-top: -5px;
+  border-left-style: solid;
+  border-right: none;
+  border-top-color: transparent;
+  border-bottom-color: transparent; }
+
+.tipsy-w .tipsy-arrow {
+  left: 0;
+  top: 50%;
+  margin-top: -5px;
+  border-right-style: solid;
+  border-left: none;
+  border-top-color: transparent;
+  border-bottom-color: transparent; }
+
+/*** ESSENTIAL STYLES ***/
+.sf-menu, .sf-menu * {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+.sf-menu li {
+  position: relative; }
+
+.sf-menu ul {
+  position: absolute;
+  display: none;
+  top: 100%;
+  left: 0;
+  z-index: 99; }
+
+.sf-menu > li {
+  float: left; }
+
+.sf-menu li:hover > ul,
+.sf-menu li.sfHover > ul {
+  display: block; }
+
+.sf-menu a {
+  display: block;
+  position: relative; }
+
+.sf-menu ul ul {
+  top: 0;
+  left: 100%; }
+
+/*** DEMO SKIN ***/
+.sf-menu {
+  float: left;
+  margin-bottom: 1em; }
+
+.sf-menu ul {
+  min-width: 12em;
+  *width: 12em; }
+
+.sf-menu a {
+  text-decoration: none;
+  zoom: 1; }
+
+.sf-menu li {
+  background: white;
+  white-space: nowrap;
+  *white-space: normal;
+  -webkit-transition: background 0.2s;
+  -moz-transition: background 0.2s;
+  -o-transition: background 0.2s;
+  transition: background 0.2s; }
+
+.sf-menu li:hover,
+.sf-menu li.sfHover {
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none; }
+
+.sf-arrows .sf-with-ul {
+  padding-right: 2.5em;
+  *padding-right: 1em; }
+
+.sf-arrows .sf-with-ul:after {
+  content: "\0020";
+  position: absolute;
+  top: 50%;
+  right: 1em;
+  margin-top: -3px;
+  height: 0;
+  width: 0; }
+
+.sf-arrows ul .sf-with-ul:after {
+  margin-top: -5px;
+  margin-right: -3px; }
+
+/* SITE STYLES
+ * ------------------------------------------------ */
+/* General Styles */
+body {
+  font-family: Helvetica, Arial, sans-serif; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Helvetica, Arial, sans-serif; }
+
+abbr {
+  border-bottom: 1px dotted #222;
+  cursor: help; }
+
+code, pre {
+  font-family: "Lucida Console", "Courier New", Courier, monospace;
+  background: #efefef;
+  border: 1px solid #bcbcbc; }
+
+/* Header */
+.wrapper {
+  width: 100%;
+  height: 100%;
+  display: block; }
+  .wrapper:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
+  .wrapper.main-header {
+    /* still at 100% of viewport */ }
+    .wrapper.main-header header {
+      /* default 960px */ }
+      .wrapper.main-header header .top-nav {
+        /* add padding and margins here */
+        float: right; }
+        .wrapper.main-header header .top-nav:after {
+          content: "\0020";
+          display: block;
+          height: 0;
+          clear: both;
+          visibility: hidden; }
+        .wrapper.main-header header .top-nav ul {
+          list-style: none;
+          margin-bottom: 0; }
+          .wrapper.main-header header .top-nav ul li {
+            float: left;
+            display: inline;
+            margin-right: 8px; }
+            .wrapper.main-header header .top-nav ul li a {
+              font-size: 80%;
+              text-decoration: none; }
+              .wrapper.main-header header .top-nav ul li a:hover {
+                text-decoration: underline; }
+  .wrapper.main-navigation nav ul {
+    list-style: none;
+    margin-bottom: 0; }
+    .wrapper.main-navigation nav ul:after {
+      content: "\0020";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+    .wrapper.main-navigation nav ul li {
+      float: left;
+      line-height: normal;
+      margin-bottom: 0;
+      padding: 15px 0; }
+      .wrapper.main-navigation nav ul li a {
+        font-weight: bold;
+        color: #444;
+        text-decoration: none;
+        padding: 15px; }
+        .wrapper.main-navigation nav ul li a:hover {
+          color: #222; }
+      .wrapper.main-navigation nav ul li > ul {
+        width: 200px;
+        padding: 0;
+        margin: 0; }
+        .wrapper.main-navigation nav ul li > ul li {
+          float: none;
+          padding: 0;
+          margin: 0; }
+          .wrapper.main-navigation nav ul li > ul li a {
+            width: 100%;
+            display: block;
+            padding: 0;
+            margin: 0; }
+  .wrapper.main-content main article {
+    padding: 10px; }
+  .wrapper.main-content .sidebar aside section {
+    padding: 10px; }
+  .wrapper.main-footer footer {
+    padding-bottom: 5px; }
+    .wrapper.main-footer footer section.footer-widgets {
+      padding: 9px 0; }
+      .wrapper.main-footer footer section.footer-widgets:after {
+        content: "\0020";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden; }
+      .wrapper.main-footer footer section.footer-widgets div p {
+        padding: 5px; }
+    .wrapper.main-footer footer .copyright {
+      text-align: center; }
+
+/* PAGE STYLES
+ * ------------------------------------------------ */
+img.centered,
+.aligncenter,
+div.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+
+.alignright {
+  float: right; }
+
+.alignleft {
+  float: left; }
+
+.wp-caption {
+  border: 1px solid #ddd;
+  text-align: center;
+  background-color: #d4d4d4;
+  padding-top: 4px;
+  margin-bottom: 10px; }
+  .wp-caption img {
+    margin: 0;
+    padding: 0;
+    border: 0; }
+  .wp-caption p.wp-caption-text {
+    font-size: 80%;
+    line-height: default;
+    padding: 0 4px 5px;
+    margin: 0; }
+
+/* MEDIA QUERIES
+ * ------------------------------------------------ */
+/* Otherwise known as custom responsive code! Write it here! */
+@media only screen and (min-width: 960px) and (max-width: 1280px) {
+  /* add code here */ }
+/* Smaller than standard 960 (devices and browsers) */
+@media only screen and (max-width: 959px) {
+  /* add code here */ }
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+  /* add code here */ }
+/* All Mobile Sizes (devices and browser) */
+@media only screen and (max-width: 767px) {
+  /* add code here */ }
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  /* add code here */ }
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px) {
+  /* add code here */ }

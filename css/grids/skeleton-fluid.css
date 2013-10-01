@@ -1,5 +1,5 @@
 /**
- * SASS/SCSS/Compass Transcription of Skeleton Responsive Grid 
+ * SASS/SCSS/Compass Transcription of Skeleton Responsive Grid
  * originally authored by Dave Gamache. This translation offers
  * mixins that support fluid and as well as fixed grids to supplement
  * the work that Dave Gamache has done.
@@ -32,61 +32,73 @@
 
 .container .column,
 .container .columns {
-  margin-left: 10px;
-  margin-right: 10px; }
+  margin-left: 1%;
+  margin-right: 1%; }
 
 /* The Grid */
 .container .one.column,
 .container .one.columns {
-  width: 60px; }
+  width: 4.25%; }
 .container .two.columns {
-  width: 140px; }
+  width: 10.5%; }
 .container .three.columns {
-  width: 220px; }
+  width: 16.75%; }
 .container .four.columns {
-  width: 300px; }
+  width: 23%; }
 .container .five.columns {
-  width: 380px; }
+  width: 29.25%; }
 .container .six.columns {
-  width: 460px; }
+  width: 35.5%; }
 .container .seven.columns {
-  width: 540px; }
+  width: 41.75%; }
 .container .eight.columns {
-  width: 620px; }
+  width: 48%; }
 .container .nine.columns {
-  width: 700px; }
+  width: 54.25%; }
 .container .ten.columns {
-  width: 780px; }
+  width: 60.5%; }
 .container .eleven.columns {
-  width: 860px; }
+  width: 66.75%; }
 .container .twelve.columns {
-  width: 940px; }
-.container .one-third.column {
-  width: 300px; }
-.container .two-thirds.column {
-  width: 620px; }
+  width: 73%; }
+.container .thirteen.columns {
+  width: 79.25%; }
+.container .fourteen.columns {
+  width: 85.5%; }
+.container .fifteen.columns {
+  width: 91.75%; }
+.container .sixteen.columns {
+  width: 98%; }
 .container .offset-by-one {
-  padding-left: 80px; }
+  padding-left: 6.25%; }
 .container .offset-by-two {
-  padding-left: 160px; }
+  padding-left: 12.5%; }
 .container .offset-by-three {
-  padding-left: 240px; }
+  padding-left: 18.75%; }
 .container .offset-by-four {
-  padding-left: 320px; }
+  padding-left: 25%; }
 .container .offset-by-five {
-  padding-left: 400px; }
+  padding-left: 31.25%; }
 .container .offset-by-six {
-  padding-left: 480px; }
+  padding-left: 37.5%; }
 .container .offset-by-seven {
-  padding-left: 560px; }
+  padding-left: 43.75%; }
 .container .offset-by-eight {
-  padding-left: 640px; }
+  padding-left: 50%; }
 .container .offset-by-nine {
-  padding-left: 720px; }
+  padding-left: 56.25%; }
 .container .offset-by-ten {
-  padding-left: 800px; }
+  padding-left: 62.5%; }
 .container .offset-by-eleven {
-  padding-left: 880px; }
+  padding-left: 68.75%; }
+.container .offset-by-twelve {
+  padding-left: 75%; }
+.container .offset-by-thirteen {
+  padding-left: 81.25%; }
+.container .offset-by-fourteen {
+  padding-left: 87.5%; }
+.container .offset-by-fifteen {
+  padding-left: 93.75%; }
 
 /* TABLET (PORTRAIT)
  * ------------------------------------------------ */
@@ -106,61 +118,73 @@
 
   .container .column,
   .container .columns {
-    margin-left: 10px;
-    margin-right: 10px; }
+    margin-left: 1%;
+    margin-right: 1%; }
 
   /* The Grid */
   .container .one.column,
   .container .one.columns {
-    width: 44px; }
+    width: 4.25%; }
   .container .two.columns {
-    width: 108px; }
+    width: 10.5%; }
   .container .three.columns {
-    width: 172px; }
+    width: 16.75%; }
   .container .four.columns {
-    width: 236px; }
+    width: 23%; }
   .container .five.columns {
-    width: 300px; }
+    width: 29.25%; }
   .container .six.columns {
-    width: 364px; }
+    width: 35.5%; }
   .container .seven.columns {
-    width: 428px; }
+    width: 41.75%; }
   .container .eight.columns {
-    width: 492px; }
+    width: 48%; }
   .container .nine.columns {
-    width: 556px; }
+    width: 54.25%; }
   .container .ten.columns {
-    width: 620px; }
+    width: 60.5%; }
   .container .eleven.columns {
-    width: 684px; }
+    width: 66.75%; }
   .container .twelve.columns {
-    width: 748px; }
-  .container .one-third.column {
-    width: 236px; }
-  .container .two-thirds.column {
-    width: 492px; }
+    width: 73%; }
+  .container .thirteen.columns {
+    width: 79.25%; }
+  .container .fourteen.columns {
+    width: 85.5%; }
+  .container .fifteen.columns {
+    width: 91.75%; }
+  .container .sixteen.columns {
+    width: 98%; }
   .container .offset-by-one {
-    padding-left: 64px; }
+    padding-left: 6.25%; }
   .container .offset-by-two {
-    padding-left: 128px; }
+    padding-left: 12.5%; }
   .container .offset-by-three {
-    padding-left: 192px; }
+    padding-left: 18.75%; }
   .container .offset-by-four {
-    padding-left: 256px; }
+    padding-left: 25%; }
   .container .offset-by-five {
-    padding-left: 320px; }
+    padding-left: 31.25%; }
   .container .offset-by-six {
-    padding-left: 384px; }
+    padding-left: 37.5%; }
   .container .offset-by-seven {
-    padding-left: 448px; }
+    padding-left: 43.75%; }
   .container .offset-by-eight {
-    padding-left: 512px; }
+    padding-left: 50%; }
   .container .offset-by-nine {
-    padding-left: 576px; }
+    padding-left: 56.25%; }
   .container .offset-by-ten {
-    padding-left: 640px; }
+    padding-left: 62.5%; }
   .container .offset-by-eleven {
-    padding-left: 704px; } }
+    padding-left: 68.75%; }
+  .container .offset-by-twelve {
+    padding-left: 75%; }
+  .container .offset-by-thirteen {
+    padding-left: 81.25%; }
+  .container .offset-by-fourteen {
+    padding-left: 87.5%; }
+  .container .offset-by-fifteen {
+    padding-left: 93.75%; } }
 /*  MOBILE (PORTRAIT)
  * ------------------------------------------------ */
 @media only screen and (max-width: 767px) {

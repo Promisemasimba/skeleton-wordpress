@@ -5,14 +5,11 @@ if ( !defined('ABSPATH')) exit;
 /**
  * Page metadata template part file. Things like comment links, author, date/time, etc.
  *
- * @file           post-meta.php
- * @package        Skeleton WP
- * @author         Dennis Thompson
- * @copyright      2009 - 2013 AtomicPages LLC
- * @license        license.txt
- * @version        Release: 0.14.0
- * @link           http://codex.wordpress.org/Templates
- * @since          available since release 1.0
+ * @package			WordPress
+ * @subpackage		Skeleton
+ * @author         	AtomicPages LLC
+ * @copyright      	2013 AtomicPages LLC
+ * @since          	0.3
  */
 
 ?>

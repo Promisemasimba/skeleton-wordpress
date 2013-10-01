@@ -1,111 +1,187 @@
-/**
- * SASS/SCSS/Compass Transcription of Skeleton Responsive Grid 
- * originally authored by Dave Gamache. This translation offers
- * mixins that support fluid and as well as fixed grids to supplement
- * the work that Dave Gamache has done.
- * @author Dennis Thompson <http://www.atomicpages.net>
- * @copyright Copyright (c) 2013 AtomicPages LLC
- * @license MIT
- * @version 1.4.2
- */
+@import "loader"; // takes care of loading all dependencies
 
-// IMPORTS
-@import "vars"; // import _vars
-@import "mixins"; // import _mixins
+// VAR OVERRIDES
+$fontFamily: Helvetica, Arial, sans-serif;
+$headingFamily: $fontFamily;
+$base: darken(#fff, 3%);
 
-/* BASE GRID
+/* SITE STYLES
  * ------------------------------------------------ */
-.container {
-	position: relative;
-	width: $baseWidth;
-	margin: 0 auto;
-	padding: 0;
-	.column,
-	.columns {
-		float: left;
-		display: inline;
-		position: relative;
-		&.alpha { margin-left: 0; }
-		&.omega { margin-right: 0; }
-	}
+/* General Styles */
+body { font-family: $fontFamily; }
+h1, h2, h3, h4, h5, h6 { font-family: $headingFamily; }
+abbr {
+	border-bottom: 1px dotted #222;
+	cursor: help;
 }
-.row { margin-bottom: 20px; }
-
-// @include grid($baseWidth, true); // fluid
-// @include grid($baseWidth, false, 60px, 20px, 12); // 12-column fixed grid
-// @include grid($baseWidth, false, 28px, 20px, 20); // 20-column fixed grid
-@include grid($baseWidth);
-
-/* TABLET (PORTRAIT)
- * ------------------------------------------------ */
-@media only screen and (min-width: 768px) and (max-width: 959px) {
-	.container {
-		width: $tabletWidth;
-		.column, .columns {
-			&.alpha {
-				margin: {
-					left: 0;
-					right: 10px;
-				};
-			}
-			&.omega {
-				margin: {
-					right: 0;
-					left: 10px;
-				};
-			}
-		} 
-	}
-	.alpha.omega {
-		margin: {
-			left: 0;
-			right: 0;
-		};
-	}
-	// @include grid($tabletWidth, true); // fluid
-	// @include grid($tabletWidth, false, 44px, 20px, 12); // 12-column fixed grid
-	// @include grid($tabletWidth, false, 17px, 20px, 20); // 20-column fixed grid
-	@include grid($tabletWidth, false, 28px); // fixed
+code, pre {
+	font-family: "Lucida Console", "Courier New", Courier, monospace;
+	background: #efefef;
+	border: 1px solid darken(#efefef, 20%);
 }
 
-/*  MOBILE (PORTRAIT)
- * ------------------------------------------------ */
-@media only screen and (max-width: 767px) {
-	@include mobileGrid($mobilePortraitWidth);
-}
-
-/* MOBILE (LANDSCAPE)
- * ------------------------------------------------ */
-@media only screen and (min-width: 480px) and (max-width: 767px) {
-	@include mobileGrid($mobileLandscapeWidth);
-}
-
-/* CLEARING
- * ------------------------------------------------ */
-.container:after { 
-	content: "\0020"; 
-	display: block; 
-	height: 0; 
-	clear: both; 
-	visibility: hidden; 
-}
-.clearfix, .row {
-	zoom: 1;
-	&:before, &:after {
-		content: "\0020";
-		display: block;
-		overflow: hidden;
-		visibility: hidden;
-		width: 0;
-		height: 0;
-	}
-	&:after { clear: both; }
-}
-.clear {
-	clear: both;
+/* Header */
+.wrapper {
+	width: 100%;
+	height: 100%;
 	display: block;
-	overflow: hidden;
-	visibility: hidden;
-	width: 0;
-	height: 0;
+	@include clear("this");
+	&.main-header { /* still at 100% of viewport */
+		@if($seeFields) { background: $base; }
+		header { /* default 960px */
+			@if($seeFields) { background: darken($base, 3%); }
+			.top-nav { /* add padding and margins here */
+				float: right;
+				@include clear("this");
+				ul {
+					list-style: none;
+					margin-bottom: 0;
+					li {
+						float: left;
+						display: inline;
+						margin-right: 8px;
+						a {
+							font-size: 80%;
+							text-decoration: none;
+							&:hover { text-decoration: underline; }
+						}
+					}
+				}
+			}
+		}
+	}
+	&.main-navigation {
+		@if($seeFields) { background: darken($base, 6%); }
+		nav {
+			@if($seeFields) { background: darken($base, 9%); }
+			ul {
+				list-style: none;
+				margin-bottom: 0;
+				@include clear("this");
+				li {
+					float: left;
+					line-height: normal;
+					margin-bottom: 0;
+					padding: 15px 0;
+					a {
+						font-weight: bold;
+						color: #444;
+						text-decoration: none;
+						padding: 15px;
+						&:hover { color: #222; }
+					}
+					& > ul {
+						width: 200px;
+						padding: 0;
+						margin: 0;
+						li {
+							float: none;
+							padding: 0;
+							margin: 0;
+							a {
+								width: 100%;
+								display: block;
+								padding: 0;
+								margin: 0;
+							}
+						}
+					}
+				} // end li
+			} // end ul
+		} // end nav
+	} // end /.main-nav
+	&.main-content {
+		@if($seeFields) { background: darken($base, 12%); }
+		main {
+			@if($seeFields) { background: darken($base, 15%); }
+			article { padding: 10px; }
+		}
+		.sidebar {
+			// height: 100%;
+			// display: block;
+			// @include clear("this");
+			aside {
+				@if($seeFields) { background: darken($base, 18%); }
+				section { padding: 10px; }
+			}
+		}
+	}
+	&.main-footer {
+		@if($seeFields) { background: darken($base, 21%); }
+		footer {
+			@if($seeFields) { background: darken($base, 24%); }
+			padding-bottom: 5px;
+			section.footer-widgets {
+				padding: 9px 0;
+				@include clear("this");
+				div {
+					@if($seeFields) { background: darken($base, 27%); }
+					p { padding: 5px; }
+				}
+			}
+			.copyright { text-align: center; }
+		}
+	}
+}
+
+/* PAGE STYLES
+ * ------------------------------------------------ */
+img.centered,
+.aligncenter,
+div.aligncenter {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.alignright { float: right; }
+.alignleft { float: left; }
+.wp-caption {
+	border: 1px solid #ddd;
+	text-align: center;
+	background-color: #d4d4d4;
+	padding-top: 4px;
+	margin-bottom: 10px;
+	img {
+		margin: 0;
+		padding: 0;
+		border: 0;
+	}
+	p.wp-caption-text {
+		font-size: 80%;
+		line-height: default;
+		padding: 0 4px 5px;
+		margin: 0;
+	}
+}
+
+/* MEDIA QUERIES
+ * ------------------------------------------------ */
+/* Otherwise known as custom responsive code! Write it here! */
+@media only screen and (min-width: $baseWidthMQ) and (max-width: 1280px) {
+	/* add code here */
+}
+
+/* Smaller than standard #{strip-units($baseWidthMQ)} (devices and browsers) */
+@media only screen and (max-width: $baseWidthMQ - 1) {
+	/* add code here */
+}
+
+/* Tablet Portrait size to standard #{strip-units($baseWidthMQ)} (devices and browsers) */
+@media only screen and (min-width: $tabletWidth) and (max-width: $baseWidthMQ - 1) {
+	/* add code here */
+}
+
+/* All Mobile Sizes (devices and browser) */
+@media only screen and (max-width: $tabletWidth - 1) {
+/* add code here */
+}
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: 480px) and (max-width: $tabletWidth - 1) {
+	/* add code here */
+}
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px) {
+	/* add code here */
 }

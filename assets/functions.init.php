@@ -44,7 +44,7 @@ define("IMAGES", TEMPPATH . "/images/");
 define("SCRIPTS", TEMPPATH . "/js/");
 define("FONTS", TEMPPATH . "/fonts/");
 define("STYLES", TEMPPATH . "/css/");
-define("SKELETON_VERSION", "0.3.0");
+define("SKELETON_VERSION", "0.3.16");
 
 // DEPENDENCIES
 require(get_template_directory() . "/admin/index.php");						// highway to the danger zone
