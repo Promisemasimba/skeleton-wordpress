@@ -40,13 +40,9 @@
 	<div class="wrapper main-header">
 	<header class="container">
 		<div class="sixteen columns">
-			<?php if(get_header_image() != '') : ?>
-				<div id="logo">
-					<a href="<?php echo home_url('/'); ?>"><img src="<?php header_image(); ?>" width="<?php echo skeleton_header_image_helper_width() ?>" height="<?php if(function_exists('get_custom_header')) { echo get_custom_header() -> height;} else { echo HEADER_IMAGE_HEIGHT;} ?>" alt="<?php bloginfo('name'); ?>"></a>
-				</div><!-- end of #logo -->
-			<?php endif; // header image was removed ?>
-
-			<?php if(!get_header_image()) : ?>
+			<?php if(logo_exists()) : ?>
+				<?php skeleton_logo() ?>
+			<?php else : // header image was removed ?>
 				<div id="logo">
 					<h1 class="site-name"><a href="<?php echo home_url('/'); ?>" title="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>" rel="home"><?php bloginfo('name'); ?></a></h1>
 					<h5 class="site-description"><?php bloginfo('description'); ?></h5>

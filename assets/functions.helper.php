@@ -10,20 +10,14 @@
 
 if(!defined("ABSPATH")) exit;
 
-if(!function_exists("skeleton_header_image_helper_width")) {
-	function skeleton_header_image_helper_width() {
-		if(function_exists("get_custom_header")) {
-			return get_custom_header()->width;
-		}
-
-		return HEADER_IMAGE_WIDTH;
-	}
-}
-
+/**
+ * Adds the slider to the home page
+ * @return bool
+ */
 if(!function_exists("skeleton_slider")) {
 	function skeleton_slider() {
 		global $data;
-		if(is_array($data['pingu_slider'])) {
+		if(is_array($data['pingu_slider']) && $data["pingu_slider"]["url"] != "") {
 			$slider .= '<div class="wrapper slider">';
 			$slider .= '<section class="container sliderc">';
 			$slider  = '<div class="sixteen columns home-slider">';
@@ -41,5 +35,33 @@ if(!function_exists("skeleton_slider")) {
 		}
 
 		return false;
+	}
+}
+
+if(!function_exists("skeleton_logo")) {
+	function skeleton_logo() {
+		global $data;
+		echo '<a href="' . get_bloginfo("url") . '"><img src="' . $data["logo"] . '" alt="' . get_bloginfo('name') . '"></a>';
+	}
+}
+
+if(!function_exists("skeleton_logo_exists")) {
+	function skeleton_logo_exists() {
+		global $data;
+		if(isset($data["logo"])) {
+			return TRUE;
+		}
+
+		return FALSE;
+	}
+}
+
+if(!function_exists("logo_exists")) {
+	function logo_exists() {
+		if(get_header_image() != "" || skeleton_logo_exists()) {
+			return TRUE;
+		}
+
+		return FALSE;
 	}
 }
