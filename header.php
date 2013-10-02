@@ -1,9 +1,9 @@
 <?php
 /**
  * Header file! This file houses basic such as, but not limited to:
- *   * DOCTYPE info
- *   * Header information
- *   * Main navigation
+    * DOCTYPE info
+    * Header information
+    * Main navigation
  *
  * @package			WordPress
  * @subpackage		Skeleton

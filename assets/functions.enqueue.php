@@ -27,7 +27,7 @@ add_action("wp_enqueue_scripts", "skeleton_add_scripts");
  */
 if(!function_exists("skeleton_add_styles")) {
 	function skeleton_add_styles() {
-		wp_enqueue_style("skeleton-base", STYLES . "skeleton/base.css", array(), "1.4.2", "screen"); 			// optional
+		wp_enqueue_style("skeleton-base", STYLES . "base.css", array(), "1.4.2", "screen"); 			// optional
 		wp_enqueue_style("skeleton-core", STYLES . "skeleton.css", array(), "1.4.2", "all"); 					// required
 		wp_enqueue_style("skeleton-style", TEMPPATH . "/style.css", array(), "1.0", "all"); 					// required
 	}
