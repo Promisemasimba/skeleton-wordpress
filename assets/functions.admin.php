@@ -6,7 +6,7 @@
  * helper class that does some heavy lifting.
  *
  * @package WordPress
- * @subpackage skeleton_wordpress
+ * @subpackage Skeleton
  * @since 0.1
  */
 
@@ -53,19 +53,19 @@ if(!function_exists("skeleton_internal_styles")) {
 	keygen {
 		<?php echo $smof->build_property("font-family", "face", $body_font, "sans-serif") ?>
 		<?php echo $smof->build_property("font-size", "size", $body_font) ?>
-		<?php echo $smof->build_property("font-style", "style", $body_font) ?>
+		<?php echo $smof->build_property("font-weight", "style", $body_font) ?>
 		<?php echo $smof->build_property("color", "color", $body_font) ?>
 	}
 	h1, h2, h3,
 	h4, h5, h6 {
 		<?php echo $smof->build_property("font-family", "face", $heading_font, "sans-serif") ?>
-		<?php echo $smof->build_property("font-style", "style", $heading_font) ?>
+		<?php echo $smof->build_property("font-weight", "style", $heading_font) ?>
 		<?php echo $smof->build_property("color", "color", $heading_font) ?>
 	}
 	.wrapper nav {
 		<?php echo $smof->build_property("font-family", "face", $nav_font, "sans-serif") ?>
 		<?php echo $smof->build_property("font-size", "size", $nav_font) ?>
-		<?php echo $smof->build_property("font-style", "style", $nav_font) ?>
+		<?php echo $smof->build_property("font-weight", "style", $nav_font) ?>
 		<?php echo $smof->build_property("color", "color", $nav_font) ?>
 	}
 	<?php echo $smof->get_data("custom_css") . "\n"; // custom styles ?>
