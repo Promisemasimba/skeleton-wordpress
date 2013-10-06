@@ -367,6 +367,9 @@ class Options_Machine {
 				break;
 
 				case 'typography_limited' :
+					
+					$typography_stored = isset($smof_data[$value['id']]) ? $smof_data[$value['id']] : $value['std'];
+
 				/* Font Face */
 					if(isset($typography_stored['face'])) {
 
