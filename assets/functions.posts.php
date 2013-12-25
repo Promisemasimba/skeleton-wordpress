@@ -4,7 +4,7 @@
  * All post-related functions will be here
  *
  * @package WordPress
- * @subpackage skeleton_wordpress
+ * @subpackage Skeleton
  * @since 0.1
  */
 
@@ -66,7 +66,7 @@ if(!function_exists('skeleton_entry_date')) {
 		} else {
 			$format_prefix = '%2$s';
 		}
-	
+
 		$date = sprintf('<span class="date"><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s">%4$s</time></a></span>',
 			esc_url(get_permalink()),
 			esc_attr(sprintf(__('Permalink to %s', 'skeleton_wordpress'), the_title_attribute('echo=0'))),
@@ -76,7 +76,7 @@ if(!function_exists('skeleton_entry_date')) {
 		if($echo) {
 			echo $date;
 		}
-		
+
 		return $date;
 	}
 }

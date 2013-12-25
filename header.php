@@ -52,4 +52,4 @@
 	</header>
 	</div>
 	<?php get_template_part('templates/nav/nav', 'main'); ?>
-	<?php skeleton_slider(); ?>
+	<?php get_template_part('templates/slider/slider', 'home'); ?>

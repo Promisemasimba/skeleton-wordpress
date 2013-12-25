@@ -1,11 +1,14 @@
 <?php
 
 /**
- * Want to enqueue a script or style? Want to register those styles? Want to replace an existing style? Do so here.
+ * Handles all of the scripts and styles that are loaded onto the page.
+ * If you want to add custom scripts or styles, you may edit this file
+ * or use one of the helper functions to do so.
  *
  * @package WordPress
- * @subpackage skeleton_wordpress
+ * @subpackage Skeleton
  * @since 0.1
+ * @todo Add parameters or two new methods that allows developers to add custom scripts.
  */
 
 if(!defined("ABSPATH")) exit;
@@ -42,11 +45,11 @@ if(!function_exists("skeleton_add_scripts")) {
 	function skeleton_add_scripts() {
 		global $data;
 		wp_deregister_script("jquery"); // remove dat default jQuery
-		wp_enqueue_script("jquery", SCRIPTS . "jquery.min.js", false, "1.10.1", true); 					// up to date (mostly)
-		wp_enqueue_script("skeleton-respond", SCRIPTS . "respond.min.js", false, "1.3.0", true); 		// make IE 8 ad below behave with media queries
-		wp_enqueue_script("skeleton-modernizr", SCRIPTS . "modernizr.min.js", false, "2.6.2", true); 	// make older browsers behave
+		wp_enqueue_script("jquery", SCRIPTS . "jquery.min.js", false, "1.10.2", true); 					// up to date (mostly)
+		wp_enqueue_script("skeleton-respond", SCRIPTS . "respond.min.js", false, "1.4.0", true); 		// make IE 8 ad below behave with media queries
+		wp_enqueue_script("skeleton-modernizr", SCRIPTS . "modernizr.min.js", false, "2.7.1", false); 	// make older browsers behave
 		if(count($data["pingu_slider"]) != 0) {
-			wp_enqueue_script("flexslider", SCRIPTS . "jquery.flexslider.min.js", false, "2.2.0", true);
+			wp_enqueue_script("flexslider", SCRIPTS . "jquery.flexslider.min.js", false, "2.2.2", true);
 		}
 		wp_enqueue_script("skeleton-superfish", SCRIPTS . "superfish.min.js", false, "1.7.4", true);	// naigation dropdown
 		wp_enqueue_script("skeleton-script", SCRIPTS . "dev/skeleton.js", false, "0.11.0", true); 		// your custom scripts

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Little helper functions that really have no other place
+ * Helper functions, they help you!
  *
  * @package WordPress
  * @subpackage Skeleton
@@ -21,7 +21,7 @@ if(!function_exists("skeleton_slider")) {
 			$slides  = $data['pingu_slider'];
 			foreach($slides as $slide) {
 				$slider  .= "<li>";
-				if($slide["link"]) {
+				if(!empty($slide["link"])) {
 					$slider .= '<a href="'.$slide["link"].'">';
 				}
 
@@ -29,6 +29,10 @@ if(!function_exists("skeleton_slider")) {
 
 				if($slide["link"]) {
 					$slider .= "</a>";
+				}
+
+				if(!empty($slide["description"])) {
+					$slider .= '<p class="flex-caption">' . $slide["description"] . '</p>';
 				}
 
 				$slider  .= "</li>";
@@ -53,7 +57,12 @@ if(!function_exists("skeleton_logo")) {
 }
 
 /**
- * Determined whether or not the logo "exists" or not
+ * Determined whether or not the logo "exists" or not. This merely checks to see
+ * if the user has set the logo inside of the theme options panel that is supplied
+ * with this theme only. This does NOT check to see if the logo exists using the native
+ * WordPress theme editor.
+ *
+ * @todo allow for users to use native WordPress theme editor
  * @return bool
  */
 if(!function_exists("logo_exists")) {
@@ -63,5 +72,29 @@ if(!function_exists("logo_exists")) {
 		}
 
 		return FALSE;
+	}
+}
+
+/**
+ * Truncates text up to $max characters and rounds off to the nearest word.
+ * This function also append any desired HTML or plain text to the end of the
+ * truncated body of text as set in the $append parameter.
+ *
+ * @param string $text
+ * @param int $max | [ $max = 280 ] optional
+ * @param string $append | [ $append = '&hellip;' ] optional
+ * @return string
+ */
+if(!function_exists("skeleton_truncate")) {
+	function skeleton_truncate($text, $max = 280, $append = '&hellip;') {
+		$text = strip_tags($text, "<em><b><i><u><strong><addr><ul><li><ol><dl><dd><dt><code><pre><kbd><span><h1><h2><h3><h4><h5><h6><a>");
+		if(strlen($text) <= $max) {
+			return $text;
+		}
+		$out = substr($text, 0, $max);
+		if(strpos($text, ' ') === FALSE) {
+			return $out . $append;
+		}
+		return preg_replace('/\w+$/', '', $out) . $append;
 	}
 }

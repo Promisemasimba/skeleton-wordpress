@@ -1,7 +1,10 @@
 <?php
 
 /**
- * A simple helper class to aid in bridging SMOF to Skeleton WordPress
+ * A simple helper class to aid in bridging SMOF to Skeleton.
+ * If you wish to alter this class for any reason, please extend it
+ * so upgrading won't be a nightmare.
+ *
  * @since 0.3
  */
 class SkeletonAdmin {
@@ -34,7 +37,7 @@ class SkeletonAdmin {
 
 		return FALSE;
 	}
-	
+
 	/**
 	 * Filters any identical fonts in an array, thereby compacting the array
 	 * @param array $fonts
@@ -133,7 +136,7 @@ class SkeletonAdmin {
 	}
 
 	/**
-	 * Builds the URL and link tag for google fonts
+	 * Builds the URL and link tag for Google fonts
 	 * @param mixed $font
 	 * @param string $weight
 	 * @return string
@@ -163,7 +166,7 @@ class SkeletonAdmin {
 	 * @param mixed $keys | String for single item | Array for multiple items
 	 * @return mixed
 	 * @access public
-	 * @todo allow user to pass in a regex that searches for a key value that matches
+	 * @todo allow developer to pass in a regex that searches for a key value that matches
 	 */
 	public function query_array($keys) {
 		$chunk = array();
@@ -181,7 +184,7 @@ class SkeletonAdmin {
 
 		return FALSE;
 	}
-	
+
 	/**
 	 * Generates the slider
 	 * @return String
@@ -193,10 +196,10 @@ class SkeletonAdmin {
 			$slider .= '<li><img src="' . $slide . '"></li>';
 		}
 		$slider .= "</ul>";
-		
+
 		return htmlentities($slider);
 	}
-	
+
 	/**
 	 * Gets an array of slides and other meta information
 	 * @return array
@@ -204,7 +207,7 @@ class SkeletonAdmin {
 	public function get_all_slides() {
 		return $this->slides;
 	}
-	
+
 	/**
 	 * Returns an array of the image urls
 	 * @return array
@@ -215,7 +218,7 @@ class SkeletonAdmin {
 		foreach($slides as $slide) {
 			$urls[] = $slide["url"];
 		}
-		
+
 		return $urls;
 	}
 

@@ -1,10 +1,10 @@
 <?php
 
 /**
- * All of the theme initialization actions here. This is the real meat of the theme where everything is stated.
+ * All of the theme initialization procedures happen here.
  *
  * @package WordPress
- * @subpackage skeleton_wordpress
+ * @subpackage Skeleton
  * @since 0.1
  */
 
@@ -44,13 +44,14 @@ define("IMAGES", TEMPPATH . "/images/");
 define("SCRIPTS", TEMPPATH . "/js/");
 define("FONTS", TEMPPATH . "/fonts/");
 define("STYLES", TEMPPATH . "/css/");
-define("SKELETON_VERSION", "0.3.16");
+define("SKELETON_VERSION", "0.3.23");
 
 // DEPENDENCIES
-require(get_template_directory() . "/admin/index.php");						// highway to the danger zone
+require(get_template_directory() . "/admin/index.php");							// highway to the danger zone
 require(get_template_directory() . "/assets/includes/browser_detection.php");	// used to generate those lovely helper selectors that tell you all about the working browser and OS
 
 // HOOKS
+// actions
 add_action("after_setup_theme", "skeleton_init");
 add_action("init", "skeleton_nav_init");
 add_action("widgets_init", "skeleton_sidebar_init");

@@ -4,7 +4,7 @@
  * All shortcode-related functions are here!
  *
  * @package WordPress
- * @subpackage skeleton_wordpress
+ * @subpackage Skeleton
  * @since 0.1
  */
 
@@ -18,10 +18,10 @@ if(!defined("ABSPATH")) exit;
  */
 
 /**
- * 
- * 
- * 
- * 
+ *
+ *
+ *
+ *
  */
 if(!function_exists("skeleton_shortcode_button")) {
 	function skeleton_shortcode_button($atts, $content = '') {
@@ -43,7 +43,7 @@ if(!function_exists("skeleton_shortcode_button")) {
 
 			if (array_key_exists("color", $atts)) {
 				if ($atts['color'][0] == "#") {
-					$styles[] = 'background-color: '.$atts['color'].';'; 
+					$styles[] = 'background-color: '.$atts['color'].';';
 				} else {
 					$classes[] = $atts['color'];
 				}
@@ -84,7 +84,7 @@ if(!function_exists("skeleton_shortcode_button")) {
 if(!function_exists("skeleton_shotcode_credit")) {
 	function skeleton_shotcode_credit($atts, $content = NULL) {
 		if($content == NULL) {
-			$content = "Skeleton Wordpress"; // woosh
+			$content = "Built on Skeleton Wordpress"; // woosh
 		} else {
 			$content = htmlspecialchars(strip_tags($content)); // keep it safe
 		}
@@ -119,7 +119,7 @@ if(!function_exists("skeleton_shortcode_blog_title")) {
 }
 
 /**
- * Returns the URL of the blog
+ * Returns the home URL of the blog
  * @return string
  * @since 0.1
  */

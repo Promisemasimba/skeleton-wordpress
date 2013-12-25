@@ -4,7 +4,7 @@
  * Let the magic begin
  *
  * @package WordPress
- * @subpackage skeleton_wordpress
+ * @subpackage Skeleton
  * @since 0.1
  */
 

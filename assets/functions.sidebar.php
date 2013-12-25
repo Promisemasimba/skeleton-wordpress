@@ -4,7 +4,7 @@
  * Where all of the theme layout magic happens
  *
  * @package WordPress
- * @subpackage skeleton_wordpress
+ * @subpackage Skeleton
  * @since 0.1
  */
 
@@ -85,6 +85,6 @@ if(!function_exists("skeleton_main_classes")) {
 				break;
 		}
 
-		echo count($classes) != 0 ? 'class="' . implode(" ", $classes) . '"' : "";
+		echo count($classes) != 0 ? 'class="' . implode(" ", $classes) . ' row"' : "";
 	}
 }

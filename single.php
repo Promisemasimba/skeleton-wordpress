@@ -1,4 +1,4 @@
-<?php 
+<?php
 	// Exit if access directly
 	if(!defined('ABSPATH')) exit;
 ?>
@@ -13,6 +13,9 @@
  * @copyright 2009-2013 AtomicPages LLC
  * @license license.txt
  * @since 0.1
+ *
+ * EXTRA DOCUMENTATION
+ * @see skeleton_main_classes()		assets/functions.sidebar.php:57
  */
 ?>
 
@@ -21,7 +24,7 @@
 	<div class="wrapper main-content">
 		<div class="container content" role="main">
 			<?php skeleton_content_before(); ?>
-			<main id="main" class="twelve columns omega">
+			<main id="main" class="twelve columns omega row">
 				<?php skeleton_content_top(); ?>
 				<?php while(have_posts()) : ?>
 					<?php the_post(); ?>

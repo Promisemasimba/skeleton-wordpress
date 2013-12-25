@@ -20,6 +20,9 @@
  * @copyright 2009-2013 AtomicPages LLC
  * @license license.txt
  * @since 0.1
+ *
+ * EXTRA DOCUMENTATION
+ * @see skeleton_main_classes()		assets/functions.sidebar.php:57
  */
 ?>
 
