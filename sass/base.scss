@@ -6,13 +6,13 @@
  * @author Dennis Thompson <http://www.atomicpages.net>
  * @copyright Copyright (c) 2013 AtomicPages LLC
  * @license MIT
- * @version 1.4.2
+ * @version 1.5.1
  */
 
 // IMPORTS
 @import "compass/css3";
-@import "skeleton/vars"; // import _vars
-@import "skeleton/mixins"; // import _mixins
+@import "vars"; // import _vars
+@import "mixins"; // import _mixins
 
 
 /* RESET & BASICS (Inspired by E. Meyers)
@@ -43,7 +43,6 @@ h1, h2, h3, h4, h5, h6 {
 		family: $headingFamily;
 		weight: normal;
 	}
-	text-rendering: optimizeLegibility; /* https://developer.mozilla.org/en-US/docs/CSS/text-rendering */
 }
 h1, h2, h3,
 h4, h5, h6 {
@@ -245,6 +244,13 @@ input[type="email"],
 input[type="search"],
 input[type="url"],
 input[type="tel"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="number"],
 textarea,
 select {
 	background: #fff;

@@ -55,7 +55,8 @@ if(!function_exists("skeleton_sidebar_right")) {
 }
 
 /**
- * Adds the proper classes to the main and aside elements so everything fits flush
+ * Adds the proper classes to the main elements so everything fits flush
+ * against the aside element
  * @return void
  */
 if(!function_exists("skeleton_main_classes")) {

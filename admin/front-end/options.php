@@ -1,4 +1,5 @@
-<div class="wrap" id="of_container">
+<?php global $wp_version; ?>
+<div class="wrap<?php echo version_compare($wp_version, '3.8', 'ge') ? " wp-38" : " false" ?>" id="of_container">
 	<div id="of-popup-save" class="of-save-popup">
 		<div class="of-save-save">Options Updated</div>
 	</div>
