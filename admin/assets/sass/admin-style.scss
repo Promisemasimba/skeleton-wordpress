@@ -25,7 +25,7 @@
 		@include border-radius(6px 6px 0 0);
 		background-color: rgb(249,249,249);
 		@include filter-gradient(#f9f9f9, #ececec, vertical);
-		@include background-image(linear-gradient(top,  rgba(249,249,249,1) 16%,rgba(236,236,236,1) 100%));
+		@include background-image(linear-gradient(top, rgba(249,249,249,1) 16%, rgba(236,236,236,1) 100%));
 		@include box-shadow(inset 0 1px 0 #fff);
 		.logo {
 			float: left;
@@ -58,7 +58,11 @@
 			background: #222;
 		}
 		#content {
+			font-family: "Open Sans",sans-serif;
 			background: #f1f1f1;
+			.section {
+				.explain { font-size: 12px; }
+			}
 		}
 		// #of_container #of-nav li
 		#of-nav {
@@ -82,6 +86,31 @@
 					}
 					a:hover { color: #2ea2cc; }
 				}
+			}
+		} // #of_nav
+		.controls {
+			textarea,
+			input,
+			select {
+				// reset view
+				@include border-radius(0px);
+				@include box-shadow(inset 0 1px 2px rgba(0, 0, 0, .07));
+				@include box-sizing(border-box);
+				vertical-align: baseline;
+				font-family: "Open Sans",sans-serif;
+				font-size: 13px;
+				line-height: 1.4;
+				outline: 0;
+				margin: 0;
+				color: #333;
+				background: #fff;
+				border: 1px solid #ddd;
+			}
+			input:hover, textarea:hover { background-color: #fff; }
+			input:focus, textarea:focus {
+				background-color: #fff;
+				border-color: #999;
+				outline: 0;
 			}
 		}
 	}
@@ -290,7 +319,7 @@
 				line-height: 40px;
 				background-color: #F1F1F1;
 				@include filter-gradient(#f9f9f9, #ececec, vertical);
-				@include background-image(linear-gradient(top,  rgba(249,249,249,1) 16%,rgba(236,236,236,1) 100%));
+				@include background-image(linear-gradient(top, rgba(249,249,249,1) 16%, rgba(236,236,236,1) 100%));
 				overflow: hidden;
 				@include border-radius(3px);
 				@include box-shadow(inset 0 1px 0 #fff);
@@ -695,7 +724,7 @@ label {
 			height: 28px;
 			margin: 0;
 			-moz-opacity: 0;
-			filter: alpha(opacity = 0);
+			filter: alpha(opacity =" 0");
 			opacity: 0;
 			padding: 0;
 			position: relative;
