@@ -40,81 +40,9 @@
 	}
 	ul, ol { margin: 0; }
 	&.wp-38 {
-		#header {
-			background: #222;
-			@include border-radius(3px 3px 0 0);
-			border: 1px solid #222;
-			@include box-shadow(none);
-			.logo {
-				h2 { color: #ccc; }
-			}
-		}
-		#info_bar {
-			background: #333;
-			@include box-shadow(none);
-			border: 0;
-		}
-		#main {
-			background: #222;
-		}
-		#content {
-			font-family: "Open Sans",sans-serif;
-			background: #f1f1f1;
-			.section {
-				.explain { font-size: 12px; }
-			}
-		}
-		// #of_container #of-nav li
-		#of-nav {
-			ul {
-				li {
-					@include box-shadow(none);
-					border-bottom: 0;
-					background: #333;
-					&.current {
-						a {
-							background: #333;
-							color: white;
-							font-weight: bold;
-						}
-					}
-					a:link {
-						color: #bbb;
-						@include opacity(1);
-						font-size: 13px;
-						font-weight: normal;
-					}
-					a:hover { color: #2ea2cc; }
-				}
-			}
-		} // #of_nav
-		.controls {
-			textarea,
-			input,
-			select {
-				// reset view
-				@include border-radius(0px);
-				@include box-shadow(inset 0 1px 2px rgba(0, 0, 0, .07));
-				@include box-sizing(border-box);
-				vertical-align: baseline;
-				font-family: "Open Sans",sans-serif;
-				font-size: 13px;
-				line-height: 1.4;
-				outline: 0;
-				margin: 0;
-				color: #333;
-				background: #fff;
-				border: 1px solid #ddd;
-			}
-			input:hover, textarea:hover { background-color: #fff; }
-			input:focus, textarea:focus {
-				background-color: #fff;
-				border-color: #999;
-				outline: 0;
-			}
-		}
+		@import "themes/default";
 	}
-}
+} // #of_container
 
 .js #of_container #js-warning { display: none; }
 #of_container {
@@ -208,8 +136,8 @@
 			color: #555;
 			@include opacity(0.5);
 		}
-	}
-}
+	} // #of_nav
+} // #of_container
 #of-nav ul li a:visited {
 	display: block;
 	padding: 10px 10px 10px 25px;
