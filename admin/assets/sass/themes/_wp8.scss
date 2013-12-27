@@ -1,0 +1,133 @@
+// structural elements
+#header {
+	background: $headerBgColor;
+	@include border-radius(3px 3px 0 0);
+	border: 1px solid $headerBgBorderColor;
+	@include box-shadow(none);
+	.logo {
+		h2 { color: $headerH2Color; }
+	}
+}
+#info_bar {
+	background: #333;
+	@include box-shadow(none);
+	border: 0;
+	padding-bottom: 3px;
+}
+#main {
+	background: $mainBgColor;
+	border: {
+		top: 0;
+		right: 2px solid $mainBorderRightColor;
+		bottom: 0;
+		left: 0;
+	};
+}
+#content {
+	font-family: "Open Sans",sans-serif;
+	background: $contentBgColor;
+	.section {
+		.explain { font-size: 12px; }
+		h3.heading { border-bottom-color: $contentH3DivideColor; }
+	}
+}
+.save_bar {
+	background: $saveBarBgColor;
+	@include box-shadow(none);
+	@include border-radius(0 0 3px 3px);
+	border: {
+		top: 1px solid $saveBarBorderColor;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	}
+}
+// sidebar
+#of-nav {
+	ul {
+		li {
+			@include box-shadow(none);
+			border-bottom: 0;
+			background: $navBgColor;
+			margin-right: 1px;
+			&.current {
+				a {
+					background: $navBgCurrentColor;
+					color: $navCurrentColor;
+					font-weight: bold;
+				}
+			}
+			a:link {
+				color: $navColor;
+				@include opacity(1);
+				font-size: 13px;
+				font-weight: normal;
+			}
+			a:hover { color: $navHoverColor; }
+		}
+	}
+} // #of_nav
+
+/* OVERRIDES */
+.controls {
+	textarea,
+	input,
+	select {
+		// reset view
+		@include border-radius(0px);
+		@include box-shadow(inset 0 1px 2px rgba(0, 0, 0, .07));
+		@include box-sizing(border-box);
+		vertical-align: baseline;
+		font-family: "Open Sans", sans-serif;
+		font-size: 13px;
+		line-height: 1.4;
+		outline: 0;
+		margin: 0;
+		color: $inputColor;
+		background: $inputBgColor;
+		border: 1px solid $inputBorderColor;
+	}
+	input:hover, textarea:hover { background-color: $inputBgHover; }
+	input:focus, textarea:focus {
+		background-color: $inputFocusHover;
+		border-color: $inputFocusBorderColor;
+		outline: 0;
+	}
+} // .controls
+.select_wrapper {
+	background-color: $selectBgColor;
+	font-family: "Open Sans", sans-serif;
+	border-color: $selectBorderColorvcb;
+	@include border-radius(0px);
+	@include box-shadow(inset 0 1px 2px rgba(0, 0, 0, .07));
+}
+
+/* Sliders */
+.slider {
+	li {
+		border-color: $sliderLiBorderColor;
+		@include box-shadow(none);
+		background: $sliderLiBgColor;
+		@include border-radius(2px);
+	}
+}
+.slide_header {
+	/* reset filters */
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(enabled=false)" !important;
+	filter: "progid:DXImageTransform.Microsoft.gradient(enabled=false)" !important;
+	background: $sliderLiBgColor;
+	border: 0;
+	color: $sliderLiColor;
+}
+.slide_body {
+	color: $sliderBodyColor;
+	background: $sliderBodyBgColor;
+}
+
+/* Logo preview */
+.of-option-image {
+	background: darken(#f7f7f7, 1%);
+	border-color: #ddd;
+	@include border-radius(0px);
+	@include box-shadow(inset 0 1px 2px rgba(0, 0, 0, .07));
+}
