@@ -1,133 +1,99 @@
-// structural elements
-#header {
-	background: $headerBgColor;
-	@include border-radius(3px 3px 0 0);
-	border: 1px solid $headerBgBorderColor;
-	@include box-shadow(none);
-	.logo {
-		h2 { color: $headerH2Color; }
+@import "includes/fresh";
+@import "includes/coffee";
+@import "includes/ectoplasm";
+@import "includes/light";
+@import "includes/midnight";
+@import "includes/ocean";
+@import "includes/sunrise";
+@import "includes/blue";
+
+@mixin wp38($theme: false) {
+	$schemes: "fresh", "light", "blue", "coffee", "ectoplasm", "midnight", "ocean", "sunrise";
+
+	@if($theme == false or index($schemes, $theme) != false) {
+		@include fresh;
 	}
-}
-#info_bar {
-	background: #333;
-	@include box-shadow(none);
-	border: 0;
-	padding-bottom: 3px;
-}
-#main {
-	background: $mainBgColor;
-	border: {
-		top: 0;
-		right: 2px solid $mainBorderRightColor;
-		bottom: 0;
-		left: 0;
-	};
-}
-#content {
-	font-family: "Open Sans",sans-serif;
-	background: $contentBgColor;
-	.section {
-		.explain { font-size: 12px; }
-		h3.heading { border-bottom-color: $contentH3DivideColor; }
-	}
-}
-.save_bar {
-	background: $saveBarBgColor;
-	@include box-shadow(none);
-	@include border-radius(0 0 3px 3px);
-	border: {
-		top: 1px solid $saveBarBorderColor;
-		right: 0;
-		bottom: 0;
-		left: 0;
-	}
-}
-// sidebar
-#of-nav {
-	ul {
-		li {
-			@include box-shadow(none);
-			border-bottom: 0;
-			background: $navBgColor;
-			margin-right: 1px;
-			&.current {
-				a {
-					background: $navBgCurrentColor;
-					color: $navCurrentColor;
-					font-weight: bold;
-				}
-			}
-			a:link {
-				color: $navColor;
-				@include opacity(1);
-				font-size: 13px;
-				font-weight: normal;
-			}
-			a:hover { color: $navHoverColor; }
+
+	@if($theme == "fresh") { @include fresh; }
+	@if($theme == "light") { @include light; }
+	@if($theme == "blue") { @include blue; }
+	@if($theme == "coffee") { @include coffee; }
+	@if($theme == "ectoplasm") { @include ectoplasm; }
+	@if($theme == "midnight") { @include midnight; }
+	@if($theme == "ocean") { @include ocean; }
+	@if($theme == "sunrise") { @include sunrise; }
+
+	#header {
+		background: $headerBgColor;
+		border-color: $headerBgBorderColor;
+		.logo {
+			h2 { color: $headerH2Color; }
 		}
 	}
-} // #of_nav
-
-/* OVERRIDES */
-.controls {
-	textarea,
-	input,
-	select {
-		// reset view
-		@include border-radius(0px);
-		@include box-shadow(inset 0 1px 2px rgba(0, 0, 0, .07));
-		@include box-sizing(border-box);
-		vertical-align: baseline;
-		font-family: "Open Sans", sans-serif;
-		font-size: 13px;
-		line-height: 1.4;
-		outline: 0;
-		margin: 0;
-		color: $inputColor;
-		background: $inputBgColor;
-		border: 1px solid $inputBorderColor;
+	#info_bar { background: $infoBarBgColor; }
+	#main {
+		background: $mainBgColor;
+		border-right-color: $mainBorderRightColor;
 	}
-	input:hover, textarea:hover { background-color: $inputBgHover; }
-	input:focus, textarea:focus {
-		background-color: $inputFocusHover;
-		border-color: $inputFocusBorderColor;
-		outline: 0;
+	#content {
+		background: $contentBgColor;
+		.section {
+			h3.heading { border-bottom-color: $contentH3DivideColor; }
+		}
 	}
-} // .controls
-.select_wrapper {
-	background-color: $selectBgColor;
-	font-family: "Open Sans", sans-serif;
-	border-color: $selectBorderColorvcb;
-	@include border-radius(0px);
-	@include box-shadow(inset 0 1px 2px rgba(0, 0, 0, .07));
-}
+	.save_bar {
+		background: $saveBarBgColor;
+		border-top-color: $saveBarBorderColor;
+	}
+	// sidebar
+	#of-nav {
+		ul {
+			li {
+				background: $navBgColor;
+				&.current {
+					a {
+						background: $navBgCurrentColor;
+						color: $navCurrentColor;
+					}
+				}
+				a:link { color: $navColor; }
+				a:hover { color: $navHoverColor; }
+			}
+		}
+	} // #of-nav
 
-/* Sliders */
-.slider {
-	li {
-		border-color: $sliderLiBorderColor;
-		@include box-shadow(none);
+	/* OVERRIDES */
+	.controls {
+		textarea,
+		input,
+		select {
+			color: $inputColor;
+			background: $inputBgColor;
+			border-color: $inputBorderColor;
+		}
+		input:hover, textarea:hover { background-color: $inputBgHover; }
+		input:focus, textarea:focus {
+			background-color: $inputFocusHover;
+			border-color: $inputFocusBorderColor;
+		}
+	} // .controls
+	.select_wrapper {
+		background-color: $selectBgColor;
+		border-color: $selectBorderColor;
+	}
+
+	.slider {
+		li {
+			border-color: $sliderLiBorderColor;
+			background: $sliderLiBgColor;
+		}
+	}
+	.slide_header {
 		background: $sliderLiBgColor;
-		@include border-radius(2px);
+		color: $sliderLiColor;
 	}
-}
-.slide_header {
-	/* reset filters */
-	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(enabled=false)" !important;
-	filter: "progid:DXImageTransform.Microsoft.gradient(enabled=false)" !important;
-	background: $sliderLiBgColor;
-	border: 0;
-	color: $sliderLiColor;
-}
-.slide_body {
-	color: $sliderBodyColor;
-	background: $sliderBodyBgColor;
-}
-
-/* Logo preview */
-.of-option-image {
-	background: darken(#f7f7f7, 1%);
-	border-color: #ddd;
-	@include border-radius(0px);
-	@include box-shadow(inset 0 1px 2px rgba(0, 0, 0, .07));
+	.slide_body {
+		color: $sliderBodyColor;
+		background: $sliderBodyBgColor;
+	}
 }

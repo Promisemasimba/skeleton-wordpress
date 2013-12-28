@@ -1,0 +1,38 @@
+@mixin fresh {
+	$headerBgColor: #222 !global;
+	$headerBgBorderColor: $headerBgColor !global;
+	$headerH2Color: #ccc !global;
+
+	$infoBarBgColor: $headerBgColor !global;
+
+	$contentBgColor: #fff !global;
+	$contentH3DivideColor: #d8d8d8 !global;
+
+	$mainBgColor: #222 !global;
+	$mainBorderRightColor: $contentBgColor !global;
+
+	$saveBarBgColor: $contentBgColor !global;
+	$saveBarBorderColor: #ddd !global;
+
+	$navBgColor: #333 !global;
+	$navBgCurrentColor: $navBgColor !global;
+	$navCurrentColor: white !global;
+	$navColor: #bbb !global;
+	$navHoverColor: #2ea2cc !global;
+
+	$inputColor: #333 !global;
+	$inputBgColor: #fff !global;
+	$inputBorderColor: #ddd !global;
+	$inputBgHover: #fff !global;
+	$inputFocusHover: $inputBgHover !global;
+	$inputFocusBorderColor: #999 !global;
+
+	$selectBgColor: $contentBgColor !global;
+	$selectBorderColor: #ddd !global;
+
+	$sliderLiBorderColor: $contentBgColor !global;
+	$sliderLiBgColor: #0074a2 !global;
+	$sliderLiColor: #fff !global;
+	$sliderBodyColor: #fff !global;
+	$sliderBodyBgColor: $navBgColor !global;
+}
