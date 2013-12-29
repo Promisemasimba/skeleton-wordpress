@@ -1,22 +1,25 @@
 @mixin midnight {
-	$headerBgColor: #222 !global;
+	$headerBgColor: #363b3f !global;
 	$headerBgBorderColor: $headerBgColor !global;
 	$headerH2Color: #ccc !global;
+	$headerSpan: #c2c4c5 !global;
+
+	$infoBarBgColor: $headerBgColor !global;
 
 	$contentBgColor: #fff !global;
 	$contentH3DivideColor: #d8d8d8 !global;
 
-	$mainBgColor: #222 !global;
+	$mainBgColor: #363b3f !global;
 	$mainBorderRightColor: $contentBgColor !global;
 
 	$saveBarBgColor: $contentBgColor !global;
 	$saveBarBorderColor: #ddd !global;
 
-	$navBgColor: #333 !global;
+	$navBgColor: #26292c !global;
 	$navBgCurrentColor: $navBgColor !global;
 	$navCurrentColor: white !global;
-	$navColor: #bbb !global;
-	$navHoverColor: #2ea2cc !global;
+	$navColor: #c2c4c5 !global;
+	$navHoverColor: #e14d43 !global;
 
 	$inputColor: #333 !global;
 	$inputBgColor: #fff !global;
@@ -29,7 +32,7 @@
 	$selectBorderColor: #ddd !global;
 
 	$sliderLiBorderColor: $contentBgColor !global;
-	$sliderLiBgColor: #0074a2 !global;
+	$sliderLiBgColor: #e14d43 !global;
 	$sliderLiColor: #fff !global;
 	$sliderBodyColor: #fff !global;
 	$sliderBodyBgColor: $navBgColor !global;

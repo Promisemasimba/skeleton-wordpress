@@ -1,22 +1,25 @@
 @mixin sunrise {
-	$headerBgColor: #222 !global;
+	$headerBgColor: #cf4944 !global;
 	$headerBgBorderColor: $headerBgColor !global;
-	$headerH2Color: #ccc !global;
+	$headerH2Color: #fff !global;
+	$headerSpan: #f0c8c6 !global;
+
+	$infoBarBgColor: $headerBgColor !global;
 
 	$contentBgColor: #fff !global;
 	$contentH3DivideColor: #d8d8d8 !global;
 
-	$mainBgColor: #222 !global;
+	$mainBgColor: #cf4944 !global;
 	$mainBorderRightColor: $contentBgColor !global;
 
 	$saveBarBgColor: $contentBgColor !global;
 	$saveBarBorderColor: #ddd !global;
 
-	$navBgColor: #333 !global;
+	$navBgColor: #be3631 !global;
 	$navBgCurrentColor: $navBgColor !global;
 	$navCurrentColor: white !global;
-	$navColor: #bbb !global;
-	$navHoverColor: #2ea2cc !global;
+	$navColor: #f0c8c6 !global;
+	$navHoverColor: #f7e3d3 !global;
 
 	$inputColor: #333 !global;
 	$inputBgColor: #fff !global;
@@ -29,7 +32,7 @@
 	$selectBorderColor: #ddd !global;
 
 	$sliderLiBorderColor: $contentBgColor !global;
-	$sliderLiBgColor: #0074a2 !global;
+	$sliderLiBgColor: #dd823b !global;
 	$sliderLiColor: #fff !global;
 	$sliderBodyColor: #fff !global;
 	$sliderBodyBgColor: $navBgColor !global;

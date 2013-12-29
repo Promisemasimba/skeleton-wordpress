@@ -160,6 +160,8 @@
       border-color: #222222; }
       #of_container.wp-38 #header .logo h2 {
         color: #cccccc; }
+      #of_container.wp-38 #header .logo span {
+        color: #bbbbbb; }
     #of_container.wp-38 #info_bar {
       background: #222222; }
     #of_container.wp-38 #main {
@@ -211,6 +213,8 @@
         border-color: #59524c; }
         #of_container.wp-38.coffee #header .logo h2 {
           color: white; }
+        #of_container.wp-38.coffee #header .logo span {
+          color: #cdcbc9; }
       #of_container.wp-38.coffee #info_bar {
         background: #59524c; }
       #of_container.wp-38.coffee #main {
@@ -248,9 +252,9 @@
         border-color: #dddddd; }
       #of_container.wp-38.coffee .slider li {
         border-color: white;
-        background: #0074a2; }
+        background: #c7a589; }
       #of_container.wp-38.coffee .slide_header {
-        background: #0074a2;
+        background: #c7a589;
         color: white; }
       #of_container.wp-38.coffee .slide_body {
         color: white;
@@ -258,14 +262,16 @@
     #of_container.wp-38.ectoplasm {
       /* OVERRIDES */ }
       #of_container.wp-38.ectoplasm #header {
-        background: #222222;
-        border-color: #222222; }
+        background: #523f6d;
+        border-color: #523f6d; }
         #of_container.wp-38.ectoplasm #header .logo h2 {
           color: #cccccc; }
+        #of_container.wp-38.ectoplasm #header .logo span {
+          color: #cbc5d3; }
       #of_container.wp-38.ectoplasm #info_bar {
-        background: #222222; }
+        background: #523f6d; }
       #of_container.wp-38.ectoplasm #main {
-        background: #222222;
+        background: #523f6d;
         border-right-color: white; }
       #of_container.wp-38.ectoplasm #content {
         background: white; }
@@ -275,14 +281,14 @@
         background: white;
         border-top-color: #dddddd; }
       #of_container.wp-38.ectoplasm #of-nav ul li {
-        background: #333333; }
+        background: #413256; }
         #of_container.wp-38.ectoplasm #of-nav ul li.current a {
-          background: #333333;
+          background: #413256;
           color: white; }
         #of_container.wp-38.ectoplasm #of-nav ul li a:link {
-          color: #bbbbbb; }
+          color: #cbc5d3; }
         #of_container.wp-38.ectoplasm #of-nav ul li a:hover {
-          color: #2ea2cc; }
+          color: #a3b745; }
       #of_container.wp-38.ectoplasm .controls textarea,
       #of_container.wp-38.ectoplasm .controls input,
       #of_container.wp-38.ectoplasm .controls select {
@@ -299,24 +305,26 @@
         border-color: #dddddd; }
       #of_container.wp-38.ectoplasm .slider li {
         border-color: white;
-        background: #0074a2; }
+        background: #a3b745; }
       #of_container.wp-38.ectoplasm .slide_header {
-        background: #0074a2;
+        background: #a3b745;
         color: white; }
       #of_container.wp-38.ectoplasm .slide_body {
         color: white;
-        background: #333333; }
+        background: #413256; }
     #of_container.wp-38.light {
       /* OVERRIDES */ }
       #of_container.wp-38.light #header {
-        background: #222222;
-        border-color: #222222; }
+        background: #e5e5e5;
+        border-color: #e5e5e5; }
         #of_container.wp-38.light #header .logo h2 {
-          color: #cccccc; }
+          color: #333333; }
+        #of_container.wp-38.light #header .logo span {
+          color: #686868; }
       #of_container.wp-38.light #info_bar {
-        background: #222222; }
+        background: #e5e5e5; }
       #of_container.wp-38.light #main {
-        background: #222222;
+        background: #e5e5e5;
         border-right-color: white; }
       #of_container.wp-38.light #content {
         background: white; }
@@ -326,14 +334,14 @@
         background: white;
         border-top-color: #dddddd; }
       #of_container.wp-38.light #of-nav ul li {
-        background: #333333; }
+        background: white; }
         #of_container.wp-38.light #of-nav ul li.current a {
-          background: #333333;
+          background: white;
           color: white; }
         #of_container.wp-38.light #of-nav ul li a:link {
-          color: #bbbbbb; }
+          color: #686868; }
         #of_container.wp-38.light #of-nav ul li a:hover {
-          color: #2ea2cc; }
+          color: #04a4cc; }
       #of_container.wp-38.light .controls textarea,
       #of_container.wp-38.light .controls input,
       #of_container.wp-38.light .controls select {
@@ -350,24 +358,26 @@
         border-color: #dddddd; }
       #of_container.wp-38.light .slider li {
         border-color: white;
-        background: #0074a2; }
+        background: #888888; }
       #of_container.wp-38.light .slide_header {
-        background: #0074a2;
+        background: #888888;
         color: white; }
       #of_container.wp-38.light .slide_body {
-        color: white;
-        background: #333333; }
+        color: #686868;
+        background: white; }
     #of_container.wp-38.midnight {
       /* OVERRIDES */ }
       #of_container.wp-38.midnight #header {
-        background: #222222;
-        border-color: #222222; }
+        background: #363b3f;
+        border-color: #363b3f; }
         #of_container.wp-38.midnight #header .logo h2 {
           color: #cccccc; }
+        #of_container.wp-38.midnight #header .logo span {
+          color: #c2c4c5; }
       #of_container.wp-38.midnight #info_bar {
-        background: #222222; }
+        background: #363b3f; }
       #of_container.wp-38.midnight #main {
-        background: #222222;
+        background: #363b3f;
         border-right-color: white; }
       #of_container.wp-38.midnight #content {
         background: white; }
@@ -377,14 +387,14 @@
         background: white;
         border-top-color: #dddddd; }
       #of_container.wp-38.midnight #of-nav ul li {
-        background: #333333; }
+        background: #26292c; }
         #of_container.wp-38.midnight #of-nav ul li.current a {
-          background: #333333;
+          background: #26292c;
           color: white; }
         #of_container.wp-38.midnight #of-nav ul li a:link {
-          color: #bbbbbb; }
+          color: #c2c4c5; }
         #of_container.wp-38.midnight #of-nav ul li a:hover {
-          color: #2ea2cc; }
+          color: #e14d43; }
       #of_container.wp-38.midnight .controls textarea,
       #of_container.wp-38.midnight .controls input,
       #of_container.wp-38.midnight .controls select {
@@ -401,24 +411,26 @@
         border-color: #dddddd; }
       #of_container.wp-38.midnight .slider li {
         border-color: white;
-        background: #0074a2; }
+        background: #e14d43; }
       #of_container.wp-38.midnight .slide_header {
-        background: #0074a2;
+        background: #e14d43;
         color: white; }
       #of_container.wp-38.midnight .slide_body {
         color: white;
-        background: #333333; }
+        background: #26292c; }
     #of_container.wp-38.ocean {
       /* OVERRIDES */ }
       #of_container.wp-38.ocean #header {
-        background: #222222;
-        border-color: #222222; }
+        background: #738e96;
+        border-color: #738e96; }
         #of_container.wp-38.ocean #header .logo h2 {
-          color: #cccccc; }
+          color: white; }
+        #of_container.wp-38.ocean #header .logo span {
+          color: #d5dddf; }
       #of_container.wp-38.ocean #info_bar {
-        background: #222222; }
+        background: #738e96; }
       #of_container.wp-38.ocean #main {
-        background: #222222;
+        background: #738e96;
         border-right-color: white; }
       #of_container.wp-38.ocean #content {
         background: white; }
@@ -428,14 +440,14 @@
         background: white;
         border-top-color: #dddddd; }
       #of_container.wp-38.ocean #of-nav ul li {
-        background: #333333; }
+        background: #627c83; }
         #of_container.wp-38.ocean #of-nav ul li.current a {
-          background: #333333;
+          background: #627c83;
           color: white; }
         #of_container.wp-38.ocean #of-nav ul li a:link {
-          color: #bbbbbb; }
+          color: #d5dddf; }
         #of_container.wp-38.ocean #of-nav ul li a:hover {
-          color: #2ea2cc; }
+          color: #9ebaa0; }
       #of_container.wp-38.ocean .controls textarea,
       #of_container.wp-38.ocean .controls input,
       #of_container.wp-38.ocean .controls select {
@@ -452,24 +464,26 @@
         border-color: #dddddd; }
       #of_container.wp-38.ocean .slider li {
         border-color: white;
-        background: #0074a2; }
+        background: #9ebaa0; }
       #of_container.wp-38.ocean .slide_header {
-        background: #0074a2;
+        background: #9ebaa0;
         color: white; }
       #of_container.wp-38.ocean .slide_body {
         color: white;
-        background: #333333; }
+        background: #627c83; }
     #of_container.wp-38.sunrise {
       /* OVERRIDES */ }
       #of_container.wp-38.sunrise #header {
-        background: #222222;
-        border-color: #222222; }
+        background: #cf4944;
+        border-color: #cf4944; }
         #of_container.wp-38.sunrise #header .logo h2 {
-          color: #cccccc; }
+          color: white; }
+        #of_container.wp-38.sunrise #header .logo span {
+          color: #f0c8c6; }
       #of_container.wp-38.sunrise #info_bar {
-        background: #222222; }
+        background: #cf4944; }
       #of_container.wp-38.sunrise #main {
-        background: #222222;
+        background: #cf4944;
         border-right-color: white; }
       #of_container.wp-38.sunrise #content {
         background: white; }
@@ -479,14 +493,14 @@
         background: white;
         border-top-color: #dddddd; }
       #of_container.wp-38.sunrise #of-nav ul li {
-        background: #333333; }
+        background: #be3631; }
         #of_container.wp-38.sunrise #of-nav ul li.current a {
-          background: #333333;
+          background: #be3631;
           color: white; }
         #of_container.wp-38.sunrise #of-nav ul li a:link {
-          color: #bbbbbb; }
+          color: #f0c8c6; }
         #of_container.wp-38.sunrise #of-nav ul li a:hover {
-          color: #2ea2cc; }
+          color: #f7e3d3; }
       #of_container.wp-38.sunrise .controls textarea,
       #of_container.wp-38.sunrise .controls input,
       #of_container.wp-38.sunrise .controls select {
@@ -503,24 +517,26 @@
         border-color: #dddddd; }
       #of_container.wp-38.sunrise .slider li {
         border-color: white;
-        background: #0074a2; }
+        background: #dd823b; }
       #of_container.wp-38.sunrise .slide_header {
-        background: #0074a2;
+        background: #dd823b;
         color: white; }
       #of_container.wp-38.sunrise .slide_body {
         color: white;
-        background: #333333; }
+        background: #be3631; }
     #of_container.wp-38.blue {
       /* OVERRIDES */ }
       #of_container.wp-38.blue #header {
-        background: #222222;
-        border-color: #222222; }
+        background: #52accc;
+        border-color: #52accc; }
         #of_container.wp-38.blue #header .logo h2 {
-          color: #cccccc; }
+          color: #e2ecf1; }
+        #of_container.wp-38.blue #header .logo span {
+          color: #e2ecf1; }
       #of_container.wp-38.blue #info_bar {
-        background: #222222; }
+        background: #52accc; }
       #of_container.wp-38.blue #main {
-        background: #222222;
+        background: #52accc;
         border-right-color: white; }
       #of_container.wp-38.blue #content {
         background: white; }
@@ -530,14 +546,14 @@
         background: white;
         border-top-color: #dddddd; }
       #of_container.wp-38.blue #of-nav ul li {
-        background: #333333; }
+        background: #4796b3; }
         #of_container.wp-38.blue #of-nav ul li.current a {
-          background: #333333;
+          background: #4796b3;
           color: white; }
         #of_container.wp-38.blue #of-nav ul li a:link {
-          color: #bbbbbb; }
+          color: #e2ecf1; }
         #of_container.wp-38.blue #of-nav ul li a:hover {
-          color: #2ea2cc; }
+          color: white; }
       #of_container.wp-38.blue .controls textarea,
       #of_container.wp-38.blue .controls input,
       #of_container.wp-38.blue .controls select {
@@ -554,13 +570,13 @@
         border-color: #dddddd; }
       #of_container.wp-38.blue .slider li {
         border-color: white;
-        background: #0074a2; }
+        background: #096484; }
       #of_container.wp-38.blue .slide_header {
-        background: #0074a2;
+        background: #096484;
         color: white; }
       #of_container.wp-38.blue .slide_body {
-        color: white;
-        background: #333333; }
+        color: #e2ecf1;
+        background: #4796b3; }
 
 .js #of_container #js-warning {
   display: none; }

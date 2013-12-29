@@ -1,22 +1,25 @@
 @mixin ocean {
-	$headerBgColor: #222 !global;
+	$headerBgColor: #738e96 !global;
 	$headerBgBorderColor: $headerBgColor !global;
-	$headerH2Color: #ccc !global;
+	$headerH2Color: #fff !global;
+	$headerSpan: #d5dddf !global;
+
+	$infoBarBgColor: $headerBgColor !global;
 
 	$contentBgColor: #fff !global;
 	$contentH3DivideColor: #d8d8d8 !global;
 
-	$mainBgColor: #222 !global;
+	$mainBgColor: #738e96 !global;
 	$mainBorderRightColor: $contentBgColor !global;
 
 	$saveBarBgColor: $contentBgColor !global;
 	$saveBarBorderColor: #ddd !global;
 
-	$navBgColor: #333 !global;
+	$navBgColor: #627c83 !global;
 	$navBgCurrentColor: $navBgColor !global;
 	$navCurrentColor: white !global;
-	$navColor: #bbb !global;
-	$navHoverColor: #2ea2cc !global;
+	$navColor: #d5dddf !global;
+	$navHoverColor: #9ebaa0 !global;
 
 	$inputColor: #333 !global;
 	$inputBgColor: #fff !global;
@@ -29,7 +32,7 @@
 	$selectBorderColor: #ddd !global;
 
 	$sliderLiBorderColor: $contentBgColor !global;
-	$sliderLiBgColor: #0074a2 !global;
+	$sliderLiBgColor: #9ebaa0 !global;
 	$sliderLiColor: #fff !global;
 	$sliderBodyColor: #fff !global;
 	$sliderBodyBgColor: $navBgColor !global;

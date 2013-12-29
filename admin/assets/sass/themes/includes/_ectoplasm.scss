@@ -1,22 +1,25 @@
 @mixin ectoplasm {
-	$headerBgColor: #222 !global;
+	$headerBgColor: #523f6d !global;
 	$headerBgBorderColor: $headerBgColor !global;
 	$headerH2Color: #ccc !global;
+	$headerSpan: #cbc5d3 !global;
+
+	$infoBarBgColor: $headerBgColor !global;
 
 	$contentBgColor: #fff !global;
 	$contentH3DivideColor: #d8d8d8 !global;
 
-	$mainBgColor: #222 !global;
+	$mainBgColor: #523f6d !global;
 	$mainBorderRightColor: $contentBgColor !global;
 
 	$saveBarBgColor: $contentBgColor !global;
 	$saveBarBorderColor: #ddd !global;
 
-	$navBgColor: #333 !global;
+	$navBgColor: #413256 !global;
 	$navBgCurrentColor: $navBgColor !global;
 	$navCurrentColor: white !global;
-	$navColor: #bbb !global;
-	$navHoverColor: #2ea2cc !global;
+	$navColor: #cbc5d3 !global;
+	$navHoverColor: #a3b745 !global;
 
 	$inputColor: #333 !global;
 	$inputBgColor: #fff !global;
@@ -29,7 +32,7 @@
 	$selectBorderColor: #ddd !global;
 
 	$sliderLiBorderColor: $contentBgColor !global;
-	$sliderLiBgColor: #0074a2 !global;
+	$sliderLiBgColor: #a3b745 !global;
 	$sliderLiColor: #fff !global;
 	$sliderBodyColor: #fff !global;
 	$sliderBodyBgColor: $navBgColor !global;

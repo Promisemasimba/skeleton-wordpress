@@ -28,6 +28,7 @@
 		border-color: $headerBgBorderColor;
 		.logo {
 			h2 { color: $headerH2Color; }
+			span { color: $headerSpan; }
 		}
 	}
 	#info_bar { background: $infoBarBgColor; }
