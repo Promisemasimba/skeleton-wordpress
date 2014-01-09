@@ -1,18 +1,18 @@
 <?php
 
-add_action('init', 'of_options');
+add_action("init", "of_options");
 
-if(!function_exists('of_options')) {
+if(!function_exists("of_options")) {
 	function of_options() {
 		// Access the WordPress Categories via an Array
 		$of_categories 		= array();
-		$of_categories_obj 	= get_categories('hide_empty=0');
+		$of_categories_obj 	= get_categories("hide_empty=0");
 		foreach($of_categories_obj as $of_cat) {
 			$of_categories[$of_cat->cat_ID] = $of_cat->cat_name;}
 		$categories_tmp 	= array_unshift($of_categories, "Select a category:");
 		// Access the WordPress Pages via an Array
 		$of_pages 			= array();
-		$of_pages_obj 		= get_pages('sort_column=post_parent,menu_order');
+		$of_pages_obj 		= get_pages("sort_column=post_parent,menu_order");
 		foreach($of_pages_obj as $of_page) {
 			$of_pages[$of_page->ID] = $of_page->post_name;
 		}
@@ -51,8 +51,8 @@ if(!function_exists('of_options')) {
 		}
 
 		// Background Images Reader
-		$bg_images_path = get_stylesheet_directory(). '/images/bg/'; // change this to where you store your bg images
-		$bg_images_url = get_template_directory_uri().'/images/bg/'; // change this to where you store your bg images
+		$bg_images_path = get_stylesheet_directory(). "/images/bg/"; // change this to where you store your bg images
+		$bg_images_url = get_template_directory_uri()."/images/bg/"; // change this to where you store your bg images
 		$bg_images = array(""); // add single item for no image
 
 		if(is_dir($bg_images_path) ) {
@@ -113,8 +113,8 @@ if(!function_exists('of_options')) {
 
 		//More Options
 		$uploads_arr 		= wp_upload_dir();
-		$all_uploads_path 	= $uploads_arr['path'];
-		$all_uploads 		= get_option('of_uploads');
+		$all_uploads_path 	= $uploads_arr["path"];
+		$all_uploads 		= get_option("of_uploads");
 		$other_entries 		= array("Select a number:", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19");
 		$body_repeat 		= array("no-repeat", "repeat-x", "repeat-y", "repeat");
 		$body_pos 			= array("top left", "top center", "top right", "center left", "center center", "center right", "bottom left", "bottom center", "bottom right");
@@ -353,7 +353,19 @@ $of_options[] = array(
 $of_options[] = array( 	"name" 		=> "Custom CSS",
 						"desc" 		=> "",
 						"id" 		=> "custom_css",
-						"std" 		=> "",
+						"std" 		=> "/* Enter Custom CSS here */",
+						"type" 		=> "textarea"
+				);
+
+$of_options[] = array(
+						"name"		=> "Custom Scripts",
+						"type"		=> "heading"
+				);
+
+$of_options[] = array( 	"name" 		=> "Custom Scripts",
+						"desc" 		=> "",
+						"id" 		=> "custom_scripts",
+						"std" 		=> "// jQuery is allowed",
 						"type" 		=> "textarea"
 				);
 

@@ -11,233 +11,257 @@ jQuery.noConflict();
  */
 jQuery(document).ready(function($) {
 
-	var codemirror_editor = CodeMirror.fromTextArea(document.getElementById("custom_css"), {
-		lineNumbers: true,
-		matchBrackets: true,
+	var css = CodeMirror.fromTextArea(document.getElementById("custom_css"), {
+		mode: "text/css",
 		styleActiveLine: true,
+		lineNumbers: true,
 		lineWrapping: true,
-		autoCloseBrackets: true,
 		showTrailingSpace: true,
-		indentUnit: 4,
+		theme: "default pastel-on-dark",
 		indentWithTabs: true,
-		viewportMargin: Infinity,
-		autofocus: true
+		lineWrapping: true,
+		undoDepth: 100,
+		// linting requires css-hint
+		// gutters: ["CodeMirror-lint-markers"],
+		// lint: true
 	});
 
-	// jQuery("#section-custom_bg .controls span:first-child").css("background-image", "");
+	var google_analytics = CodeMirror.fromTextArea(document.getElementById("google_analytics"), {
+		mode: "text/html",
+		styleActiveLine: true,
+		lineNumbers: true,
+		lineWrapping: true,
+		showTrailingSpace: true
+	});
 
-	setInterval(codemirror_editor.save, 10);
+	var footer_text = CodeMirror.fromTextArea(document.getElementById("footer_text"), {
+		mode: "text/html",
+		styleActiveLine: true,
+		lineNumbers: true,
+		lineWrapping: true,
+		showTrailingSpace: true
+	});
+
+	var scripts = CodeMirror.fromTextArea(document.getElementById("custom_scripts"), {
+		mode: "text/javascript",
+		styleActiveLine: true,
+		lineNumbers: true,
+		lineWrapping: true,
+		showTrailingSpace: true,
+		theme: "default pastel-on-dark",
+		indentWithTabs: true,
+		lineWrapping: true,
+		undoDepth: 100
+	});
+
+	css.setSize( $("#of_container.wp-38 #content").width() + "px",  "300px");
+	scripts.setSize( $("#of_container.wp-38 #content").width() + "px",  "300px");
+
+	$(window).resize(function() {
+		css.setSize( $("#of_container.wp-38 #content").width() + "px",  "300px");
+		scripts.setSize( $("#of_container.wp-38 #content").width() + "px",  "300px");
+	});
 
 	// (un)fold options in a checkbox-group
-  	jQuery('.fld').click(function() {
-    	var $fold = '.f_' + this.id;
-    	jQuery($fold).slideToggle('normal', "swing");
-  	});
+	jQuery(".fld").click(function() {
+		var $fold = ".f_" + this.id;
+		$($fold).slideToggle("normal", "swing");
+	});
 
-  	// Color picker
-  	jQuery('.of-color').wpColorPicker();
+	// Color picker
+	$(".of-color").wpColorPicker();
 
 	// hides warning if js is enabled
-	jQuery('#js-warning').hide();
+	$("#js-warning").hide();
 
 	// Tabify Options
-	jQuery('.group').hide();
+	$(".group").hide();
 
 	// Get the URL parameter for tab
 	function getURLParameter(name) {
-	    return decodeURI(
-	        (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,''])[1]
-	   );
+		return decodeURI(
+			(RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,''])[1]
+		);
 	}
 
 	// If the $_GET param of tab is set, use that for the tab that should be open
-	if(getURLParameter('tab') != "") {
-		jQuery.cookie('of_current_opt', '#' + getURLParameter('tab'), { expires: 7, path: '/' });
+	if (getURLParameter("tab") !== "") {
+		$.cookie("of_current_opt", "#" + getURLParameter("tab"), { expires: 7, path: "/" });
 	}
 
 	// Display last current tab
-	if(jQuery.cookie("of_current_opt") === null) {
-		jQuery('.group:first').fadeIn('fast');
-		jQuery('#of-nav li:first').addClass('current');
+	if ($.cookie("of_current_opt") === null) {
+		$(".group:first").fadeIn("fast");
+		$("#of-nav li:first").addClass("current");
 	} else {
-
-		var hooks = jQuery('#hooks').html();
+		var hooks = $("#hooks").html();
 		hooks = jQuery.parseJSON(hooks);
-
-		jQuery.each(hooks, function(key, value) {
-
-			if(jQuery.cookie("of_current_opt") == '#of-option-' + value) {
-				jQuery('.group#of-option-' + value).fadeIn();
-				jQuery('#of-nav li.' + value).addClass('current');
+		$.each(hooks, function(key, value) {
+			if($.cookie("of_current_opt") == "#of-option-" + value) {
+				$(".group#of-option-" + value).fadeIn();
+				$("#of-nav li." + value).addClass("current");
 			}
-
 		});
-
 	}
 
 	// Current Menu Class
-	jQuery('#of-nav li a').click(function(evt) {
+	$("#of-nav li a").click(function() {
 		// evt.preventDefault();
+		$("#of-nav li").removeClass("current");
+		$(this).parent().addClass("current");
+		var clicked_group = $(this).attr("href");
+		$.cookie("of_current_opt", clicked_group, { expires: 7, path: "/" });
+		$(".group").hide();
+		$(clicked_group).fadeIn("fast");
 
-		jQuery('#of-nav li').removeClass('current');
-		jQuery(this).parent().addClass('current');
-
-		var clicked_group = jQuery(this).attr('href');
-
-		jQuery.cookie('of_current_opt', clicked_group, { expires: 7, path: '/' });
-
-		jQuery('.group').hide();
-
-		jQuery(clicked_group).fadeIn('fast');
 		return false;
-
 	});
 
 	// Expand Options
 	var flip = 0;
 
-	jQuery('#expand_options').click(function() {
-		if(flip == 0) {
+	$("#expand_options").click(function() {
+		if(flip === 0) {
 			flip = 1;
-			jQuery('#of_container #of-nav').hide();
-			jQuery('#of_container #content').width(755);
-			jQuery('#of_container .group').add('#of_container .group h2').show(100);
-			jQuery(this).removeClass('expand');
-			jQuery(this).addClass('close');
-			jQuery(this).text('Close');
+			$("#of_container #of-nav").hide();
+			// $("#of_container #content").width(755);
+			$("#of_container #content").addClass("expanded");
+			$("#of_container .group").add("#of_container .group h2").show();
+			$(this).removeClass("expand").addClass("close");
+			$(this).text("Close");
 		} else {
 			flip = 0;
-			jQuery('#of_container #of-nav').show();
-			jQuery('#of_container #content').width(595);
-			jQuery('#of_container .group').add('#of_container .group h2').hide(100);
-			jQuery('#of_container .group:first').show();
-			jQuery('#of_container #of-nav li').removeClass('current');
-			jQuery('#of_container #of-nav li:first').addClass('current');
-			jQuery(this).removeClass('close');
-			jQuery(this).addClass('expand');
-			jQuery(this).text('Expand');
+			$("#of_container #of-nav").show();
+			// $("#of_container #content").width(595);
+			$("#of_container #content").removeClass("expanded");
+			$("#of_container .group").add("#of_container .group h2").hide();
+			$("#of_container .group:first").show();
+			$("#of_container #of-nav li").removeClass("current");
+			$("#of_container #of-nav li:first").addClass("current");
+			$(this).removeClass("close").addClass("expand");
+			$(this).text("Expand");
 		}
 	});
 
 	// Update Message popup
-	jQuery.fn.center = function() {
-		this.animate({"top":(jQuery(window).height() - this.height() - 200) / 2 + jQuery(window).scrollTop() + "px"}, 100);
-		this.css("left", 250);
+	$.fn.center = function() {
+		this.animate({
+			"top":( $(window).height() - this.height() - 200 ) / 2 + $(window).scrollTop() + "px"
+		}, 100);
+		this.css("left", 250 );
+
 		return this;
-	}
+	};
 
 
-	jQuery('#of-popup-save').center();
-	jQuery('#of-popup-reset').center();
-	jQuery('#of-popup-fail').center();
+	$("#of-popup-save").center();
+	$("#of-popup-reset").center();
+	$("#of-popup-fail").center();
 
-	jQuery(window).scroll(function() {
-		jQuery('#of-popup-save').center();
-		jQuery('#of-popup-reset').center();
-		jQuery('#of-popup-fail').center();
+	$(window).scroll(function() {
+		$("#of-popup-save").center();
+		$("#of-popup-reset").center();
+		$("#of-popup-fail").center();
 	});
-
 
 	// Masked Inputs (images as radio buttons)
-	jQuery('.of-radio-img-img').click(function() {
-		jQuery(this).parent().parent().find('.of-radio-img-img').removeClass('of-radio-img-selected');
-		jQuery(this).addClass('of-radio-img-selected');
+	$(".of-radio-img-img").click(function() {
+		$(this).parent().parent().find(".of-radio-img-img").removeClass("of-radio-img-selected");
+		$(this).addClass("of-radio-img-selected");
 	});
-	jQuery('.of-radio-img-label').hide();
-	jQuery('.of-radio-img-img').show();
-	jQuery('.of-radio-img-radio').hide();
+	$(".of-radio-img-label").hide();
+	$(".of-radio-img-img").show();
+	$(".of-radio-img-radio").hide();
 
 	// Masked Inputs (background images as radio buttons)
-	jQuery('.of-radio-tile-img').click(function() {
-		jQuery(this).parent().parent().find('.of-radio-tile-img').removeClass('of-radio-tile-selected');
-		jQuery(this).addClass('of-radio-tile-selected');
+	$(".of-radio-tile-img").click(function() {
+		$(this).parent().parent().find(".of-radio-tile-img").removeClass("of-radio-tile-selected");
+		$(this).addClass("of-radio-tile-selected");
 	});
-	jQuery('.of-radio-tile-label').hide();
-	jQuery('.of-radio-tile-img').show();
-	jQuery('.of-radio-tile-radio').hide();
+	$(".of-radio-tile-label").hide();
+	$(".of-radio-tile-img").show();
+	$(".of-radio-tile-radio").hide();
 
-	// Style Select
-	(function ($) {
+		// Style Select
+		(function ($) {
 		styleSelect = {
-			init: function() {
-			jQuery('.select_wrapper').each(function() {
-				jQuery(this).prepend('<span>' + jQuery(this).find('.select option:selected').text() + '</span>');
-			});
-			jQuery('.select').live('change', function() {
-				jQuery(this).prev('span').replaceWith('<span>' + jQuery(this).find('option:selected').text() + '</span>');
-			});
-			jQuery('.select').bind(jQuery.browser.msie ? 'click' : 'change', function(event) {
-				jQuery(this).prev('span').replaceWith('<span>' + jQuery(this).find('option:selected').text() + '</span>');
-			});
+			init: function () {
+				$(".select_wrapper").each(function () {
+					$(this).prepend("<span>" + $(this).find(".select option:selected").text() + "</span>");
+				});
+				$(".select").live("change", function () {
+					$(this).prev("span").replaceWith("<span>" + $(this).find("option:selected").text() + "</span>");
+				});
+				$(".select").bind($.browser.msie ? "click" : "change", function(event) {
+					$(this).prev("span").replaceWith("<span>" + $(this).find("option:selected").text() + "</span>");
+				});
 			}
 		};
-		jQuery(document).ready(function() {
-			styleSelect.init()
-		})
+		$(document).ready(function() {
+			styleSelect.init();
+		});
 	})(jQuery);
 
 
 	/** Aquagraphite Slider MOD */
 
 	// Hide (Collapse) the toggle containers on load
-	jQuery(".slide_body").hide();
+	$(".slide_body").hide();
 
 	// Switch the "Open" and "Close" state per click then slide up/down (depending on open/close state)
-	jQuery(".slide_edit_button").live('click', function() {
+	$(".slide_edit_button").live( "click", function() {
 		/*
 		// display as an accordion
-		jQuery(".slide_header").removeClass("active");
-		jQuery(".slide_body").slideUp("fast");
+		$(".slide_header").removeClass("active");
+		$(".slide_body").slideUp("fast");
 		*/
 		// toggle for each
-		jQuery(this).parent().toggleClass("active").next().slideToggle("fast");
-		return false; // Prevent the browser jump to the link anchor
+		$(this).parent().toggleClass("active").next().slideToggle("fast");
+		return false; //Prevent the browser jump to the link anchor
 	});
 
 	// Update slide title upon typing
 	function update_slider_title(e) {
 		var element = e;
-		if(this.timer) {
-			clearTimeout(element.timer);
+		if ( this.timer ) {
+			clearTimeout( element.timer );
 		}
-		this.timer = setTimeout(function() {
-			jQuery(element).parent().prev().find('strong').text(element.value);
+		this.timer = setTimeout( function() {
+			$(element).parent().prev().find("strong").text( element.value );
 		}, 100);
 		return true;
 	}
 
-	jQuery('.of-slider-title').live('keyup', function() {
+	$(".of-slider-title").live("keyup", function() {
 		update_slider_title(this);
 	});
 
 
 	// Remove individual slide
-	jQuery('.slide_delete_button').live('click', function() {
+	$(".slide_delete_button").live("click", function() {
 	// event.preventDefault();
 	var agree = confirm("Are you sure you wish to delete this slide?");
-		if(agree) {
-			var $trash = jQuery(this).parents('li');
-			// $trash.slideUp('slow', function() { $trash.remove(); }); //chrome + confirm bug made slideUp not working...
+		if (agree) {
+			var $trash = $(this).parents("li");
+			// $trash.slideUp("slow", function(){ $trash.remove(); }); //chrome + confirm bug made slideUp not working...
 			$trash.animate({
 					opacity: 0.25,
 					height: 0,
 				}, 500, function() {
-					jQuery(this).remove();
+					$(this).remove();
 			});
-
 			return false; // Prevent the browser jump to the link anchor
 		} else {
-
 			return false;
 		}
 	});
 
 	// Add new slide
-	jQuery(".slide_add_button").live('click', function() {
-		var slidesContainer = jQuery(this).prev();
-		var sliderId = slidesContainer.attr('id');
+	$(".slide_add_button").live("click", function() {
+		var slidesContainer = $(this).prev();
+		var sliderId = slidesContainer.attr("id");
 
-		var numArr = jQuery('#' + sliderId +' li').find('.order').map(function() {
+		var numArr = $("#" + sliderId + " li").find(".order").map(function() {
 			var str = this.id;
 			str = str.replace(/\D/g,'');
 			str = parseFloat(str);
@@ -245,7 +269,9 @@ jQuery(document).ready(function($) {
 		}).get();
 
 		var maxNum = Math.max.apply(Math, numArr);
-		if(maxNum < 1) { maxNum = 0 };
+		if (maxNum < 1 ) {
+      maxNum = 0;
+    }
 		var newNum = maxNum + 1;
 
 		var newSlide = '<li class="temphide"><div class="slide_header"><strong>Slide ' + newNum + '</strong><input type="hidden" class="slide of-input order" name="' + sliderId + '[' + newNum + '][order]" id="' + sliderId + '_slide_order-' + newNum + '" value="' + newNum + '"><a class="slide_edit_button" href="#">Edit</a></div><div class="slide_body" style="display: none; "><label>Title</label><input class="slide of-input of-slider-title" name="' + sliderId + '[' + newNum + '][title]" id="' + sliderId + '_' + newNum + '_slide_title" value=""><label>Image URL</label><input class="upload slide of-input" name="' + sliderId + '[' + newNum + '][url]" id="' + sliderId + '_' + newNum + '_slide_url" value=""><div class="upload_button_div"><span class="button media_upload_button" id="' + sliderId + '_' + newNum + '">Upload</span><span class="button remove-image hide" id="reset_' + sliderId + '_' + newNum + '" title="' + sliderId + '_' + newNum + '">Remove</span></div><div class="screenshot"></div><label>Link URL (optional)</label><input class="slide of-input" name="' + sliderId + '[' + newNum + '][link]" id="' + sliderId + '_' + newNum + '_slide_link" value=""><label>Description (optional)</label><textarea class="slide of-input" name="' + sliderId + '[' + newNum + '][description]" id="' + sliderId + '_' + newNum + '_slide_description" cols="8" rows="8"></textarea><a class="slide_delete_button" href="#">Delete</a><div class="clear"></div></div></li>';
@@ -253,18 +279,18 @@ jQuery(document).ready(function($) {
 		slidesContainer.append(newSlide);
 		var nSlide = slidesContainer.find('.temphide');
 		nSlide.fadeIn('fast', function() {
-			jQuery(this).removeClass('temphide');
+			$(this).removeClass('temphide');
 		});
 
-		optionsframework_file_bindings(); // re-initialise upload image..
+		optionsframework_file_bindings(); // re-initialize upload image..
 
 		return false; // prevent jumps, as always..
 	});
 
 	// Sort slides
-	jQuery('.slider').find('ul').each(function() {
+	jQuery('.slider').find('ul').each( function() {
 		var id = jQuery(this).attr('id');
-		jQuery('#' + id).sortable({
+		$('#'+ id).sortable({
 			placeholder: "placeholder",
 			opacity: 0.6,
 			handle: ".slide_header",
@@ -274,20 +300,22 @@ jQuery(document).ready(function($) {
 
 
 	/**	Sorter (Layout Manager) */
-	jQuery('.sorter').each(function() {
-		var id = jQuery(this).attr('id');
-		jQuery('#'+ id).find('ul').sortable({
-			items: 'li',
+	jQuery(".sorter").each( function() {
+		var id = jQuery(this).attr("id");
+		$("#" + id).find("ul").sortable({
+			items: "li",
 			placeholder: "placeholder",
-			connectWith: '.sortlist_' + id,
+			connectWith: ".sortlist_" + id,
 			opacity: 0.6,
 			update: function() {
-				jQuery(this).find('.position').each(function() {
-					var listID = jQuery(this).parent().attr('id');
-					var parentID = jQuery(this).parent().parent().attr('id');
-					parentID = parentID.replace(id + '_', '')
-					var optionID = jQuery(this).parent().parent().parent().attr('id');
-					jQuery(this).prop("name", optionID + '[' + parentID + '][' + listID + ']');
+				$(this).find(".position").each( function() {
+
+					var listID = $(this).parent().attr("id");
+					var parentID = $(this).parent().parent().attr("id");
+					parentID = parentID.replace(id + "_", "");
+					var optionID = $(this).parent().parent().parent().attr("id");
+					$(this).prop("name", optionID + "[" + parentID + "][" + listID + "]");
+
 				});
 			}
 		});
@@ -296,37 +324,33 @@ jQuery(document).ready(function($) {
 
 	/**	Ajax Backup & Restore MOD */
 	// backup button
-	jQuery('#of_backup_button').live('click', function() {
+	$("#of_backup_button").live("click", function() {
 
-		var answer = confirm("Click OK to backup your current saved options.")
+		var answer = confirm("Click OK to backup your current saved options.");
 
 		if(answer) {
-
-			var clickedObject = jQuery(this);
-			var clickedID = jQuery(this).attr('id');
-
-			var nonce = jQuery('#security').val();
-
+			var clickedObject = $(this);
+			var clickedID = $(this).attr("id");
+			var nonce = $("#security").val();
 			var data = {
-				action: 'of_ajax_post_action',
-				type: 'backup_options',
+				action: "of_ajax_post_action",
+				type: "backup_options",
 				security: nonce
 			};
 
-			jQuery.post(ajaxurl, data, function(response) {
-
+			$.post(ajaxurl, data, function(response) {
 				// check nonce
-				if(response == -1) { // failed
+				if(response == -1) { //failed
 
-					var fail_popup = jQuery('#of-popup-fail');
+					var fail_popup = $("#of-popup-fail");
 					fail_popup.fadeIn();
-					window.setTimeout(function() {
+					window.setTimeout(function(){
 						fail_popup.fadeOut();
 					}, 2000);
 				} else {
-					var success_popup = jQuery('#of-popup-save');
+					var success_popup = $("#of-popup-save");
 					success_popup.fadeIn();
-					window.setTimeout(function() {
+					window.setTimeout(function(){
 						location.reload();
 					}, 1000);
 				}
@@ -336,115 +360,87 @@ jQuery(document).ready(function($) {
 		return false;
 	});
 
-	//restore button
-	jQuery('#of_restore_button').live('click', function() {
-
-		var answer = confirm("'Warning: All of your current options will be replaced with the data from your last backup! Proceed?")
+	// restore button
+	$('#of_restore_button').live('click', function() {
+		var answer = confirm("'Warning: All of your current options will be replaced with the data from your last backup! Proceed?");
 
 		if(answer) {
-
-			var clickedObject = jQuery(this);
-			var clickedID = jQuery(this).attr('id');
-
-			var nonce = jQuery('#security').val();
-
+			var clickedObject = $(this);
+			var clickedID = $(this).attr('id');
+			var nonce = $('#security').val();
 			var data = {
 				action: 'of_ajax_post_action',
 				type: 'restore_options',
 				security: nonce
 			};
-
-			jQuery.post(ajaxurl, data, function(response) {
-
-				//check nonce
-				if(response==-1) { //failed
-
-					var fail_popup = jQuery('#of-popup-fail');
+			$.post(ajaxurl, data, function(response) {
+				// check nonce
+				if(response == -1) { // failed
+					var fail_popup = $('#of-popup-fail');
 					fail_popup.fadeIn();
-					window.setTimeout(function() {
+					window.setTimeout(function(){
 						fail_popup.fadeOut();
 					}, 2000);
-				}
-
-				else {
-
-					var success_popup = jQuery('#of-popup-save');
+				} else {
+					var success_popup = $('#of-popup-save');
 					success_popup.fadeIn();
-					window.setTimeout(function() {
+					window.setTimeout(function(){
 						location.reload();
 					}, 1000);
 				}
-
 			});
-
 		}
 
-	return false;
-
+		return false;
 	});
 
 	/**	Ajax Transfer (Import/Export) Option */
-	jQuery('#of_import_button').live('click', function() {
-
-		var answer = confirm("Click OK to import options.")
-
-		if(answer) {
-
-			var clickedObject = jQuery(this);
-			var clickedID = jQuery(this).attr('id');
-
-			var nonce = jQuery('#security').val();
-
-			var import_data = jQuery('#export_data').val();
-
+	$('#of_import_button').live('click', function(){
+		var answer = confirm("Click OK to import options.");
+		if (answer) {
+			var clickedObject = $(this);
+			var clickedID = $(this).attr('id');
+			var nonce = $('#security').val();
+			var import_data = $('#export_data').val();
 			var data = {
 				action: 'of_ajax_post_action',
 				type: 'import_options',
 				security: nonce,
 				data: import_data
 			};
-
-			jQuery.post(ajaxurl, data, function(response) {
-				var fail_popup = jQuery('#of-popup-fail');
-				var success_popup = jQuery('#of-popup-save');
-
-				//check nonce
-				if(response==-1) { //failed
+			$.post(ajaxurl, data, function(response) {
+				var fail_popup = $('#of-popup-fail');
+				var success_popup = $('#of-popup-save');
+				// check nonce
+				if(response == -1) { // failed
 					fail_popup.fadeIn();
-					window.setTimeout(function() {
+					window.setTimeout(function(){
 						fail_popup.fadeOut();
 					}, 2000);
-				}
-				else
-				{
+				} else {
 					success_popup.fadeIn();
-					window.setTimeout(function() {
+					window.setTimeout(function(){
 						location.reload();
 					}, 1000);
 				}
-
 			});
-
 		}
 
-	return false;
-
+		return false;
 	});
 
 	/** AJAX Save Options */
-	jQuery('#of_save').live('click',function() {
+	$('#of_save').live('click',function() {
+		var nonce = $('#security').val();
+		$('.ajax-loading-img').fadeIn();
 
-		var nonce = jQuery('#security').val();
+		// get serialized data from all our option fields
+		var serializedReturn = $('#of_form :input[name][name!="security"][name!="of_reset"]').serialize();
 
-		jQuery('.ajax-loading-img').fadeIn();
-
-		//get serialized data from all our option fields
-		var serializedReturn = jQuery('#of_form :input[name][name!="security"][name!="of_reset"]').serialize();
-
-		jQuery('#of_form :input[type=checkbox]').each(function() {
-		    if(!this.checked) {
-		        serializedReturn += '&'+this.name+'=0';
-		    }
+		$('#of_form :input[type=checkbox]').each(function() {
+			if(!this.checked) {
+				serializedReturn += '&' + this.name + '=0';
+			}
 		});
 
 		var data = {
@@ -454,89 +450,76 @@ jQuery(document).ready(function($) {
 			data: serializedReturn
 		};
 
-		jQuery.post(ajaxurl, data, function(response) {
-			var success = jQuery('#of-popup-save');
-			var fail = jQuery('#of-popup-fail');
-			var loading = jQuery('.ajax-loading-img');
+		$.post(ajaxurl, data, function(response) {
+			var success = $('#of-popup-save');
+			var fail = $('#of-popup-fail');
+			var loading = $('.ajax-loading-img');
 			loading.fadeOut();
 
-			if(response == 1) {
+			if(response==1) {
 				success.fadeIn();
 			} else {
 				fail.fadeIn();
 			}
 
-			window.setTimeout(function() {
+			window.setTimeout(function(){
 				success.fadeOut();
 				fail.fadeOut();
 			}, 2000);
 		});
 
-	return false;
-
+		return false;
 	});
 
 
 	/* AJAX Options Reset */
-	jQuery('#of_reset').click(function() {
+	$('#of_reset').click(function() {
 
-		//confirm reset
+		// confirm reset
 		var answer = confirm("Click OK to reset. All settings will be lost and replaced with default settings!");
 
-		//ajax reset
-		if(answer) {
+		// ajax reset
+		if (answer) {
+			var nonce = $('#security').val();
 
-			var nonce = jQuery('#security').val();
-
-			jQuery('.ajax-reset-loading-img').fadeIn();
+			$('.ajax-reset-loading-img').fadeIn();
 
 			var data = {
-
 				type: 'reset',
 				action: 'of_ajax_post_action',
 				security: nonce,
 			};
 
-			jQuery.post(ajaxurl, data, function(response) {
-				var success = jQuery('#of-popup-reset');
-				var fail = jQuery('#of-popup-fail');
-				var loading = jQuery('.ajax-reset-loading-img');
+			$.post(ajaxurl, data, function(response) {
+				var success = $('#of-popup-reset');
+				var fail = $('#of-popup-fail');
+				var loading = $('.ajax-reset-loading-img');
 				loading.fadeOut();
-
-				if(response==1)
-				{
+				if (response == 1) {
 					success.fadeIn();
-					window.setTimeout(function() {
+					window.setTimeout(function(){
 						location.reload();
 					}, 1000);
-				}
-				else
-				{
+				} else {
 					fail.fadeIn();
-					window.setTimeout(function() {
+					window.setTimeout(function(){
 						fail.fadeOut();
 					}, 2000);
 				}
-
-
 			});
-
 		}
 
-	return false;
-
+		return false;
 	});
 
-
 	/**	Tipsy @since v1.3 */
-	if(jQuery().tipsy) {
-		jQuery('.tooltip, .typography-size, .typography-height, .typography-face, .typography-style, .of-typography-color').tipsy({
+	if (jQuery().tipsy) {
+		$('.tooltip, .typography-size, .typography-height, .typography-face, .typography-style, .of-typography-color').tipsy({
 			fade: true,
 			gravity: 's',
-			opacity: 0.8,
+			opacity: 0.7,
 		});
 	}
-
 
 	/**
 	  * JQuery UI Slider function
@@ -545,7 +528,6 @@ jQuery(document).ready(function($) {
 	  * Date 			 : 03.17.2013
 	  */
 	jQuery('.smof_sliderui').each(function() {
-
 		var obj   = jQuery(this);
 		var sId   = "#" + obj.data('id');
 		var val   = parseInt(obj.data('val'));
@@ -560,13 +542,11 @@ jQuery(document).ready(function($) {
 			max: max,
 			step: step,
 			range: "min",
-			slide: function(event, ui) {
-				jQuery(sId).val(ui.value);
+			slide: function( event, ui ) {
+				jQuery(sId).val( ui.value );
 			}
 		});
-
 	});
-
 
 	/**
 	  * Switch
@@ -575,30 +555,33 @@ jQuery(document).ready(function($) {
 	  * Date 			 : 03.17.2013
 	  */
 	jQuery(".cb-enable").click(function() {
-		var parent = jQuery(this).parents('.switch-options');
+		var parent = $(this).parents('.switch-options');
 		jQuery('.cb-disable',parent).removeClass('selected');
 		jQuery(this).addClass('selected');
 		jQuery('.main_checkbox',parent).attr('checked', true);
 
-		//fold/unfold related options
+		// fold/unfold related options
 		var obj = jQuery(this);
-		var $fold='.f_'+obj.data('id');
+		var $fold = '.f_' + obj.data('id');
 		jQuery($fold).slideDown('normal', "swing");
 	});
+
 	jQuery(".cb-disable").click(function() {
-		var parent = jQuery(this).parents('.switch-options');
+		var parent = $(this).parents('.switch-options');
 		jQuery('.cb-enable',parent).removeClass('selected');
 		jQuery(this).addClass('selected');
 		jQuery('.main_checkbox',parent).attr('checked', false);
 
-		//fold/unfold related options
+		// fold/unfold related options
 		var obj = jQuery(this);
-		var $fold='.f_'+obj.data('id');
+		var $fold = '.f_' + obj.data('id');
 		jQuery($fold).slideUp('normal', "swing");
 	});
-	//disable text select(for modern chrome, safari and firefox is done via CSS)
-	if((jQuery.browser.msie && jQuery.browser.version < 10) || jQuery.browser.opera) {
-		jQuery('.cb-enable span, .cb-disable span').find().attr('unselectable', 'on');
+
+	// DEPRECATED, USE $.support() INSTEAD
+	// disable text select(for modern chrome, safari and firefox is done via CSS)
+	if (($.browser.msie && $.browser.version < 10) || $.browser.opera) {
+		$('.cb-enable span, .cb-disable span').find().attr('unselectable', 'on');
 	}
 
 
@@ -609,45 +592,41 @@ jQuery(document).ready(function($) {
 	  * Date 			 : 03.17.2013
 	  */
 	function GoogleFontSelect(slctr, mainID) {
-
-		var _selected = jQuery(slctr).val(); 						// get current value - selected and saved
-		var _linkclass = 'style_link_'+ mainID;
+		var _selected = $(slctr).val(); 						//get current value - selected and saved
+		var _linkclass = 'style_link_' + mainID;
 		var _previewer = mainID +'_ggf_previewer';
 
-		if(_selected) { // if var exists and isset
-			jQuery('.'+ _previewer).fadeIn();
+		if( _selected ) { // if var exists and isset
+			$('.' + _previewer ).fadeIn();
 			// Check if selected is not equal with "Select a font" and execute the script.
-			if(_selected !== 'none' && _selected !== 'Select a font') {
+			if ( _selected !== 'none' && _selected !== 'Select a font' ) {
 				// remove other elements crested in <head>
-				jQuery('.'+ _linkclass).remove();
+				$( '.'+ _linkclass ).remove();
 				// replace spaces with "+" sign
 				var the_font = _selected.replace(/\s+/g, '+');
 				// add reference to google font family
-				jQuery('head').append('<link href="http://fonts.googleapis.com/css?family=' + the_font + '" rel="stylesheet" type="text/css" class="'+ _linkclass +'">');
+				$('head').append('<link href="http://fonts.googleapis.com/css?family=' + the_font + '" rel="stylesheet" type="text/css" class="' + _linkclass + '">');
 				// show in the preview box the font
-				jQuery('.'+ _previewer).css('font-family', _selected +', sans-serif');
+				$('.' + _previewer ).css('font-family', _selected +', sans-serif');
 			} else {
 				// if selected is not a font remove style "font-family" at preview box
-				jQuery('.'+ _previewer).css('font-family', '');
-				jQuery('.'+ _previewer).fadeOut();
+				$('.' + _previewer ).css('font-family', '');
+				$('.' + _previewer ).fadeOut();
 			}
-
 		}
-
 	}
 
 	// init for each element
-	jQuery('.google_font_select').each(function() {
+	jQuery( '.google_font_select' ).each(function(){
 		var mainID = jQuery(this).attr('id');
-		GoogleFontSelect(this, mainID);
+		GoogleFontSelect( this, mainID );
 	});
 
 	// init when value is changed
-	jQuery('.google_font_select').change(function() {
+	jQuery( '.google_font_select' ).change(function(){
 		var mainID = jQuery(this).attr('id');
-		GoogleFontSelect(this, mainID);
+		GoogleFontSelect( this, mainID );
 	});
-
 
 	/**
 	  * Media Uploader
@@ -656,10 +635,8 @@ jQuery(document).ready(function($) {
 	  * Date 			 : 05.28.2013
 	  */
 	function optionsframework_add_file(event, selector) {
-
-		var upload = jQuery(".uploaded-file"), frame;
-		var $el = jQuery(this);
-
+		var upload = $(".uploaded-file"), frame;
+		var $el = $(this);
 		event.preventDefault();
 
 		// If the media frame already exists, reopen it.
@@ -672,7 +649,6 @@ jQuery(document).ready(function($) {
 		frame = wp.media({
 			// Set the title of the modal.
 			title: $el.data('choose'),
-
 			// Customize the submit button.
 			button: {
 				// Set the text of the button.
@@ -684,12 +660,12 @@ jQuery(document).ready(function($) {
 		});
 
 		// When an image is selected, run a callback.
-		frame.on('select', function() {
+		frame.on( 'select', function() {
 			// Grab the selected attachment.
 			var attachment = frame.state().get('selection').first();
 			frame.close();
 			selector.find('.upload').val(attachment.attributes.url);
-			if(attachment.attributes.type == 'image') {
+			if ( attachment.attributes.type == 'image' ) {
 				selector.find('.screenshot').empty().hide().append('<img class="of-option-image" src="' + attachment.attributes.url + '">').slideDown('fast');
 			}
 			selector.find('.media_upload_button').unbind();
@@ -697,7 +673,6 @@ jQuery(document).ready(function($) {
 			selector.find('.of-background-properties').slideDown();
 			optionsframework_file_bindings();
 		});
-
 		// Finally, open the modal.
 		frame.open();
 	}
@@ -710,22 +685,19 @@ jQuery(document).ready(function($) {
 		selector.find('.remove-file').unbind();
 		// We don't display the upload button if .upload-notice is present
 		// This means the user doesn't have the WordPress 3.5 Media Library Support
-		if(jQuery('.section-upload .upload-notice').length > 0) {
-			jQuery('.media_upload_button').remove();
+		if ( $('.section-upload .upload-notice').length > 0 ) {
+			$('.media_upload_button').remove();
 		}
 		optionsframework_file_bindings();
 	}
 
 	function optionsframework_file_bindings() {
-		jQuery('.remove-image, .remove-file').on('click', function() {
-			optionsframework_remove_file(jQuery(this).parents('.section-upload, .section-media, .slide_body'));
-        });
-
-        jQuery('.media_upload_button').unbind('click').click(function(event) {
-        	optionsframework_add_file(event, jQuery(this).parents('.section-upload, .section-media, .slide_body'));
-        });
-    }
-
-    optionsframework_file_bindings();
-
-}); //end doc ready
+		$('.remove-image, .remove-file').on('click', function() {
+			optionsframework_remove_file( $(this).parents('.section-upload, .section-media, .slide_body') );
+		});
+		$('.media_upload_button').unbind('click').click( function( event ) {
+			optionsframework_add_file(event, $(this).parents('.section-upload, .section-media, .slide_body'));
+		});
+	}
+	optionsframework_file_bindings();
+}); // end doc ready
