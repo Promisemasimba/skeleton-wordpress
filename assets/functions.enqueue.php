@@ -48,10 +48,10 @@ if(!function_exists("skeleton_add_scripts")) {
 		wp_enqueue_script("jquery", SCRIPTS . "jquery.min.js", false, "1.10.2", true); 					// up to date (mostly)
 		wp_enqueue_script("skeleton-respond", SCRIPTS . "respond.min.js", false, "1.4.0", true); 		// make IE 8 ad below behave with media queries
 		wp_enqueue_script("skeleton-modernizr", SCRIPTS . "modernizr.min.js", false, "2.7.1", false); 	// make older browsers behave
-		if(count($data["pingu_slider"]) != 0) {
-			wp_enqueue_script("flexslider", SCRIPTS . "jquery.flexslider.min.js", false, "2.2.2", true);
+		if(count($data["pingu_slider"]) != 0) { // if any slides are present...
+			wp_enqueue_script("flexslider", SCRIPTS . "jquery.flexslider.min.js", array("jquery"), "2.2.2", true);
 		}
-		wp_enqueue_script("skeleton-superfish", SCRIPTS . "superfish.min.js", false, "1.7.4", true);	// naigation dropdown
-		wp_enqueue_script("skeleton-script", SCRIPTS . "dev/skeleton.js", false, "0.11.0", true); 		// your custom scripts
+		wp_enqueue_script("skeleton-superfish", SCRIPTS . "superfish.min.js", array("jquery"), "1.7.4", true);	// naigation dropdown
+		wp_enqueue_script("skeleton-script", SCRIPTS . "dev/skeleton.js", array("jquery"), "0.11.0", true); 		// your custom scripts
 	}
 }
